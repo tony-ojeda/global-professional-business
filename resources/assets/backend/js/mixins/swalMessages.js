@@ -27,6 +27,8 @@ export default {
                             location.reload();
                             return;
                         }
+
+                        EventBus.$emit('refresh');
                     })
                     break;
                 case 2:

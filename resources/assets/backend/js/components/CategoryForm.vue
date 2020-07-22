@@ -18,7 +18,8 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary mr-1 mb-1">Registrar</button>
+                    <button type="submit" class="btn btn-primary mr-1 mb-1" v-if="!model.id">Registrar</button>
+                    <button type="submit" class="btn btn-primary mr-1 mb-1" v-else>Actualizar</button>
                     <button type="button" class="btn btn-outline-warning mr-1 mb-1" @click="clearModel()">Limpiar</button>
                 </div>
             </div>
@@ -48,6 +49,10 @@
         },
         created() {
             EventBus.$on('clearForm',() => this.clearModel());
+
+            EventBus.$on('edit',(data) => {
+                this.model = data.model;
+            });
         },
         methods: {
             clearModel: function() {

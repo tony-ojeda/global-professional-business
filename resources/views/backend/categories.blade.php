@@ -33,6 +33,8 @@
                         <div class="card-body">
                             <category-table
                                 :url-list="'{{ route('admin.categories.list') }}'"
+                                :url-detail="'{{ route('admin.categories.find') }}'"
+                                :url-delete="'{{ route('admin.categories.delete') }}'"
                             >
                             </category-table>
                         </div>

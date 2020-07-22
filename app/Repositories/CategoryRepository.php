@@ -16,9 +16,11 @@ class CategoryRepository {
         return $model;
     }
     
-    public function find($id)
+    public function find($id,$select = '*')
 	{
-		return Category::find($id);
+        return Category::whereId($id)
+                    ->select($select)
+                    ->first();
     }
 
 	public function delete($id)

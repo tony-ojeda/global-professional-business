@@ -1,6 +1,5 @@
 {
     "/backend/js/app.js": "/backend/js/app.js",
     "/backend/css/app.css": "/backend/css/app.css",
-    "/backend/js/app.js.map": "/backend/js/app.js.map",
-    "/backend/css/app.css.map": "/backend/css/app.css.map"
+    "/backend/js/app.js.map": "/backend/js/app.js.map"
 }

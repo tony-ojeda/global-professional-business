@@ -32,19 +32,34 @@ Route::group([
         'uses' => 'BackendController@index',
         'as' => 'home'
     ]);
+
+
+    /// CATEGORIES MODULE ///////////////
     
-    Route::get('/categories', [
+    Route::get('categories', [
         'uses' => 'BackendController@categories',
         'as' => 'categories'
     ]);
 
-    Route::post('/categories/ct', [
+    Route::post('categories/ct', [
         'uses' => 'CategoryController@ct',
         'as' => 'categories.ct'
     ]);
 
-    Route::post('/categories/list', [
+    Route::post('categories/list', [
         'uses' => 'CategoryController@list',
         'as' => 'categories.list'
     ]);
+
+    Route::post('categories/find', [
+        'uses' => 'CategoryController@find',
+        'as' => 'categories.find'
+    ]);
+
+    Route::post('categories/delete', [
+        'uses' => 'CategoryController@delete',
+        'as' => 'categories.delete'
+    ]);
+
+    /// END CATEGORIES MODULE ///////////////
 });

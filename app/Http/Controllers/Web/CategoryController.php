@@ -37,6 +37,9 @@ class CategoryController extends Controller
             "subtitle" => "Categoría creada correctamente",
         ];
         $model = $this->category->createUpdate($data);
+        if(!$model->wasRecentlyCreated) {
+            $response["subtitle"] = "Categoría actualizada correctamente";
+        }
         ////////
 
         // RESPUESTA
@@ -49,5 +52,32 @@ class CategoryController extends Controller
         $records = $this->category->list();
 
         return response()->json($records,200);
+    }
+
+    public function find()
+    {
+        $id = request('id');
+        $fields = ['id','name'];
+        $model = $this->category->find(request('id'),['id','name']);
+        $response = [
+            "model" => $model
+        ];
+
+        return response()->json($response,200);
+    }
+
+    public function delete()
+    {
+        $id = request('id');
+        $flag = $this->category->delete(request('id'));
+        $response = [
+            'error' => !$flag,
+            'type' => 1,
+            'title' => "OK!",
+            'subtitle' => "Categoría eliminada correctamente",
+            'url' => ""
+        ];
+
+        return response()->json($response,200);
     }
 }

@@ -7,8 +7,9 @@
 <script>
     import { EventBus } from '../EventBus';
     import langs from '../mixins/langs.js';
+    import datatable from '../mixins/datatable.js';
     export default {
-        mixins: [ langs ],
+        mixins: [ langs, datatable ],
         props: {
             table_container: {
                 type: String,
@@ -52,6 +53,8 @@
                     responsive: true,
                     processing: true,
                     serverSide: true,
+                    scrollY: 200,
+                    searching: false,
                     ajax: {
                         url: current_url,
                         type: 'POST',
@@ -82,46 +85,7 @@
                     ]
                 });
 
-                // $('#' + this.table_container + ' tbody').on('click','.edit',function(event){
-                //     let row = $(event.target).parents('tr');    
-                               
-                //     if(row.hasClass('child'))
-                //         row = row.prev();
-                //     let id = this.datatable.row( row ).data().id;
-
-                //     axios.post(
-                //             this.urlDetail,
-                //             { id: id })
-                //         .then(response => {
-
-                //             let t = $('form').offset().top;
-
-                //             $("html, body").animate({
-                //                 scrollTop: t
-                //             }, 500);
-
-                //             this.$parent.$emit('openForm',true);
-                //             this.$parent.$emit('edit',response.data);
-                //     }).catch(error => {
-                //     });
-                // }.bind(this));
-
-                // $('#' + this.table_container + ' tbody').on('click','.delete',function(event){
-                //    let row = $(event.target).parents('tr');    
-                               
-                //     if(row.hasClass('child'))
-                //         row = row.prev();
-                //     let id = this.datatable.row( row ).data().id;
-                //     let data = {
-                //         type : 4,
-                //         title: "¿Estás seguro?",
-                //         msg: "Una vez eliminado no se podrá recuperar",
-                //         url: this.urlDelete,
-                //         id: id
-                //     };
-                    
-                //     this.$parent.alertMsg(data);
-                // }.bind(this));
+                this.dataTableAddCommonEvents(this.table_container);
             }
         },
     }

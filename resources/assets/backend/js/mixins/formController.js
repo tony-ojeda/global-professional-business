@@ -1,7 +1,7 @@
 import { EventBus } from '../EventBus';
 import swalMessages from './swalMessages';
 export default {
-    mixins: [swalMessages],
+    mixins: [ swalMessages ],
     components: {
     },
     props: {
@@ -28,7 +28,7 @@ export default {
                     }).then(response => {
                 EventBus.$emit('loading',false );
                 EventBus.$emit('clearForm');
-                EventBus.$emit('refresh');
+                
                 this.alertMsg( response.data );
                 
             }).catch(error => {
