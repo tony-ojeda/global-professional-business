@@ -13,8 +13,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [
-    'uses' => 'Web\BackendController@index',
-    'as' => 'home'
+
+
+Route::get('/login', [
+    'uses' => 'Web\BackendController@login',
+    'as' => 'loginView'
 ]);
 
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'middleware' => [],
+    'namespace' => 'Web'
+], function(){
+
+    Route::get('/', [
+        'uses' => 'BackendController@index',
+        'as' => 'home'
+    ]);
+    
+    Route::get('/categories', [
+        'uses' => 'BackendController@categories',
+        'as' => 'categories'
+    ]);
+
+    Route::post('/categories/ct', [
+        'uses' => 'CategoryController@ct',
+        'as' => 'categories.ct'
+    ]);
+
+    Route::post('/categories/list', [
+        'uses' => 'CategoryController@list',
+        'as' => 'categories.list'
+    ]);
+});

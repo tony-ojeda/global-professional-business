@@ -23,6 +23,25 @@ class BackendController extends Controller
             ]
         ];
 
+        return view('backend.index',compact('breadcrumbs'));
+    }
+
+    public function login()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Home"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Control de temperatura"
+            ], 
+            [
+                'name' => "Registros"
+            ]
+        ];
+
 
         $menus = [
             [
@@ -46,6 +65,25 @@ class BackendController extends Controller
                 // ]
             ]
         ];
-        return view('backend.index',compact('breadcrumbs','menus'));
+        return view('vuexy.login',compact('breadcrumbs','menus'));
+    }
+
+    public function categories()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Módulos"
+            ], 
+            [
+                'name' => "Categorías"
+            ]
+        ];
+
+        return view('backend.categories',compact('breadcrumbs'));
     }
 }

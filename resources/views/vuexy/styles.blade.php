@@ -2,6 +2,9 @@
 <link rel="stylesheet" href="{{ asset('vuexy/vendors/css/vendors.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vuexy/vendors/css/ui/prism.min.css') }}">
 @yield('vendor-style')
+<link rel="stylesheet" href="{{ asset('vuexy/vendors/css/animate/animate.css') }}">
+<link rel="stylesheet" href="{{ asset('vuexy/vendors/css/extensions/sweetalert2.min.css') }}">
+
 <link rel="stylesheet" href="{{ asset('vuexy/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('vuexy/css/bootstrap-extended.css') }}">
 <link rel="stylesheet" href="{{ asset('vuexy/css/colors.css') }}">

@@ -1,5 +1,4 @@
-<body class="vertical-layout vertical-menu-modern 2-columns semi-dark-layout menu-expanded content-right footer-static"
-    data-menu="vertical-menu-modern" data-col="2-columns" data-layout="semi-dark-layout">
+<body class="vertical-layout vertical-menu-modern 2-columns semi-dark-layout menu-expanded content-right footer-static" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="semi-dark-layout">
     @include('vuexy.sidebar')
 
     <div class="app-content content">

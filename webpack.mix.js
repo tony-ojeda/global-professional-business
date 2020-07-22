@@ -101,4 +101,4 @@ mix.browserSync({
 //   .sass('resources/assets/vuexy/sass/custom-rtl.scss', 'public/vuexy/css')
 //   .sass('resources/assets/vuexy/sass/custom-laravel.scss', 'public/vuexy/css');
 
-////
+// //

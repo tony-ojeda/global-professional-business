@@ -38,7 +38,7 @@
                             }
                         @endphp
             <li class="nav-item {{ (request()->route()->getName() == $menu['url']) ? 'active' : '' }} {{ $custom_classes }}">
-                <a href="{{ $menu['url'] }}">
+                <a href="{{ route($menu['url']) }}">
                     <i class="{{ $menu['icon'] }}"></i>
                     <span class="menu-title">{{ $menu['name'] }}</span>
                     @if (isset($menu['badge']))
