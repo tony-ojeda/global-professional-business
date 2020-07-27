@@ -3,7 +3,7 @@
         <div class="form-body">
             <div class="row">
                 <input type="hidden" v-model="model.id" name="id">
-                <div class="col-12">
+                <div class="col-12 col-md-5">
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input 

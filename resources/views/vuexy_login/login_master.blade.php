@@ -10,7 +10,7 @@
     <title>GPB | Login</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/logo/favicon.ico">
 
-    @include('vuexy.styles')
+    @include('vuexy_login.styles')
 
 </head>
 
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    @include('vuexy.scripts')
+    @include('vuexy_login.scripts')
 
 </body>
 

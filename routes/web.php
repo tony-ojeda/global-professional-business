@@ -12,13 +12,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+//     return "TEST";
+// });
 
-
-
-Route::get('/login', [
+Route::get('/', [
     'uses' => 'Web\BackendController@login',
     'as' => 'loginView'
 ]);
+
+Route::post('/login/ct', [
+    'uses' => 'Web\UserController@login',
+    'as' => 'login.ct'
+]);
+
+
+// Route::get('/login', [
+//     'uses' => 'Web\BackendController@login',
+//     'as' => 'loginView'
+// ]);
 
 
 Route::group([

@@ -5,6 +5,8 @@ const mix = require('laravel-mix');
 mix
     .js('resources/assets/backend/js/app.js', 'public/backend/js/app.js')
     .sass('resources/assets/backend/scss/app.scss','public/backend/css/app.css')
+    .js('resources/assets/login/js/app.js', 'public/login/js/app.js')
+    .sass('resources/assets/login/scss/app.scss','public/login/css/app.css')
     .sourceMaps()
     .webpackConfig({
         devtool: 'source-map'

@@ -65,7 +65,7 @@ class BackendController extends Controller
                 // ]
             ]
         ];
-        return view('vuexy.login',compact('breadcrumbs','menus'));
+        return view('vuexy_login.login',compact('breadcrumbs','menus'));
     }
 
     public function categories()
