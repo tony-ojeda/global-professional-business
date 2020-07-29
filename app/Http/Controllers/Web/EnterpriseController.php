@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\CategoryRepository as Category;
+use App\Repositories\EnterpriseRepository as Enterprise;
 
-class CategoryController extends Controller
+class EnterpriseController extends Controller
 {
-    protected $category;
+    protected $enterprise;
 
-    public function __construct(Category $category) {
-        $this->category = $category;
+    public function __construct(Enterprise $enterprise) {
+        $this->enterprise = $enterprise;
     }
 
     public function controller()
@@ -34,11 +34,11 @@ class CategoryController extends Controller
             "error" => FALSE,
             "type" => 1,
             "title" => "OK",
-            "subtitle" => "Categoría creada correctamente",
+            "subtitle" => "Empresa creada correctamente",
         ];
-        $model = $this->category->createUpdate($data);
+        $model = $this->enterprise->createUpdate($data);
         if(!$model->wasRecentlyCreated) {
-            $response["subtitle"] = "Categoría actualizada correctamente";
+            $response["subtitle"] = "Empresa actualizada correctamente";
         }
         ////////
 
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
     public function list()
     {
-        $records = $this->category->list();
+        $records = $this->enterprise->list();
 
         return response()->json($records,200);
     }
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     {
         $id = request('id');
         $fields = ['id','name'];
-        $model = $this->category->find(request('id'),['id','name']);
+        $model = $this->enterprise->find(request('id'));
         $response = [
             "model" => $model
         ];
@@ -69,15 +69,16 @@ class CategoryController extends Controller
     public function delete()
     {
         $id = request('id');
-        $flag = $this->category->delete(request('id'));
+        $flag = $this->enterprise->delete(request('id'));
         $response = [
             'error' => !$flag,
             'type' => 1,
             'title' => "OK!",
-            'subtitle' => "Categoría eliminada correctamente",
+            'subtitle' => "Empresa eliminada correctamente",
             'url' => ""
         ];
 
         return response()->json($response,200);
     }
+
 }

@@ -39,6 +39,12 @@ class MenuComposer {
                     "name" => "Categorías",
                     "slug" => "categorias",
                     "icon" => "feather icon-home",
+                ],
+                [
+                    "url" => "admin.enterprises",
+                    "name" => "Empresas",
+                    "slug" => "empresas",
+                    "icon" => "feather icon-home",
                 ]
         ];
         $view->with('menus', $menus);

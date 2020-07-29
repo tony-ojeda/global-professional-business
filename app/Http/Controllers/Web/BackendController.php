@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Category;
 
 class BackendController extends Controller
 {
@@ -85,5 +86,26 @@ class BackendController extends Controller
         ];
 
         return view('backend.categories',compact('breadcrumbs'));
+    }
+
+    public function enterprises()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Módulos"
+            ], 
+            [
+                'name' => "Empresas"
+            ]
+        ];
+
+        $categories = Category::all(['id','name']);
+
+        return view('backend.enterprises',compact('breadcrumbs','categories'));
     }
 }

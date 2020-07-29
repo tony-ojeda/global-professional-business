@@ -47,15 +47,14 @@ Route::group([
 
 
     /// CATEGORIES MODULE ///////////////
-    
     Route::get('categories', [
         'uses' => 'BackendController@categories',
         'as' => 'categories'
     ]);
 
-    Route::post('categories/ct', [
-        'uses' => 'CategoryController@ct',
-        'as' => 'categories.ct'
+    Route::post('categories/controller', [
+        'uses' => 'CategoryController@controller',
+        'as' => 'categories.controller'
     ]);
 
     Route::post('categories/list', [
@@ -72,6 +71,31 @@ Route::group([
         'uses' => 'CategoryController@delete',
         'as' => 'categories.delete'
     ]);
-
     /// END CATEGORIES MODULE ///////////////
+    /// ENTERPRISES MODULE ///////////////
+    Route::get('enterprises', [
+        'uses' => 'BackendController@enterprises',
+        'as' => 'enterprises'
+    ]);
+
+    Route::post('enterprises/controller', [
+        'uses' => 'EnterpriseController@controller',
+        'as' => 'enterprises.controller'
+    ]);
+
+    Route::post('enterprises/list', [
+        'uses' => 'EnterpriseController@list',
+        'as' => 'enterprises.list'
+    ]);
+
+    Route::post('enterprises/find', [
+        'uses' => 'EnterpriseController@find',
+        'as' => 'enterprises.find'
+    ]);
+
+    Route::post('enterprises/delete', [
+        'uses' => 'EnterpriseController@delete',
+        'as' => 'enterprises.delete'
+    ]);
+    /// END ENTERPRISES MODULE ///////////////
 });

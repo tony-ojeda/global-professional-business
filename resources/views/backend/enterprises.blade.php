@@ -4,26 +4,17 @@
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('vuexy/vendors/css/tables/datatable/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vuexy/vendors/css/tables/datatable/responsive.dataTables.min.css') }}">
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAjzBrEay4xjTpH_gEf2SsW47WxK9kY6MQ&libraries=places"></script>
 @endsection
 
 @section('content')
 <section id="content-types">
     <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Formulario</h4>
-                </div>
-                <div class="card-content">
-                    <div class="card-body">
-                        <category-form
-                            :url="'{{ route('admin.categories.controller') }}'"
-                        >
-                        </category-form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <enterprise-form
+            :url="'{{ route('admin.enterprises.controller') }}'"
+            :categories="{{ $categories }}"
+        >
+        </enterprise-form>
         <div class="col-12 col-md-6">
             <div class="card">
                 <div class="card-header">
@@ -31,19 +22,19 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <category-table
-                            :url-list="'{{ route('admin.categories.list') }}'"
-                            :url-detail="'{{ route('admin.categories.find') }}'"
-                            :url-delete="'{{ route('admin.categories.delete') }}'"
+                        <enterprise-table
+                            :url-list="'{{ route('admin.enterprises.list') }}'"
+                            :url-detail="'{{ route('admin.enterprises.find') }}'"
+                            :url-delete="'{{ route('admin.enterprises.delete') }}'"
                         >
-                        </category-table>
+                        </enterprise-table>
                     </div>
                 </div>
             </div>
         </div>
   </div>
 </section>
-
+<enterprise-modal-address></enterprise-modal-address>
 @endsection
 
 @section('vendor-script')
