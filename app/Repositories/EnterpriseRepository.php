@@ -11,6 +11,21 @@ class EnterpriseRepository {
 	public function createUpdate($data) 
 	{
         $id = isset($data["id"]) ? $data["id"] : NULL;
+        if( isset($data["extra_info"]) )
+        {
+            $extra_info = json_decode($data["extra_info"]);
+            if($extra_info->address_object->formatted_address == '') {
+                $data["address"] = $extra_info->address_object->route . " " . $extra_info->address_object->street_number . ", " . $extra_info->address_object->locality . ", " . $extra_info->address_object->country;
+            } else {
+                $data["address"] = $extra_info->address_object->formatted_address;
+            }
+            
+            $data["address_object"] = $extra_info->address_object;
+            $data["latitude"] = $extra_info->address_object->latitude; 
+            $data["longitude"] = $extra_info->address_object->longitude;
+            unset($data["extra_info"]);
+        }
+
         $model = Enterprise::updateOrCreate(['id' => $id],$data);
 
         return $model;

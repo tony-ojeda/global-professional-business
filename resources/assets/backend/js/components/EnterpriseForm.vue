@@ -1,6 +1,6 @@
 <template>
      <div class="col-12 col-md-6">
-        <form class="form form-vertical" @submit.prevent="formController($event,url)">
+        <form class="form form-vertical" @submit.prevent="formController($event,url,extra_info)">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Datos generales</h4>
@@ -95,16 +95,17 @@
                                         <div class="invalid-feedback schedule-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <!-- <div class="col-12">
                                     <button type="submit" class="btn btn-primary mr-1 mb-1" v-if="!model.id">Registrar</button>
                                     <button type="submit" class="btn btn-primary mr-1 mb-1" v-else>Actualizar</button>
                                     <button type="button" class="btn btn-outline-warning mr-1 mb-1" @click="clearModel()">Limpiar</button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+           
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Ubicación</h4>
@@ -114,9 +115,6 @@
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-12">
-
-                                </div>
-                                <div class="col-sm-6 col-12">
                                     <fieldset class="form-group position-relative has-icon-left input-divider-left">
                                         <input 
                                             type="text" 
@@ -126,6 +124,7 @@
                                             @click="openModal()"
                                             autocomplete="off"
                                             readonly
+                                            v-model="model.address"
                                         >
                                         <div class="form-control-position">
                                             <i class="feather icon-map-pin"></i>
@@ -134,6 +133,16 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary mr-1 mb-1" v-if="!model.id">Registrar</button>
+                        <button type="submit" class="btn btn-primary mr-1 mb-1" v-else>Actualizar</button>
+                        <button type="button" class="btn btn-outline-warning mr-1 mb-1" @click="clearModel()">Limpiar</button>
                     </div>
                 </div>
             </div>
@@ -169,6 +178,20 @@
                     phone: '',
                     details: '',
                     schedule: '',
+                    address: ''
+                },
+                extra_info: {
+                    address_object: {
+                        formatted_address: '',
+                        street_number: '',
+                        route: '',
+                        locality: '',
+                        administrative_area_level_1: '',
+                        country: '',
+                        postal_code: '',
+                        latitude: '',
+                        longitude: '',
+                    }
                 }
             }
         },
@@ -177,6 +200,12 @@
 
             EventBus.$on('edit',(data) => {
                 this.model = data.model;
+                this.extra_info.address_object = data.model.address_object;
+            });
+
+            EventBus.$on('addressClosed',(data) => {
+                this.extra_info.address_object = data;
+                this.model.address = this.extra_info.address_object.formatted_address != '' ? this.extra_info.address_object.formatted_address : this.model.address;
             });
         },
         methods: {
@@ -189,11 +218,28 @@
                     phone: '',
                     details: '',
                     schedule: '',
+                    address: ''
+                }
+                this.extra_info = {
+                    address_object: {
+                        formatted_address: '',
+                        street_number: '',
+                        route: '',
+                        locality: '',
+                        administrative_area_level_1: '',
+                        country: '',
+                        postal_code: '',
+                        latitude: '',
+                        longitude: '',
+                    }
                 }
                 this.clearErrors(1);
+
+                EventBus.$emit('clearModal');
             },
             openModal: function()
             {
+                EventBus.$emit('address_object',this.extra_info.address_object);
                 $('#enterpriseAddressModal').modal('show');
             }
         },

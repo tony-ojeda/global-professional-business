@@ -2242,6 +2242,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2268,7 +2277,21 @@ __webpack_require__.r(__webpack_exports__);
         website: '',
         phone: '',
         details: '',
-        schedule: ''
+        schedule: '',
+        address: ''
+      },
+      extra_info: {
+        address_object: {
+          formatted_address: '',
+          street_number: '',
+          route: '',
+          locality: '',
+          administrative_area_level_1: '',
+          country: '',
+          postal_code: '',
+          latitude: '',
+          longitude: ''
+        }
       }
     };
   },
@@ -2280,6 +2303,11 @@ __webpack_require__.r(__webpack_exports__);
     });
     _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on('edit', function (data) {
       _this.model = data.model;
+      _this.extra_info.address_object = data.model.address_object;
+    });
+    _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on('addressClosed', function (data) {
+      _this.extra_info.address_object = data;
+      _this.model.address = _this.extra_info.address_object.formatted_address != '' ? _this.extra_info.address_object.formatted_address : _this.model.address;
     });
   },
   methods: {
@@ -2291,11 +2319,27 @@ __webpack_require__.r(__webpack_exports__);
         website: '',
         phone: '',
         details: '',
-        schedule: ''
+        schedule: '',
+        address: ''
+      };
+      this.extra_info = {
+        address_object: {
+          formatted_address: '',
+          street_number: '',
+          route: '',
+          locality: '',
+          administrative_area_level_1: '',
+          country: '',
+          postal_code: '',
+          latitude: '',
+          longitude: ''
+        }
       };
       this.clearErrors(1);
+      _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit('clearModal');
     },
     openModal: function openModal() {
+      _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit('address_object', this.extra_info.address_object);
       $('#enterpriseAddressModal').modal('show');
     }
   }
@@ -2312,6 +2356,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../EventBus */ "./resources/assets/backend/js/EventBus.js");
 //
 //
 //
@@ -2352,46 +2397,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   // mixins: [ ],
-  props: {
-    url: {
-      type: String,
-      "default": ''
-    },
-    url_delivery: {
-      type: String,
-      "default": ''
-    },
-    url_delivery_address: {
-      type: String,
-      "default": ''
-    },
-    url_use_address: {
-      type: String,
-      "default": ''
-    },
-    cities: {
-      type: Array,
-      "default": function _default() {
-        return [];
-      }
-    },
-    enterprise_id: {
-      type: Number,
-      "default": 0
-    },
-    // addresses_list: {
-    //     type: Array,
-    //     default: function() {
-    //         return [];
-    //     }
-    // },
-    address_selected_id: {
-      type: String,
-      "default": ''
-    }
-  },
+  props: {},
   data: function data() {
     return {
       componentForm: {
@@ -2403,7 +2412,7 @@ __webpack_require__.r(__webpack_exports__);
         postal_code: 'short_name'
       },
       extra_info: {
-        answer: {
+        address_object: {
           formatted_address: '',
           street_number: '',
           route: '',
@@ -2417,35 +2426,37 @@ __webpack_require__.r(__webpack_exports__);
       },
       current_marker: null,
       current_address: '',
-      map: null,
-      district_id: '',
-      user_address_id: '',
-      old_address: false,
-      references: '',
-      addresses_list: []
+      map: null
     };
   },
-  created: function created() {},
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
-    // EventBus.$on('openUserAddressModal', function(user_addresses) {
-    //     this.$modal.show('modalEnterpriseAddress');
-    //     this.addresses_list = user_addresses;
-    // }.bind(this));
-    $('#enterpriseAddressModal').on('show.bs.modal', function () {
-      // alert('onShow event fired.');
-      console.log("ACA");
+    _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on('address_object', function (data) {
+      _this.extra_info.address_object = data;
+    });
+    _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on('clearModal', function () {
+      return _this.closed();
+    });
+  },
+  mounted: function mounted() {
+    var _this2 = this;
 
-      _this.init();
+    $('#enterpriseAddressModal').on('show.bs.modal', function () {
+      _this2.init();
+    });
+    $('#enterpriseAddressModal').on('hide.bs.modal', function () {
+      _this2.closed();
     });
   },
   methods: {
-    close: function close() {// this.$modal.hide('modalEnterpriseAddress');
-    },
     init: function init() {
       this.drawMap();
       this.initSearch();
+    },
+    close: function close() {
+      _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit('addressClosed', this.extra_info.address_object);
+      $('#enterpriseAddressModal').modal('hide'); // this.closed();
     },
     drawMap: function drawMap() {
       var p1 = -12;
@@ -2454,12 +2465,29 @@ __webpack_require__.r(__webpack_exports__);
         lat: p1,
         lng: p2
       };
+      var zoom = 10;
+
+      if (this.extra_info.address_object.formatted_address != '') {
+        p1 = this.extra_info.address_object.latitude;
+        p2 = this.extra_info.address_object.longitude;
+        posIni = {
+          lat: p1,
+          lng: p2
+        };
+        zoom = 15;
+        this.current_address = this.extra_info.address_object.formatted_address;
+      }
+
       this.map = new google.maps.Map(document.getElementById('map'), {
         center: posIni,
         clickable: false,
-        zoom: 10,
+        zoom: zoom,
         disableDefaultUI: true
       });
+
+      if (this.extra_info.address_object.formatted_address != '') {
+        this.initMarker(posIni);
+      }
     },
     initSearch: function initSearch() {
       var countryRestrict = {
@@ -2482,39 +2510,38 @@ __webpack_require__.r(__webpack_exports__);
 
         if (this.componentForm[addressType]) {
           var val = place.address_components[i][this.componentForm[addressType]];
-          this.extra_info.answer[addressType] = val;
+          this.extra_info.address_object[addressType] = val;
         }
       }
 
-      if (this.extra_info.answer['country'] == 'Perú') {
-        this.extra_info.answer.latitude = place.geometry.location.lat();
-        this.extra_info.answer.longitude = place.geometry.location.lng();
-        this.extra_info.answer.formatted_address = place.formatted_address;
+      if (this.extra_info.address_object['country'] == 'Perú') {
+        this.extra_info.address_object.latitude = place.geometry.location.lat();
+        this.extra_info.address_object.longitude = place.geometry.location.lng();
+        this.extra_info.address_object.formatted_address = place.formatted_address;
         this.current_address = place.formatted_address;
         this.editMap();
       }
     },
     editMap: function editMap() {
-      var _this2 = this;
-
       var posIni = {
-        lat: this.extra_info.answer.latitude,
-        lng: this.extra_info.answer.longitude
+        lat: this.extra_info.address_object.latitude,
+        lng: this.extra_info.address_object.longitude
       };
       var bounds = new google.maps.LatLngBounds(); // let icon = this.markerUserIcon;
 
-      if (this.current_marker == null) {
-        this.current_marker = new google.maps.Marker({
-          position: posIni,
-          map: this.map,
-          draggable: true // icon: icon,
+      this.initMarker(posIni); // if(this.current_marker == null) 
+      // {
+      //     this.current_marker = new google.maps.Marker({
+      //         position: posIni,
+      //         map: this.map,
+      //         draggable: true,
+      //         // icon: icon,
+      //     });
+      // }
+      // google.maps.event.addListenerOnce(this.current_marker, 'dragend',(data) => {
+      //     this.geocodeLatLng()
+      // });
 
-        });
-      }
-
-      google.maps.event.addListenerOnce(this.current_marker, 'dragend', function (data) {
-        _this2.geocodeLatLng();
-      });
       bounds.extend(posIni);
 
       if (bounds.getNorthEast().equals(bounds.getSouthWest())) {
@@ -2526,8 +2553,24 @@ __webpack_require__.r(__webpack_exports__);
 
       this.map.fitBounds(bounds);
     },
-    geocodeLatLng: function geocodeLatLng() {
+    initMarker: function initMarker(posIni) {
       var _this3 = this;
+
+      if (this.current_marker == null) {
+        this.current_marker = new google.maps.Marker({
+          position: posIni,
+          map: this.map,
+          draggable: true // icon: icon,
+
+        });
+      }
+
+      google.maps.event.addListenerOnce(this.current_marker, 'dragend', function (data) {
+        _this3.geocodeLatLng();
+      });
+    },
+    geocodeLatLng: function geocodeLatLng() {
+      var _this4 = this;
 
       var geocoder = new google.maps.Geocoder();
       var latlng = {
@@ -2544,117 +2587,28 @@ __webpack_require__.r(__webpack_exports__);
             for (var i = 0; i < address_components.length; i++) {
               var addressType = address_components[i].types[0];
 
-              if (_this3.componentForm[addressType]) {
-                var val = address_components[i][_this3.componentForm[addressType]];
-                _this3.extra_info.answer[addressType] = val;
+              if (_this4.componentForm[addressType]) {
+                var val = address_components[i][_this4.componentForm[addressType]];
+                _this4.extra_info.address_object[addressType] = val;
               }
             }
 
-            if (_this3.extra_info.answer['country'] == 'Perú') {
-              _this3.extra_info.answer.latitude = latlng.lat;
-              _this3.extra_info.answer.longitude = latlng.lng;
+            if (_this4.extra_info.address_object['country'] == 'Perú') {
+              _this4.extra_info.address_object.latitude = latlng.lat;
+              _this4.extra_info.address_object.longitude = latlng.lng;
 
-              _this3.editMap();
+              _this4.editMap();
 
-              _this3.extra_info.answer.formatted_address = results[0].formatted_address;
-              _this3.current_address = results[0].formatted_address;
+              _this4.extra_info.address_object.formatted_address = results[0].formatted_address;
+              _this4.current_address = results[0].formatted_address;
             }
           } else {}
         } else {}
       });
     },
-    formController: function formController(event, url) {
-      var _this4 = this;
-
-      var extra_info = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-      var fd = new FormData(event.target);
-      if (extra_info != null) fd.append('extra_info', JSON.stringify(extra_info));
-      EventBus.$emit('loading', true);
-      axios.post(url, fd, {
-        headers: {
-          'Content-type': 'application/x-www-form-urlencoded'
-        }
-      }).then(function (response) {
-        EventBus.$emit('loading', false);
-        var answer = response.data;
-
-        if (answer.error) {
-          _this4.alertMsg(answer);
-
-          return;
-        }
-
-        EventBus.$emit('delivery_calculated', _this4.delivery_data_2);
-        EventBus.$emit('select_new_address', answer.model);
-
-        _this4.close();
-      })["catch"](function (error) {
-        EventBus.$emit('loading', false);
-        var obj = error.response.data.errors;
-
-        _this4.showErrors(event.target, obj);
-      });
-    },
-    calculateDelivery: function calculateDelivery() {
-      var _this5 = this;
-
-      EventBus.$emit('loading', true);
-      axios.post(this.url_delivery, {
-        enterprise_id: this.enterprise_id,
-        district_id: this.district_id,
-        extra_info: JSON.stringify(this.extra_info)
-      }).then(function (response) {
-        EventBus.$emit('loading', false);
-        _this5.old_address = false;
-        _this5.delivery_data_2 = response.data;
-      })["catch"](function (error) {
-        EventBus.$emit('loading', false);
-        var obj = error.response.data.errors;
-
-        _this5.showErrors('#form_user_address', obj);
-      });
-    },
-    calculateDeliveryAddress: function calculateDeliveryAddress() {
-      var _this6 = this;
-
-      EventBus.$emit('loading', true);
-      axios.post(this.url_delivery_address, {
-        enterprise_id: this.enterprise_id,
-        user_address_id: this.user_address_id
-      }).then(function (response) {
-        EventBus.$emit('loading', false);
-        _this6.old_address = true;
-        _this6.delivery_data_1 = response.data;
-      })["catch"](function (error) {
-        EventBus.$emit('loading', false);
-        var obj = error.response.data.errors;
-
-        _this6.showErrors('#form_user_address', obj);
-      });
-    },
-    useAddress: function useAddress() {
-      var _this7 = this;
-
-      EventBus.$emit('loading', true);
-      axios.post(this.url_use_address, {
-        user_address_id: this.user_address_id
-      }).then(function (response) {
-        EventBus.$emit('loading', false);
-        EventBus.$emit('delivery_calculated', _this7.delivery_data_1);
-
-        _this7.close();
-      })["catch"](function (error) {
-        EventBus.$emit('loading', false);
-      });
-    },
-    createNewOne: function createNewOne(flag) {
-      this.old_address = flag;
-      this.closed(1);
-    },
     closed: function closed() {
-      var cleaning = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
       this.extra_info = {
-        answer: {
+        address_object: {
           formatted_address: '',
           street_number: '',
           route: '',
@@ -2666,18 +2620,9 @@ __webpack_require__.r(__webpack_exports__);
           longitude: ''
         }
       };
-      this.delivery_data = {
-        calculated: false,
-        cost: 0,
-        msg: ''
-      };
       this.current_marker = null;
       this.current_address = '';
       this.map = null;
-      this.district_id = '';
-      this.references = '';
-      this.user_address_id = '';
-      if (this.cleaning == 0) this.old_address = true;
     }
   }
 });
@@ -23884,7 +23829,7 @@ var render = function() {
         on: {
           submit: function($event) {
             $event.preventDefault()
-            return _vm.formController($event, _vm.url)
+            return _vm.formController($event, _vm.url, _vm.extra_info)
           }
         }
       },
@@ -24169,40 +24114,6 @@ var render = function() {
                         staticClass: "invalid-feedback schedule-errors"
                       })
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    !_vm.model.id
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary mr-1 mb-1",
-                            attrs: { type: "submit" }
-                          },
-                          [_vm._v("Registrar")]
-                        )
-                      : _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary mr-1 mb-1",
-                            attrs: { type: "submit" }
-                          },
-                          [_vm._v("Actualizar")]
-                        ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-warning mr-1 mb-1",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.clearModel()
-                          }
-                        }
-                      },
-                      [_vm._v("Limpiar")]
-                    )
                   ])
                 ])
               ])
@@ -24217,9 +24128,7 @@ var render = function() {
             _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "form-body" }, [
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-12" }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6 col-12" }, [
+                  _c("div", { staticClass: "col-12" }, [
                     _c(
                       "fieldset",
                       {
@@ -24228,6 +24137,14 @@ var render = function() {
                       },
                       [
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.model.address,
+                              expression: "model.address"
+                            }
+                          ],
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
@@ -24236,9 +24153,20 @@ var render = function() {
                             autocomplete: "off",
                             readonly: ""
                           },
+                          domProps: { value: _vm.model.address },
                           on: {
                             click: function($event) {
                               return _vm.openModal()
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.model,
+                                "address",
+                                $event.target.value
+                              )
                             }
                           }
                         }),
@@ -24249,6 +24177,44 @@ var render = function() {
                   ])
                 ])
               ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-12" }, [
+              !_vm.model.id
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary mr-1 mb-1",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Registrar")]
+                  )
+                : _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary mr-1 mb-1",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Actualizar")]
+                  ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-warning mr-1 mb-1",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.clearModel()
+                    }
+                  }
+                },
+                [_vm._v("Limpiar")]
+              )
             ])
           ])
         ])
@@ -24380,7 +24346,21 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(2)
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-dismiss": "modal" },
+                  on: {
+                    click: function($event) {
+                      return _vm.close()
+                    }
+                  }
+                },
+                [_vm._v("Guardar")]
+              )
+            ])
           ])
         ]
       )
@@ -24417,21 +24397,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12" }, [
       _c("div", { attrs: { id: "map" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("Accept")]
-      )
     ])
   }
 ]

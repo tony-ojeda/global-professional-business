@@ -10,4 +10,8 @@ class Enterprise extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    protected $casts = [
+		'address_object' => 'array',
+  	];
 }
