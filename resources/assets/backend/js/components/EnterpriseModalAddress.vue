@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 mb-2">
                                 <input 
                                     type="text" 
                                     class="form-control form-control-sm" 

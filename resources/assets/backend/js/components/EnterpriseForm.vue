@@ -1,6 +1,6 @@
 <template>
      <div class="col-12 col-md-6">
-        <form class="form form-vertical" @submit.prevent="formController($event,url,extra_info)">
+        <form id="enterpriseForm" class="form form-vertical" @submit.prevent="formController($event)">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Datos generales</h4>
@@ -106,6 +106,8 @@
                 </div>
             </div>
            
+            
+
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Ubicación</h4>
@@ -136,6 +138,23 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Imágenes</h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <vue-dropzone ref="myVueDropzone1" id="dropzone1" :options="dropzoneOptions"></vue-dropzone>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <div class="form-body">
                 <div class="row">
@@ -154,8 +173,15 @@
     import { EventBus } from '../EventBus';
     import formController  from '../mixins/formController';
     import formErrors from '../mixins/formErrors';
+    import swalMessages from '../mixins/swalMessages';
+    import vue2Dropzone from 'vue2-dropzone';
+    
+
     export default {
-        mixins: [ formErrors, formController ],
+        mixins: [ formErrors, swalMessages ],
+        components: {
+            vueDropzone: vue2Dropzone
+        },
         props: {
             url: {
                 type: String,
@@ -191,6 +217,27 @@
                         postal_code: '',
                         latitude: '',
                         longitude: '',
+                    }
+                },
+                dropzoneOptions: {
+                    url: this.url,
+                    thumbnailWidth: 150,
+                    maxFilesize: 0.5,
+                    // headers: { "My-Awesome-Header": "header value" },
+                    autoProcessQueue: false,
+                    uploadMultiple: true,
+                    paramName: 'files',
+                    maxFiles: 1,
+                    init: function() {
+                        this.on('sending', function(file, xhr, formData) 
+                        {
+                            let token = document.head.querySelector('meta[name="csrf-token"]').content;
+                            let currentFormData = new FormData($("#enterpriseForm")[0]);
+                            for (let pair of currentFormData.entries()) {
+                                formData.append(pair[0], pair[1]);
+                            }
+                            formData.append("_token", token);
+                        });
                     }
                 }
             }
@@ -241,6 +288,77 @@
             {
                 EventBus.$emit('address_object',this.extra_info.address_object);
                 $('#enterpriseAddressModal').modal('show');
+            },
+            remove: function() {
+                
+            },
+            formController: async function($event) {
+
+                // file.status = Dropzone.QUEUED;
+                this.$refs.myVueDropzone1.status = Dropzone.QUEUED;
+                let test = this.$refs.myVueDropzone1.getQueuedFiles();
+                test.forEach(element => {
+                    // console.log(element.name);
+                    // fd.append('files[]',element);
+                    element.status =1;
+                    
+                });
+
+                return;
+
+                EventBus.$emit('loading',true);
+                let target = $(event.target);
+                let fd = new FormData(event.target);
+                if(this.extra_info != null)
+                    fd.append('extra_info',JSON.stringify(this.extra_info));
+
+                let files = this.$refs.myVueDropzone1.getQueuedFiles();
+                files.forEach(element => {
+                    // console.log(element.name);
+                    fd.append('files[]',element);
+                });
+
+                // fd = await this.addfilesFormData(fd);
+                    
+                axios.post(this.url,fd,
+                            { headers: {
+                                'Content-type': 'application/x-www-form-urlencoded',
+                            }
+                        }).then(response => {
+                    EventBus.$emit('loading',false );
+                    EventBus.$emit('clearForm');
+                    
+                    this.alertMsg( response.data );
+                    
+                }).catch(error => {
+                    EventBus.$emit('loading',false);
+                    let obj = error.response.data.errors;
+                    let cont = 0;
+                    $.each(obj, function(i, item) {
+                        let c_target = target.find("." + i + "-errors");
+                        if(cont == 0)
+                        {
+                            c_target.prev().focus();
+                        }
+                        c_target.prev().addClass('is-invalid');
+                        c_target.html(item);
+                        cont++;
+                    });
+                });
+                // console.log(this.$refs.myVueDropzone1.getQueuedFiles());
+                // let files = this.$refs.myVueDropzone1.getQueuedFiles();
+                // files.forEach(element => {
+                //     console.log(element.name);
+                // });
+            },
+            addfilesFormData: async function(fd) {
+                let files = this.$refs.myVueDropzone1.getQueuedFiles();
+
+                await files.reduce(async (promise, file) => {
+                    await promise;
+                    await fd.append('files[]',file);
+                    console.log("ACA");
+                }, Promise.resolve(fd));
             }
         },
     }

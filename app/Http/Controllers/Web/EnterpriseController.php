@@ -18,11 +18,22 @@ class EnterpriseController extends Controller
     {
         // VALIDACIONES
         $messages = [
+            'category_id.required' => 'La categoría es obligatoria.',
             'name.required' => 'El nombre es obligatorio.',
+            'website.required' => 'El website es obligatorio.',
+            'phone.required' => 'El teléfono es obligatorio.',
+            'details.required' => 'Los detalles son obligatorios.',
+            'schedule.required' => 'El horario es obligatorio.',
         ];
 
         $rules = [
+            'category_id' => 'required',
             'name' => 'required',
+            'website' => 'required',
+            'phone' => 'required',
+            'details' => 'required',
+            'schedule' => 'required',
+            // 'address' => 'required',
         ];
 
         request()->validate($rules, $messages);

@@ -5,8 +5,11 @@ namespace App\Repositories;
 use App\Enterprise;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use App\Traits\ImageMethods;
 
 class EnterpriseRepository {
+
+    use ImageMethods;
 
 	public function createUpdate($data) 
 	{
@@ -26,7 +29,17 @@ class EnterpriseRepository {
             unset($data["extra_info"]);
         }
 
+        if( isset($data["files"]) ) 
+        {
+            $file = $data["files"][0];
+            unset($data["files"]);
+        }
+
         $model = Enterprise::updateOrCreate(['id' => $id],$data);
+
+        if( isset($file) ) {
+            $this->manageImgs($model,$file,'portrait_image','public','empresas');
+        }
 
         return $model;
     }
