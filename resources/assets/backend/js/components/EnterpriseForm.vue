@@ -95,6 +95,39 @@
                                         <div class="invalid-feedback schedule-errors"></div>
                                     </div>
                                 </div>
+                                 <div class="col-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <label for="portrait_image">
+                                                    Imagen de portada
+                                                </label>
+                                                <input 
+                                                    type="text" 
+                                                    class="form-control" 
+                                                    id="portrait_imageTrigger" 
+                                                    @click="openFile()"
+                                                    v-model="portrait_image_text"
+                                                    readonly
+                                                >
+                                                <input 
+                                                    type="file" 
+                                                    class="form-control collapse" 
+                                                    name="portrait_image" 
+                                                    id="portrait_image" 
+                                                    @change="fileAdded($event)"
+                                                    accept="image/*"
+                                                >
+                                                <div class="invalid-feedback portrait_image-errors"></div>
+                                                <input type="hidden" id="portrait_image_preview" v-model="model.portrait_image">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-auto mt-2 mt-md-0" v-if="model.portrait_image != ''">
+                                            <img :src="model.portrait_image" v-if="model.portrait_image != ''" class="portrait">
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- <div class="col-12">
                                     <button type="submit" class="btn btn-primary mr-1 mb-1" v-if="!model.id">Registrar</button>
                                     <button type="submit" class="btn btn-primary mr-1 mb-1" v-else>Actualizar</button>
@@ -204,7 +237,8 @@
                     phone: '',
                     details: '',
                     schedule: '',
-                    address: ''
+                    address: '',
+                    portrait_image: ''
                 },
                 extra_info: {
                     address_object: {
@@ -239,7 +273,8 @@
                             formData.append("_token", token);
                         });
                     }
-                }
+                },
+                portrait_image_text: 'Seleccionar un archivo'
             }
         },
         created() {
@@ -265,7 +300,8 @@
                     phone: '',
                     details: '',
                     schedule: '',
-                    address: ''
+                    address: '',
+                    portrait_image: ''
                 }
                 this.extra_info = {
                     address_object: {
@@ -281,7 +317,8 @@
                     }
                 }
                 this.clearErrors(1);
-
+                this.portrait_image_text = 'Seleccionar un archivo';
+                document.getElementsByTagName("form")[0].reset();
                 EventBus.$emit('clearModal');
             },
             openModal: function()
@@ -292,19 +329,18 @@
             remove: function() {
                 
             },
-            formController: async function($event) {
+            formController: async function(event) {
 
                 // file.status = Dropzone.QUEUED;
-                this.$refs.myVueDropzone1.status = Dropzone.QUEUED;
-                let test = this.$refs.myVueDropzone1.getQueuedFiles();
-                test.forEach(element => {
-                    // console.log(element.name);
-                    // fd.append('files[]',element);
-                    element.status =1;
+                // let test = this.$refs.myVueDropzone1.getQueuedFiles();
+                // test.forEach(element => {
+                //     // console.log(element.name);
+                //     // fd.append('files[]',element);
+                //     element.status =1;
                     
-                });
+                // });
 
-                return;
+                // return;
 
                 EventBus.$emit('loading',true);
                 let target = $(event.target);
@@ -312,11 +348,11 @@
                 if(this.extra_info != null)
                     fd.append('extra_info',JSON.stringify(this.extra_info));
 
-                let files = this.$refs.myVueDropzone1.getQueuedFiles();
-                files.forEach(element => {
-                    // console.log(element.name);
-                    fd.append('files[]',element);
-                });
+                // let files = this.$refs.myVueDropzone1.getQueuedFiles();
+                // files.forEach(element => {
+                //     // console.log(element.name);
+                //     fd.append('files[]',element);
+                // });
 
                 // fd = await this.addfilesFormData(fd);
                     
@@ -334,22 +370,8 @@
                     EventBus.$emit('loading',false);
                     let obj = error.response.data.errors;
                     let cont = 0;
-                    $.each(obj, function(i, item) {
-                        let c_target = target.find("." + i + "-errors");
-                        if(cont == 0)
-                        {
-                            c_target.prev().focus();
-                        }
-                        c_target.prev().addClass('is-invalid');
-                        c_target.html(item);
-                        cont++;
-                    });
+                    this.showErrors(event.target,obj);
                 });
-                // console.log(this.$refs.myVueDropzone1.getQueuedFiles());
-                // let files = this.$refs.myVueDropzone1.getQueuedFiles();
-                // files.forEach(element => {
-                //     console.log(element.name);
-                // });
             },
             addfilesFormData: async function(fd) {
                 let files = this.$refs.myVueDropzone1.getQueuedFiles();
@@ -357,13 +379,37 @@
                 await files.reduce(async (promise, file) => {
                     await promise;
                     await fd.append('files[]',file);
-                    console.log("ACA");
                 }, Promise.resolve(fd));
-            }
+            },
+            openFile: function() 
+            {
+                $('#portrait_image').trigger('click');
+            },
+            fileAdded: function(event)
+            {
+                const file = event.target.files[0];
+                if(!file) {
+                    this.portrait_image_text = 'Seleccionar una imagen';
+                    return;
+                }
+
+                this.portrait_image_text = file.name;
+                let reader = new FileReader();
+                let t = this;
+                reader.onload = function (e) {
+                    t.model.portrait_image = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            },
         },
     }
 </script>
 
 <style>
-
+    .portrait {
+        height: 64px;
+        object-fit: cover;
+        object-position: center;
+        width: 64px;
+    }
 </style>

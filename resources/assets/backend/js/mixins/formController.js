@@ -15,7 +15,6 @@ export default {
     methods: {
         formController: function(event,url,extra_info = null) 
         {
-            let target = $(event.target);
             let fd = new FormData(event.target);
             if(extra_info != null)
                 fd.append('extra_info',JSON.stringify(extra_info));
@@ -34,17 +33,7 @@ export default {
             }).catch(error => {
                 EventBus.$emit('loading',false);
                 let obj = error.response.data.errors;
-                let cont = 0;
-                $.each(obj, function(i, item) {
-                    let c_target = target.find("." + i + "-errors");
-                    if(cont == 0)
-                    {
-                        c_target.prev().focus();
-                    }
-                    c_target.prev().addClass('is-invalid');
-                    c_target.html(item);
-                    cont++;
-                });
+                this.showErrors(event.target,obj);
             });
         },
         clearErrorMsg: function(event)

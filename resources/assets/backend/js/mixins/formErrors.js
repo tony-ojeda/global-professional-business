@@ -42,7 +42,6 @@ export default {
             });
         },
         clearErrors: function(forced = 0) {
-            
             for (const key in this.model) {
                 if (this.model.hasOwnProperty(key)) {
                     const element = this.model[key];

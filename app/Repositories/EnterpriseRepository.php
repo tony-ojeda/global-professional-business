@@ -31,14 +31,24 @@ class EnterpriseRepository {
 
         if( isset($data["files"]) ) 
         {
-            $file = $data["files"][0];
+            $files = $data["files"];
             unset($data["files"]);
+        }
+
+        if( isset($data["portrait_image"]) ) 
+        {
+            $portrait_image = $data["portrait_image"];
+            unset($data["portrait_image"]);
         }
 
         $model = Enterprise::updateOrCreate(['id' => $id],$data);
 
-        if( isset($file) ) {
-            $this->manageImgs($model,$file,'portrait_image','public','empresas');
+        if( isset($portrait_image) ) {
+            $this->manageImgs($model,$portrait_image,'portrait_image','public','empresas');
+        }
+
+        if( isset($files) && count($files) > 0 ) {
+            // $this->manageImgs($model,$portrait_image,'portrait_image','public','empresas');
         }
 
         return $model;

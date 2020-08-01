@@ -24,6 +24,10 @@ class EnterpriseController extends Controller
             'phone.required' => 'El teléfono es obligatorio.',
             'details.required' => 'Los detalles son obligatorios.',
             'schedule.required' => 'El horario es obligatorio.',
+            'portrait_image.required' => 'La imagen es obligatoria.',
+            'portrait_image.image' => 'Tiene que ser una imagen válida.',
+            'portrait_image.mimes' => 'Use un formato válido jpg, jpeg ,png.',
+            'portrait_image.max' => 'La imagen máximo puede pesar :max kb.',
         ];
 
         $rules = [
@@ -33,8 +37,13 @@ class EnterpriseController extends Controller
             'phone' => 'required',
             'details' => 'required',
             'schedule' => 'required',
+            'portrait_image' => 'required|image|mimes:jpg,png|max:800'
             // 'address' => 'required',
         ];
+
+        if(request('id')) {
+            $rules["portrait_image"] = 'image|mimes:jpg,png|max:800';
+        }
 
         request()->validate($rules, $messages);
         ////////
@@ -68,8 +77,9 @@ class EnterpriseController extends Controller
     public function find()
     {
         $id = request('id');
-        $fields = ['id','name'];
-        $model = $this->enterprise->find(request('id'));
+        $fields = ['id','user_id','category_id','name','website','phone','details','schedule','portrait_image','address','address_object'];
+        $model = $this->enterprise->find(request('id'),$fields);
+        $model->portrait_image = asset('storage/' . $model->portrait_image);
         $response = [
             "model" => $model
         ];
