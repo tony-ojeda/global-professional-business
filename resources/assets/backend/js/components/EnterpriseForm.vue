@@ -138,8 +138,6 @@
                     </div>
                 </div>
             </div>
-           
-            
 
             <div class="card">
                 <div class="card-header">
@@ -180,6 +178,14 @@
                     <div class="card-body">
                         <div class="form-body">
                             <div class="row">
+                                <div class="col-12 current-images" v-if="model.images.length > 0">
+                                    <div class="avatar mr-1 avatar-xl" v-for="(item,index) in model.images" :key="index">
+                                        <img :src="item.url_image" alt="avtar img holder">
+                                        <span class="badge badge-pill badge-danger badge-sm badge-up" @click="deleteImage(index)">
+                                            <i class="fa fa-trash-o"></i>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <vue-dropzone ref="myVueDropzone1" id="dropzone1" :options="dropzoneOptions"></vue-dropzone>
                                 </div>
@@ -238,7 +244,8 @@
                     details: '',
                     schedule: '',
                     address: '',
-                    portrait_image: ''
+                    portrait_image: '',
+                    images: [],
                 },
                 extra_info: {
                     address_object: {
@@ -251,17 +258,19 @@
                         postal_code: '',
                         latitude: '',
                         longitude: '',
-                    }
+                    },
+                    deleted_images: []
                 },
                 dropzoneOptions: {
                     url: this.url,
                     thumbnailWidth: 150,
-                    maxFilesize: 0.5,
+                    maxFilesize: 0.6,
                     // headers: { "My-Awesome-Header": "header value" },
                     autoProcessQueue: false,
                     uploadMultiple: true,
                     paramName: 'files',
-                    maxFiles: 1,
+                    dictDefaultMessage: 'Coloque sus imágenes aquí',
+                    // maxFiles: 1,
                     init: function() {
                         this.on('sending', function(file, xhr, formData) 
                         {
@@ -301,7 +310,8 @@
                     details: '',
                     schedule: '',
                     address: '',
-                    portrait_image: ''
+                    portrait_image: '',
+                    images: [],
                 }
                 this.extra_info = {
                     address_object: {
@@ -348,11 +358,11 @@
                 if(this.extra_info != null)
                     fd.append('extra_info',JSON.stringify(this.extra_info));
 
-                // let files = this.$refs.myVueDropzone1.getQueuedFiles();
-                // files.forEach(element => {
-                //     // console.log(element.name);
-                //     fd.append('files[]',element);
-                // });
+                let files = this.$refs.myVueDropzone1.getQueuedFiles();
+                files.forEach(element => {
+                    // console.log(element.name);
+                    fd.append('files[]',element);
+                });
 
                 // fd = await this.addfilesFormData(fd);
                     
@@ -363,9 +373,8 @@
                         }).then(response => {
                     EventBus.$emit('loading',false );
                     EventBus.$emit('clearForm');
-                    
+                    this.$refs.myVueDropzone1.removeAllFiles();
                     this.alertMsg( response.data );
-                    
                 }).catch(error => {
                     EventBus.$emit('loading',false);
                     let obj = error.response.data.errors;
@@ -401,15 +410,29 @@
                 }
                 reader.readAsDataURL(file);
             },
+            deleteImage: function(index)
+            {
+                this.extra_info.deleted_images.push(this.model.images[index].id);
+                this.model.images.splice(index,1);
+            }
         },
     }
 </script>
 
-<style>
+<style lang="scss">
     .portrait {
         height: 64px;
         object-fit: cover;
         object-position: center;
         width: 64px;
+    }
+    .current-images {
+        img {
+            object-fit: contain;
+            object-position: center;
+        }
+        i {
+            font-size: 1.5rem;
+        }
     }
 </style>

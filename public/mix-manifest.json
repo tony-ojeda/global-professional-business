@@ -3,8 +3,6 @@
     "/backend/css/app.css": "/backend/css/app.css",
     "/login/css/app.css": "/login/css/app.css",
     "/backend/js/app.js.map": "/backend/js/app.js.map",
-    "/backend/css/app.css.map": "/backend/css/app.css.map",
-    "/login/css/app.css.map": "/login/css/app.css.map",
     "/login/js/app.js": "/login/js/app.js",
     "/login/js/app.js.map": "/login/js/app.js.map"
 }

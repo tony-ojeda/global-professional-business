@@ -13,5 +13,10 @@ class Enterprise extends Model
 
     protected $casts = [
 		'address_object' => 'array',
-  	];
+      ];
+      
+    public function images()
+    {
+        return $this->hasMany(EnterpriseImage::class);
+    }
 }

@@ -78,8 +78,19 @@ class EnterpriseController extends Controller
     {
         $id = request('id');
         $fields = ['id','user_id','category_id','name','website','phone','details','schedule','portrait_image','address','address_object'];
-        $model = $this->enterprise->find(request('id'),$fields);
+        $with = [
+            'images' => static function($query) {
+                $query->select('id','enterprise_id','url_image','position');
+                $query->orderBy('id','asc');
+            }
+        ];
+        $model = $this->enterprise->find(request('id'),$fields,$with);
         $model->portrait_image = asset('storage/' . $model->portrait_image);
+        $model->images->map(static function($item,$index) {
+            $item->url_image = asset('storage/' . $item->url_image);
+            return $item;
+        });
+
         $response = [
             "model" => $model
         ];

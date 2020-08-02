@@ -26,6 +26,10 @@ class EnterpriseRepository {
             $data["address_object"] = $extra_info->address_object;
             $data["latitude"] = $extra_info->address_object->latitude; 
             $data["longitude"] = $extra_info->address_object->longitude;
+
+            $deleted_images = $extra_info->deleted_images;
+            app('App\Repositories\EnterpriseImageRepository')->delete($deleted_images);
+
             unset($data["extra_info"]);
         }
 
@@ -48,16 +52,22 @@ class EnterpriseRepository {
         }
 
         if( isset($files) && count($files) > 0 ) {
+            foreach ($files as $key => $image) {
+                $image_data["enterprise_id"] = $model->id;
+                $image_data["file"] = $image;
+                app('App\Repositories\EnterpriseImageRepository')->createUpdate($image_data);
+            }
             // $this->manageImgs($model,$portrait_image,'portrait_image','public','empresas');
         }
 
         return $model;
     }
     
-    public function find($id,$select = '*')
+    public function find($id,$select = '*',$with = [])
 	{
         return Enterprise::whereId($id)
                     ->select($select)
+                    ->with($with)
                     ->first();
     }
 
