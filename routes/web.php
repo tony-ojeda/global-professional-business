@@ -26,6 +26,11 @@ Route::post('/login/ct', [
     'as' => 'login.ct'
 ]);
 
+Route::get('/testing', [
+    'uses' => 'Web\BackendController@testing',
+    'as' => 'testing'
+]);
+
 
 // Route::get('/login', [
 //     'uses' => 'Web\BackendController@login',

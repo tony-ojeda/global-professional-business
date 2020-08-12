@@ -8,6 +8,13 @@ use App\Category;
 
 class BackendController extends Controller
 {
+
+    public function testing()
+    {
+        $paypal = new \App\Services\PayPalService();
+        return $paypal->createOrder();
+    }
+
     public function index()
     {
         $breadcrumbs = [
