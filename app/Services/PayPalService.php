@@ -2,6 +2,7 @@
 
 namespace App\Services;
 use App\Traits\ConsumesExternalServices;
+use Illuminate\Http\Request;
 
 class PayPalService
 {
@@ -25,8 +26,8 @@ class PayPalService
 
     public function decodeResponse($response)
     {
-        // return json_decode($response);
-        return $response;
+        return json_decode($response);
+        // return $response;
     }
 
     public function resolveAccessToken()
@@ -36,7 +37,20 @@ class PayPalService
         return "Basic {$credentials}";
     }
 
-    public function createOrder()
+    public function handlePayment($request)
+    {
+        $order = $this->createOrder($request['value'],$request['currency']);
+
+        $orderLinks = collect($order->links);
+
+        $approve = $orderLinks->where('rel','approve')->first();
+
+        return $approve->href;
+
+        // return redirect($approve->href);
+    }
+
+    public function createOrder($value,$currency)
     {
         return $this->makeRequest(
             'POST',
@@ -47,14 +61,34 @@ class PayPalService
                 "purchase_units" => [
                     [
                         "amount" => [
-                            "currency_code" => "USD",
-                            "value" => "100.00"
+                            "currency_code" => strtoupper($currency),
+                            "value" => $value
                         ]
                     ]
+                ],
+                'application_context' => [
+                    'brand_name' => config('app.name'),
+                    'shipping_preference' => "NO_SHIPPING",
+                    'user_action' => "PAY_NOW",
+                    'return_url' => route('paypal.approval'),
+                    'cancel_url' => route('paypal.cancelled'),
                 ]
             ],
             [],
             $isJsonRequest = true
+        );
+    }
+
+    public function capturePayment($approvalId)
+    {
+        return $this->makeRequest(
+            'POST',
+            "/v2/checkout/orders/{$approvalId}/capture",
+            [],
+            [],
+            [
+                'Content-Type' => 'application/json'
+            ]
         );
     }
 

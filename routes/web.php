@@ -31,6 +31,21 @@ Route::get('/testing', [
     'as' => 'testing'
 ]);
 
+Route::post('paypal/pay', [
+    'uses' => 'Web\PayPalController@pay',
+    'as' => 'paypal.pay'
+]);
+
+Route::get('paypal/approval', [
+    'uses' => 'Web\PayPalController@approval',
+    'as' => 'paypal.approval'
+]);
+
+Route::get('paypal/cancel', [
+    'uses' => 'Web\PayPalController@cancel',
+    'as' => 'paypal.cancelled'
+]);
+
 
 // Route::get('/login', [
 //     'uses' => 'Web\BackendController@login',
