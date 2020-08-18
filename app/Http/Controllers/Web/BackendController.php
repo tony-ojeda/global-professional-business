@@ -108,4 +108,23 @@ class BackendController extends Controller
 
         return view('backend.enterprises',compact('breadcrumbs','categories'));
     }
+
+    public function blog()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Módulos"
+            ], 
+            [
+                'name' => "Blog"
+            ]
+        ];
+
+        return view('backend.blog',compact('breadcrumbs'));
+    }
 }

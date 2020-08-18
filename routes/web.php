@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [
     'uses' => 'Web\BackendController@login',
-    'as' => 'loginView'
+    'as' => 'login'
 ]);
 
 Route::post('/login/ct', [
@@ -36,7 +36,7 @@ Route::post('/login/ct', [
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware' => [],
+    'middleware' => ['auth'],
     'namespace' => 'Web'
 ], function(){
 
@@ -98,4 +98,30 @@ Route::group([
         'as' => 'enterprises.delete'
     ]);
     /// END ENTERPRISES MODULE ///////////////
+    /// BLOG MODULE ///////////////
+    Route::get('blog', [
+        'uses' => 'BackendController@blog',
+        'as' => 'blog'
+    ]);
+
+    Route::post('blog/controller', [
+        'uses' => 'BlogController@controller',
+        'as' => 'blog.controller'
+    ]);
+
+    Route::post('blog/list', [
+        'uses' => 'BlogController@list',
+        'as' => 'blog.list'
+    ]);
+
+    Route::post('blog/find', [
+        'uses' => 'BlogController@find',
+        'as' => 'blog.find'
+    ]);
+
+    Route::post('blog/delete', [
+        'uses' => 'BlogController@delete',
+        'as' => 'blog.delete'
+    ]);
+    /// END BLOG MODULE ///////////////
 });
