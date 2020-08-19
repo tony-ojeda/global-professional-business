@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Repositories\BlogRepository as Blog;
+use App\Repositories\TestimonialRepository as Testimonial;
 
-class BlogController extends Controller
+class TestimonialController extends Controller
 {
-    protected $blog;
+    protected $testimonial;
 
-    public function __construct(Blog $blog) {
-        $this->blog = $blog;
+    public function __construct(Testimonial $testimonial) {
+        $this->testimonial = $testimonial;
     }
 
     public function controller()
@@ -55,7 +55,7 @@ class BlogController extends Controller
 
         //CREACION|ACTUALIZACION
         try {
-            $model = $this->blog->createUpdate($data);
+            $model = $this->testimonial->createUpdate($data);
             $response["error"] = FALSE;
             $response["type"] = 1;
             // $response["url"] = route('post.update',['id' => $model->id]);
@@ -86,7 +86,7 @@ class BlogController extends Controller
         ];
         
         try {
-            $this->blog->delete($id);
+            $this->testimonial->delete($id);
             $response = [
                 'error' => FALSE,
                 'type' => 3,
@@ -104,15 +104,15 @@ class BlogController extends Controller
 
     public function list()
     {
-        $records = $this->blog->list();
+        $records = $this->testimonial->list();
         return response()->json($records);
     }
 
     public function find()
     {
         $id = request('id');
-        $fields = ['id','title','portrait_image','content','visible'];
-        $model = $this->blog->find(request('id'),$fields);
+        $fields = ['id','title','portrait_image','content'];
+        $model = $this->testimonial->find(request('id'),$fields);
 
         $model->portrait_image = asset('storage/' . $model->portrait_image);
         $response = [
@@ -120,40 +120,5 @@ class BlogController extends Controller
         ];
 
         return response()->json($response,200);
-    }
-
-
-    // FRONTEND DATA
-    public function getCurrentPost($id)
-    {
-        $with = [
-            'user' => static function($query) {
-                $query->select('id','name');
-            }
-        ];
-        $post = $this->blogRepository->find($id,'*',$with);
-        if(is_null($post)) {
-            return NULL;
-        }
-
-        $post->portrait_image = Storage::disk('public')->url($post->portrait_image);
-        $post->published_date = date('M d, Y',strtotime($post->published_date));
-
-        return $post;
-    }
-
-    public function getLatestPosts($quantity,$filters)
-    {
-        $with = [];
-
-        $latest_posts = $this->blogRepository->getLatestPosts($quantity,'*',$with,$filters);
-        $latest_posts->map(static function($item,$index) {
-            $item->portrait_image = Storage::disk('public')->url($item->portrait_image);
-            // $item->published_date = date('M d, Y',strtotime($item->published_date));
-            // $item->href_view = route('posts.detail',['id' => $item->id, 'title' => Str::slug($item->title)]);
-            return $item;
-        });
-
-        return $latest_posts;
     }
 }

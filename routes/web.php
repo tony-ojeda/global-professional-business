@@ -124,4 +124,30 @@ Route::group([
         'as' => 'blog.delete'
     ]);
     /// END BLOG MODULE ///////////////
+    /// TESTIMONIAL MODULE ///////////////
+    Route::get('testimoniales', [
+        'uses' => 'BackendController@testimonials',
+        'as' => 'testimonials'
+    ]);
+
+    Route::post('testimoniales/controller', [
+        'uses' => 'TestimonialController@controller',
+        'as' => 'testimonials.controller'
+    ]);
+
+    Route::post('testimoniales/list', [
+        'uses' => 'TestimonialController@list',
+        'as' => 'testimonials.list'
+    ]);
+
+    Route::post('testimoniales/find', [
+        'uses' => 'TestimonialController@find',
+        'as' => 'testimonials.find'
+    ]);
+
+    Route::post('testimoniales/delete', [
+        'uses' => 'TestimonialController@delete',
+        'as' => 'testimonials.delete'
+    ]);
+    /// END TESTIMONIAL MODULE ///////////////
 });

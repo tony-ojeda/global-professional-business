@@ -5,17 +5,6 @@
                 <input type="hidden" v-model="model.id" name="id">
                 <div class="col-12 col-md-12">
                     <div class="form-group">
-                        <div class="custom-control custom-switch custom-control-inline">
-                            <input type="checkbox" class="custom-control-input" id="visibleSwitch" name="visible" v-model="model.visible">
-                            <label class="custom-control-label" for="visibleSwitch">
-                            </label>
-                            <span class="switch-label">¿ Visible ?</span>
-                        </div>
-                        <div class="invalid-feedback name-errors"></div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-12">
-                    <div class="form-group">
                         <label for="name">Título</label>
                         <input 
                             type="text" 
@@ -65,13 +54,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="content">Contenido</label>
-                        <vue-editor 
-                            :editorOptions="editorSettings" 
-                            useCustomImageHandler 
-                            @image-added="manageImage"
-                            v-model="model.content" 
-                        />
-                        <textarea name="content" class="collapse" v-model="model.content"></textarea>
+                        <textarea name="content" class="form-control" v-model="model.content"></textarea>
                         <div class="invalid-feedback content-errors"></div>
                     </div>
                 </div>
@@ -90,17 +73,9 @@
     import formController  from '../mixins/formController';
     import formErrors from '../mixins/formErrors';
 
-    import { VueEditor, Quill } from "vue2-editor";
-    import { ImageDrop }  from "quill-image-drop-module";
-    import  ImageResize from "quill-image-resize-vue";
-
-    Quill.register("modules/imageDrop", ImageDrop);
-    Quill.register("modules/imageResize", ImageResize);
-
     export default {
         mixins: [ formErrors, formController ],
         components: {
-            VueEditor
         },
         props: {
             url: {
@@ -113,17 +88,11 @@
                 model: {
                     id: null,
                     title: '',
-                    visible: 0,
                     portrait_image: '',
                     content: ''
                 },
                 portrait_image_text: 'Seleccionar un archivo',
-                editorSettings: {
-                    modules: {
-                        imageDrop: true,
-                        imageResize: {}
-                    }
-                },
+           
             }
         },
         created() {
@@ -138,7 +107,6 @@
                 this.model = {
                     id: null,
                     title: '',
-                    visible: 0,
                     portrait_image: '',
                     content: ''
                 }
@@ -165,43 +133,14 @@
                 }
                 reader.readAsDataURL(file);
             },
-            manageImage: function(file, Editor, cursorLocation, resetUploader)
-            {
-                
-                let dataFields = new FormData();
-                dataFields.append('image', file);
-                dataFields.append('type', 'file');
-                let post = new XMLHttpRequest();
-                post.open('POST', 'https://api.imgur.com/3/image');
-                post.setRequestHeader('Authorization', 'Client-ID 351901bacac3413');
-                post.send(dataFields);
-
-                post.onloadend = function(evt) {
-                    let responseJSON = JSON.parse(post.responseText);
-                    Editor.insertEmbed(cursorLocation, "image", responseJSON.data.link);
-                    resetUploader();
-                };
-            }
         },
     }
 </script>
-<style lang="css">
-    @import "~vue2-editor/dist/vue2-editor.css";
-</style>
 <style lang="scss" scoped>
     .portrait {
         height: 64px;
         object-fit: cover;
         object-position: center;
         width: 64px;
-    }
-    .current-images {
-        img {
-            object-fit: contain;
-            object-position: center;
-        }
-        i {
-            font-size: 1.5rem;
-        }
     }
 </style>
