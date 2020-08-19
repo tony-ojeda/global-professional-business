@@ -60,9 +60,9 @@ class TestimonialController extends Controller
             $response["type"] = 1;
             // $response["url"] = route('post.update',['id' => $model->id]);
             $response["title"] = "Ok";
-            $response["subtitle"] = "Post actualizado correctamente";
+            $response["subtitle"] = "Testimonial actualizada correctamente";
             if($model->wasRecentlyCreated) {
-                $response["subtitle"] = "Post creado correctamente";
+                $response["subtitle"] = "Testimonial creada correctamente";
             }
         } catch (\Throwable $th) {
             //throw $th;
@@ -91,7 +91,7 @@ class TestimonialController extends Controller
                 'error' => FALSE,
                 'type' => 3,
                 'title' => 'Ok',
-                'subtitle' => 'Entrada eliminada correctamente',
+                'subtitle' => 'Testimonial eliminada correctamente',
                 'sendEvent' => 1,
                 'channel' => 'refresh'
             ];

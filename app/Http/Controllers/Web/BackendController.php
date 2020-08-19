@@ -13,14 +13,11 @@ class BackendController extends Controller
         $breadcrumbs = [
             [
                 'link' => '#',
-                'name' => "Home"
+                'name' => "Dashboardh"
             ], 
             [
                 'link' => '#',
-                'name' => "Control de temperatura"
-            ], 
-            [
-                'name' => "Registros"
+                'name' => "Inicio"
             ]
         ];
 
@@ -32,14 +29,10 @@ class BackendController extends Controller
         $breadcrumbs = [
             [
                 'link' => '#',
-                'name' => "Home"
+                'name' => "Dashboard"
             ], 
             [
-                'link' => '#',
-                'name' => "Control de temperatura"
-            ], 
-            [
-                'name' => "Registros"
+                'name' => "Inicio"
             ]
         ];
 
@@ -51,22 +44,10 @@ class BackendController extends Controller
                 "slug" => "dashboard",
                 // "badge" => "2",
                 // "badgeClass" => "badge badge-warning badge-pill float-right mr-2",
-                "icon" => "feather icon-home",
-                // "submenu" => [
-                //     [
-                //         "url" => 'home',
-                //         "name" => "Control de temperatura",
-                //         "icon" => "feather icon-circle",
-                //     ],
-                //     // [
-                //     //     "url" => "",
-                //     //     "name" => "ngGrid",
-                //     //     "icon" => "feather icon-circle",
-                //     // ]
-                // ]
+                "icon" => "feather icon-home"
             ]
         ];
-        return view('vuexy_login.login',compact('breadcrumbs','menus'));
+        return view('vuexy_login.login');
     }
 
     public function categories()
@@ -118,10 +99,10 @@ class BackendController extends Controller
             ], 
             [
                 'link' => '#',
-                'name' => "Módulos"
+                'name' => "Blog"
             ], 
             [
-                'name' => "Blog"
+                'name' => "Noticias"
             ]
         ];
 
@@ -145,5 +126,33 @@ class BackendController extends Controller
         ];
 
         return view('backend.testimonials',compact('breadcrumbs'));
+    }
+
+    public function videos()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Blog"
+            ], 
+            [
+                'name' => "Videos"
+            ]
+        ];
+
+        $videoRepository = app('App\Repositories\VideoRepository');
+        $record = $videoRepository->getRecord();
+        if( is_null($record) ) {
+            $record = new \stdClass();
+            $record->id = NULL;
+            $record->video_1 = "";
+            $record->video_2 = "";
+        }
+
+        return view('backend.videos',compact('breadcrumbs','record'));
     }
 }

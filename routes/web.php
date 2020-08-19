@@ -150,4 +150,15 @@ Route::group([
         'as' => 'testimonials.delete'
     ]);
     /// END TESTIMONIAL MODULE ///////////////
+    /// VIDEOS MODULE ///////////////
+    Route::get('videos', [
+        'uses' => 'BackendController@videos',
+        'as' => 'videos'
+    ]);
+
+    Route::post('videos/controller', [
+        'uses' => 'VideoController@controller',
+        'as' => 'videos.controller'
+    ]);
+    /// END VIDEOS MODULE ///////////////
 });
