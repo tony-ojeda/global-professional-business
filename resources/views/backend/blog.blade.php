@@ -18,6 +18,7 @@
                     <div class="card-body">
                         <blog-form
                             :url="'{{ route('admin.blog.controller') }}'"
+                            :url-image="'{{ route('admin.blogImage.controller') }}'"
                         >
                         </blog-form>
                     </div>

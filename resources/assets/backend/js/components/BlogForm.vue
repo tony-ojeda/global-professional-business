@@ -89,6 +89,7 @@
     import { EventBus } from '../EventBus';
     import formController  from '../mixins/formController';
     import formErrors from '../mixins/formErrors';
+    import Compressor  from 'compressorjs';
 
     import { VueEditor, Quill } from "vue2-editor";
     import { ImageDrop }  from "quill-image-drop-module";
@@ -104,6 +105,10 @@
         },
         props: {
             url: {
+                type: String,
+                default: ''
+            },
+            urlImage: {
                 type: String,
                 default: ''
             }
@@ -168,19 +173,42 @@
             manageImage: function(file, Editor, cursorLocation, resetUploader)
             {
                 
-                let dataFields = new FormData();
-                dataFields.append('image', file);
-                dataFields.append('type', 'file');
-                let post = new XMLHttpRequest();
-                post.open('POST', 'https://api.imgur.com/3/image');
-                post.setRequestHeader('Authorization', 'Client-ID 351901bacac3413');
-                post.send(dataFields);
+                // let dataFields = new FormData();
+                // dataFields.append('image', file);
+                // dataFields.append('type', 'file');
+                // let post = new XMLHttpRequest();
+                // post.open('POST', 'https://api.imgur.com/3/image');
+                // post.setRequestHeader('Authorization', 'Client-ID 351901bacac3413');
+                // post.send(dataFields);
 
-                post.onloadend = function(evt) {
-                    let responseJSON = JSON.parse(post.responseText);
-                    Editor.insertEmbed(cursorLocation, "image", responseJSON.data.link);
-                    resetUploader();
-                };
+                // post.onloadend = function(evt) {
+                //     let responseJSON = JSON.parse(post.responseText);
+                //     Editor.insertEmbed(cursorLocation, "image", responseJSON.data.link);
+                //     resetUploader();
+                // };
+                let t = this;
+                new Compressor(file, {
+                    quality: 0.7,
+                    maxHeight: 550,
+                    maxWidth: 1140,
+                    success(result) {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(result);
+                        reader.onloadend = function() {
+                            let base64data = reader.result;
+                            axios.post(t.urlImage, { image: base64data }).then(response => {
+                                if(response.data.error) return;
+                                Editor.insertEmbed(cursorLocation, "image", response.data.url);
+                                resetUploader();
+                            }).catch(error => {
+                                console.log(error.response.data);
+                            });
+                        }
+                    },
+                    error(err) {
+                        console.log(err.message);
+                    }
+                })
             }
         },
     }

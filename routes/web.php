@@ -109,6 +109,11 @@ Route::group([
         'as' => 'blog.controller'
     ]);
 
+    Route::post('blog/saveImage', [
+        'uses' => 'BlogImageController@controller',
+        'as' => 'blogImage.controller'
+    ]);
+
     Route::post('blog/list', [
         'uses' => 'BlogController@list',
         'as' => 'blog.list'
