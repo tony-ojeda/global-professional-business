@@ -35,6 +35,12 @@ class MenuComposer {
                 // ]
             ],
             [
+                "url" => "admin.users",
+                "name" => "Usuarios",
+                "slug" => "usuarios",
+                "icon" => "feather icon-users",
+            ],
+            [
                 "url" => "admin.categories",
                 "name" => "Categorías",
                 "slug" => "categorias",

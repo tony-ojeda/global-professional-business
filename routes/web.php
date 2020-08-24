@@ -36,7 +36,7 @@ Route::post('/login/ct', [
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware' => ['auth'],
+    'middleware' => ['auth','admin'],
     'namespace' => 'Web'
 ], function(){
 
@@ -166,4 +166,30 @@ Route::group([
         'as' => 'videos.controller'
     ]);
     /// END VIDEOS MODULE ///////////////
+    ////// USERS MODULE
+    Route::get('usuarios', [
+        'uses' => 'BackendController@users',
+        'as' => 'users'
+    ]);
+
+    Route::post('usuarios/controller', [
+        'uses' => 'UserController@controller',
+        'as' => 'users.controller'
+    ]);
+
+    Route::post('usuarios/list', [
+        'uses' => 'UserController@list',
+        'as' => 'users.list'
+    ]);
+
+    Route::post('usuarios/delete', [
+        'uses' => 'UserController@delete',
+        'as' => 'users.delete'
+    ]);
+
+    Route::post('usuarios/find', [
+        'uses' => 'UserController@find',
+        'as' => 'users.find'
+    ]);
+    /// END USERS MODULE ///////////////
 });

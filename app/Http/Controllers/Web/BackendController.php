@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
+use App\Role;
 
 class BackendController extends Controller
 {
@@ -48,6 +49,24 @@ class BackendController extends Controller
             ]
         ];
         return view('vuexy_login.login');
+    }
+
+
+    public function users()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'name' => "Usuarios"
+            ]
+        ];
+
+        $roles = Role::where('id','>',1)->get(['id','name']);
+
+        return view('backend.users',compact('breadcrumbs','roles'));
     }
 
     public function categories()
