@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                     
+                        <payment-test :url="'{{ route('paypal.pay') }}'"></payment-test>
                     </div>
                 </div>
           </div>
