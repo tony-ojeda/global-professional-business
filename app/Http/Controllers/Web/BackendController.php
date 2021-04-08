@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category;
+use App\Role;
 
 class BackendController extends Controller
 {
@@ -20,14 +21,11 @@ class BackendController extends Controller
         $breadcrumbs = [
             [
                 'link' => '#',
-                'name' => "Home"
+                'name' => "Dashboardh"
             ], 
             [
                 'link' => '#',
-                'name' => "Control de temperatura"
-            ], 
-            [
-                'name' => "Registros"
+                'name' => "Inicio"
             ]
         ];
 
@@ -39,14 +37,10 @@ class BackendController extends Controller
         $breadcrumbs = [
             [
                 'link' => '#',
-                'name' => "Home"
+                'name' => "Dashboard"
             ], 
             [
-                'link' => '#',
-                'name' => "Control de temperatura"
-            ], 
-            [
-                'name' => "Registros"
+                'name' => "Inicio"
             ]
         ];
 
@@ -58,22 +52,28 @@ class BackendController extends Controller
                 "slug" => "dashboard",
                 // "badge" => "2",
                 // "badgeClass" => "badge badge-warning badge-pill float-right mr-2",
-                "icon" => "feather icon-home",
-                // "submenu" => [
-                //     [
-                //         "url" => 'home',
-                //         "name" => "Control de temperatura",
-                //         "icon" => "feather icon-circle",
-                //     ],
-                //     // [
-                //     //     "url" => "",
-                //     //     "name" => "ngGrid",
-                //     //     "icon" => "feather icon-circle",
-                //     // ]
-                // ]
+                "icon" => "feather icon-home"
             ]
         ];
-        return view('vuexy_login.login',compact('breadcrumbs','menus'));
+        return view('vuexy_login.login');
+    }
+
+
+    public function users()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'name' => "Usuarios"
+            ]
+        ];
+
+        $roles = Role::where('id','>',1)->get(['id','name']);
+
+        return view('backend.users',compact('breadcrumbs','roles'));
     }
 
     public function categories()
@@ -114,5 +114,71 @@ class BackendController extends Controller
         $categories = Category::all(['id','name']);
 
         return view('backend.enterprises',compact('breadcrumbs','categories'));
+    }
+
+    public function blog()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Blog"
+            ], 
+            [
+                'name' => "Noticias"
+            ]
+        ];
+
+        return view('backend.blog',compact('breadcrumbs'));
+    }
+
+    public function testimonials()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Módulos"
+            ], 
+            [
+                'name' => "Testimoniales"
+            ]
+        ];
+
+        return view('backend.testimonials',compact('breadcrumbs'));
+    }
+
+    public function videos()
+    {
+        $breadcrumbs = [
+            [
+                'link' => '#',
+                'name' => "Dashboard"
+            ], 
+            [
+                'link' => '#',
+                'name' => "Blog"
+            ], 
+            [
+                'name' => "Videos"
+            ]
+        ];
+
+        $videoRepository = app('App\Repositories\VideoRepository');
+        $record = $videoRepository->getRecord();
+        if( is_null($record) ) {
+            $record = new \stdClass();
+            $record->id = NULL;
+            $record->video_1 = "";
+            $record->video_2 = "";
+        }
+
+        return view('backend.videos',compact('breadcrumbs','record'));
     }
 }

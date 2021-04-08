@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [
     'uses' => 'Web\BackendController@login',
-    'as' => 'loginView'
+    'as' => 'login'
 ]);
 
 Route::post('/login/ct', [
@@ -56,7 +56,7 @@ Route::get('paypal/cancel', [
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware' => [],
+    'middleware' => ['auth','admin'],
     'namespace' => 'Web'
 ], function(){
 
@@ -118,4 +118,98 @@ Route::group([
         'as' => 'enterprises.delete'
     ]);
     /// END ENTERPRISES MODULE ///////////////
+    /// BLOG MODULE ///////////////
+    Route::get('blog', [
+        'uses' => 'BackendController@blog',
+        'as' => 'blog'
+    ]);
+
+    Route::post('blog/controller', [
+        'uses' => 'BlogController@controller',
+        'as' => 'blog.controller'
+    ]);
+
+    Route::post('blog/saveImage', [
+        'uses' => 'BlogImageController@controller',
+        'as' => 'blogImage.controller'
+    ]);
+
+    Route::post('blog/list', [
+        'uses' => 'BlogController@list',
+        'as' => 'blog.list'
+    ]);
+
+    Route::post('blog/find', [
+        'uses' => 'BlogController@find',
+        'as' => 'blog.find'
+    ]);
+
+    Route::post('blog/delete', [
+        'uses' => 'BlogController@delete',
+        'as' => 'blog.delete'
+    ]);
+    /// END BLOG MODULE ///////////////
+    /// TESTIMONIAL MODULE ///////////////
+    Route::get('testimoniales', [
+        'uses' => 'BackendController@testimonials',
+        'as' => 'testimonials'
+    ]);
+
+    Route::post('testimoniales/controller', [
+        'uses' => 'TestimonialController@controller',
+        'as' => 'testimonials.controller'
+    ]);
+
+    Route::post('testimoniales/list', [
+        'uses' => 'TestimonialController@list',
+        'as' => 'testimonials.list'
+    ]);
+
+    Route::post('testimoniales/find', [
+        'uses' => 'TestimonialController@find',
+        'as' => 'testimonials.find'
+    ]);
+
+    Route::post('testimoniales/delete', [
+        'uses' => 'TestimonialController@delete',
+        'as' => 'testimonials.delete'
+    ]);
+    /// END TESTIMONIAL MODULE ///////////////
+    /// VIDEOS MODULE ///////////////
+    Route::get('videos', [
+        'uses' => 'BackendController@videos',
+        'as' => 'videos'
+    ]);
+
+    Route::post('videos/controller', [
+        'uses' => 'VideoController@controller',
+        'as' => 'videos.controller'
+    ]);
+    /// END VIDEOS MODULE ///////////////
+    ////// USERS MODULE
+    Route::get('usuarios', [
+        'uses' => 'BackendController@users',
+        'as' => 'users'
+    ]);
+
+    Route::post('usuarios/controller', [
+        'uses' => 'UserController@controller',
+        'as' => 'users.controller'
+    ]);
+
+    Route::post('usuarios/list', [
+        'uses' => 'UserController@list',
+        'as' => 'users.list'
+    ]);
+
+    Route::post('usuarios/delete', [
+        'uses' => 'UserController@delete',
+        'as' => 'users.delete'
+    ]);
+
+    Route::post('usuarios/find', [
+        'uses' => 'UserController@find',
+        'as' => 'users.find'
+    ]);
+    /// END USERS MODULE ///////////////
 });

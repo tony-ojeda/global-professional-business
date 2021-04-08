@@ -327,7 +327,7 @@
                     }
                 }
                 this.clearErrors(1);
-                this.portrait_image_text = 'Seleccionar un archivo';
+                this.portrait_image_text = 'Seleccionar una imagen';
                 document.getElementsByTagName("form")[0].reset();
                 EventBus.$emit('clearModal');
             },
@@ -419,7 +419,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .portrait {
         height: 64px;
         object-fit: cover;

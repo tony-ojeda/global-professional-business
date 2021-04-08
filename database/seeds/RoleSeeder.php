@@ -20,6 +20,10 @@ class RoleSeeder extends Seeder
             [
                 'name' => 'Administrador',
                 'code' => '99'
+            ],
+            [
+                'name' => 'Cliente',
+                'code' => '98'
             ]
         ];
 
