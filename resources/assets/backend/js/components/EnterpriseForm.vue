@@ -10,13 +10,13 @@
                         <div class="form-body">
                             <div class="row">
                                 <input type="hidden" v-model="model.id" name="id">
-                                <div class="col-12 col-md-4">
+                                <div class="col-12">
                                     <div class="form-group">
                                         <label for="category_id">Categoría</label>
                                         <select
-                                            id="category_id" 
-                                            class="form-control" 
-                                            name="category_id" 
+                                            id="category_id"
+                                            class="form-control"
+                                            name="category_id"
                                             v-model="model.category_id"
                                         >
                                             <option value="" hidden>Seleccione una categoría</option>
@@ -25,102 +25,116 @@
                                         <div class="invalid-feedback category_id-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="name">Nombre</label>
-                                        <input 
-                                            type="text" 
-                                            id="name" 
-                                            class="form-control" 
-                                            name="name" 
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            class="form-control"
+                                            name="name"
                                             placeholder="Nombre"
                                             v-model="model.name"
                                         >
                                         <div class="invalid-feedback name-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="website">Website</label>
-                                        <input 
-                                            type="text" 
-                                            id="website" 
-                                            class="form-control" 
-                                            name="website" 
+                                        <input
+                                            type="text"
+                                            id="website"
+                                            class="form-control"
+                                            name="website"
                                             placeholder="Website"
                                             v-model="model.website"
                                         >
                                         <div class="invalid-feedback website-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-6">
                                     <div class="form-group">
                                         <label for="phone">Teléfono</label>
-                                        <input 
-                                            type="text" 
-                                            id="phone" 
-                                            class="form-control" 
-                                            name="phone" 
+                                        <input
+                                            type="text"
+                                            id="phone"
+                                            class="form-control"
+                                            name="phone"
                                             placeholder="Teléfono"
                                             v-model="model.phone"
                                         >
                                         <div class="invalid-feedback phone-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-8">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Correo electrónico</label>
+                                        <input
+                                            type="text"
+                                            id="email"
+                                            class="form-control"
+                                            name="email"
+                                            placeholder="Teléfono"
+                                            v-model="model.email"
+                                        >
+                                        <div class="invalid-feedback email-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
                                     <div class="form-group">
                                         <label for="details">Detalles</label>
-                                        <input 
-                                            type="text" 
-                                            id="details" 
-                                            class="form-control" 
-                                            name="details" 
+                                        <input
+                                            type="text"
+                                            id="details"
+                                            class="form-control"
+                                            name="details"
                                             placeholder="Detalles"
                                             v-model="model.details"
                                         >
                                         <div class="invalid-feedback details-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-8">
+                                <div class="col-12">
                                     <div class="form-group">
                                         <label for="schedule">Horario</label>
-                                        <input 
-                                            type="text" 
-                                            id="schedule" 
-                                            class="form-control" 
-                                            name="schedule" 
+                                        <input
+                                            type="text"
+                                            id="schedule"
+                                            class="form-control"
+                                            name="schedule"
                                             placeholder="Horario"
                                             v-model="model.schedule"
                                         >
                                         <div class="invalid-feedback schedule-errors"></div>
                                     </div>
                                 </div>
-                                 <div class="col-12 col-md-12">
+                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-12 col-md-6">
                                             <div class="form-group">
                                                 <label for="portrait_image">
                                                     Imagen de portada
                                                 </label>
-                                                <input 
-                                                    type="text" 
-                                                    class="form-control" 
-                                                    id="portrait_imageTrigger" 
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="portrait_imageTrigger"
                                                     @click="openFile()"
                                                     v-model="portrait_image_text"
                                                     readonly
                                                 >
-                                                <input 
-                                                    type="file" 
-                                                    class="form-control collapse" 
-                                                    name="portrait_image" 
-                                                    id="portrait_image" 
+                                                <input
+                                                    type="file"
+                                                    class="form-control collapse"
+                                                    name="portrait_image"
+                                                    id="portrait_image"
                                                     @change="fileAdded($event)"
                                                     accept="image/*"
                                                 >
                                                 <div class="invalid-feedback portrait_image-errors"></div>
                                                 <input type="hidden" id="portrait_image_preview" v-model="model.portrait_image">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-auto mt-2 mt-md-0" v-if="model.portrait_image != ''">
@@ -149,11 +163,11 @@
                             <div class="row">
                                 <div class="col-12">
                                     <fieldset class="form-group position-relative has-icon-left input-divider-left">
-                                        <input 
-                                            type="text" 
-                                            class="form-control" 
-                                            id="iconLeft3" 
-                                            placeholder="Dirección" 
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="iconLeft3"
+                                            placeholder="Dirección"
                                             @click="openModal()"
                                             autocomplete="off"
                                             readonly
@@ -194,7 +208,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="form-body">
                 <div class="row">
                     <div class="col-12">
@@ -214,7 +228,7 @@
     import formErrors from '../mixins/formErrors';
     import swalMessages from '../mixins/swalMessages';
     import vue2Dropzone from 'vue2-dropzone';
-    
+
 
     export default {
         mixins: [ formErrors, swalMessages ],
@@ -272,7 +286,7 @@
                     dictDefaultMessage: 'Coloque sus imágenes aquí',
                     // maxFiles: 1,
                     init: function() {
-                        this.on('sending', function(file, xhr, formData) 
+                        this.on('sending', function(file, xhr, formData)
                         {
                             let token = document.head.querySelector('meta[name="csrf-token"]').content;
                             let currentFormData = new FormData($("#enterpriseForm")[0]);
@@ -337,7 +351,7 @@
                 $('#enterpriseAddressModal').modal('show');
             },
             remove: function() {
-                
+
             },
             formController: async function(event) {
 
@@ -347,7 +361,7 @@
                 //     // console.log(element.name);
                 //     // fd.append('files[]',element);
                 //     element.status =1;
-                    
+
                 // });
 
                 // return;
@@ -365,7 +379,7 @@
                 });
 
                 // fd = await this.addfilesFormData(fd);
-                    
+
                 axios.post(this.url,fd,
                             { headers: {
                                 'Content-type': 'application/x-www-form-urlencoded',
@@ -390,7 +404,7 @@
                     await fd.append('files[]',file);
                 }, Promise.resolve(fd));
             },
-            openFile: function() 
+            openFile: function()
             {
                 $('#portrait_image').trigger('click');
             },

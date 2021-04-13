@@ -22,12 +22,13 @@ class EnterpriseController extends Controller
             'name.required' => 'El nombre es obligatorio.',
             'website.required' => 'El website es obligatorio.',
             'phone.required' => 'El teléfono es obligatorio.',
+            'email.required' => 'El correo electrónico es obligatorio.',
             'details.required' => 'Los detalles son obligatorios.',
             'schedule.required' => 'El horario es obligatorio.',
             'portrait_image.required' => 'La imagen es obligatoria.',
             'portrait_image.image' => 'Tiene que ser una imagen válida.',
-            'portrait_image.mimes' => 'Use un formato válido jpg, jpeg ,png.',
-            'portrait_image.max' => 'La imagen máximo puede pesar :max kb.',
+            'portrait_image.mimes' => 'Use un formato válido jpg, jpeg, png.',
+            'portrait_image.max' => 'La imagen máximo puede pesar: max kb.',
         ];
 
         $rules = [
@@ -35,14 +36,15 @@ class EnterpriseController extends Controller
             'name' => 'required',
             'website' => 'required',
             'phone' => 'required',
+            'email' => 'required',
             'details' => 'required',
             'schedule' => 'required',
-            'portrait_image' => 'required|image|mimes:jpg,png|max:800'
+            'portrait_image' => 'required|image|mimes:jpg,jpeg,png|max:800'
             // 'address' => 'required',
         ];
 
         if(request('id')) {
-            $rules["portrait_image"] = 'image|mimes:jpg,png|max:800';
+            $rules["portrait_image"] = 'image|mimes:jpg,jpeg,png|max:800';
         }
 
         request()->validate($rules, $messages);
@@ -77,7 +79,7 @@ class EnterpriseController extends Controller
     public function find()
     {
         $id = request('id');
-        $fields = ['id','user_id','category_id','name','website','phone','details','schedule','portrait_image','address','address_object'];
+        $fields = ['id','user_id','category_id','name','website','phone', 'email','details','schedule','portrait_image','address','address_object'];
         $with = [
             'images' => static function($query) {
                 $query->select('id','enterprise_id','url_image','position');

@@ -1,0 +1,107 @@
+#directory {
+    padding: 0 0 3rem;
+
+    .widget {
+        background-color: @blanco;
+        border-radius: 1rem;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        padding: 2rem;
+
+        .widget--title {
+            color: @negro;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+		    padding-bottom: 1.5rem;
+            position: relative;
+
+            &:after {
+                background-color: @rojo;
+                border-radius: 2rem;
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 4px;
+                left: 0;
+                position: absolute;
+                width: 2rem;
+            }
+        }
+
+        .search-bar {
+            input {
+                border: none;
+                border-bottom: 1px solid #6A6A6A;
+                border-radius: 0;
+                height: 48px;
+                font-size: 0.875rem;
+                padding: 0.5rem 0;
+                width: 100%;
+            }
+        }
+
+        .form-check {
+            margin-bottom: 0.5rem;
+
+            label {
+                color: @negro;
+                font-size: 0.875rem;
+            }
+        }
+    }
+
+    .enterprise {
+        background-color: @blanco;
+        border-radius: 1rem;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        min-height: 100%;
+        padding: 1rem;
+
+        .enterprise--image {
+            background-color: @gris;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            height: 174px;
+
+            img {
+                display: block;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+            }
+        }
+
+        .enterprise--name {
+            color: @negro;
+            font-size: 0.875rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .enterprise--category {
+            color: @gris;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .enterprise--address {
+            align-items: flex-start;
+            color: @gris;
+            display: flex;
+            font-size: 0.75rem;
+
+            svg {
+                flex: 0 0 auto;
+                margin-top: 3px;
+                margin-right: 0.5rem;
+
+                path {
+                    fill: #FE0000;
+                }
+            }
+        }
+    }
+}

@@ -16,32 +16,32 @@ use Illuminate\Support\Facades\Route;
 //     return "TEST";
 // });
 
-Route::get('/', [
+Route::get('/admin/login', [
     'uses' => 'Web\BackendController@login',
     'as' => 'login'
 ]);
 
-Route::post('/login/ct', [
+Route::post('/admin/login/ct', [
     'uses' => 'Web\UserController@login',
     'as' => 'login.ct'
 ]);
 
-Route::get('/testing', [
+Route::get('/admin/testing', [
     'uses' => 'Web\BackendController@testing',
     'as' => 'testing'
 ]);
 
-Route::post('paypal/pay', [
+Route::post('/adminpaypal/pay', [
     'uses' => 'Web\PayPalController@pay',
     'as' => 'paypal.pay'
 ]);
 
-Route::get('paypal/approval', [
+Route::get('/adminpaypal/approval', [
     'uses' => 'Web\PayPalController@approval',
     'as' => 'paypal.approval'
 ]);
 
-Route::get('paypal/cancel', [
+Route::get('/adminpaypal/cancel', [
     'uses' => 'Web\PayPalController@cancel',
     'as' => 'paypal.cancelled'
 ]);
@@ -212,4 +212,62 @@ Route::group([
         'as' => 'users.find'
     ]);
     /// END USERS MODULE ///////////////
+});
+
+
+Route::group([
+    'as' => 'frontend.',
+    'namespace' => 'Frontend'
+], function(){
+    /**
+     * Home
+     */
+    Route::get('/', [
+        'uses' => 'IndexController@index',
+        'as' => 'index'
+    ]);
+
+    Route::post('formulario-contacto', [
+        'uses' => 'IndexController@sendMessage',
+        'as' => 'send_message'
+    ]);
+
+    /**
+     * Login
+     */
+    Route::get('iniciar-sesion', [
+        'uses' => 'LoginController@index',
+        'as' => 'login'
+    ]);
+
+    Route::post('iniciar-sesion/validar', [
+        'uses' => 'LoginController@login',
+        'as' => 'login.validate'
+    ]);
+
+    /**
+     * Registro
+     */
+    Route::get('registro', [
+        'uses' => 'LoginController@register',
+        'as' => 'register'
+    ]);
+
+    Route::post('registro/validar', [
+        'uses' => 'LoginController@newUser',
+        'as' => 'register.validate'
+    ]);
+
+    /**
+     * Directorio
+     */
+    Route::get('directorio', [
+        'uses' => 'DirectoryController@index',
+        'as' => 'directory'
+    ]);
+
+    Route::get('directorio/registro', [
+        'uses' => 'DirectoryController@newBusiness',
+        'as' => 'directory.register'
+    ]);
 });

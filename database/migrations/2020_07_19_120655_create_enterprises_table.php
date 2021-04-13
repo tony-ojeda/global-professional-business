@@ -20,6 +20,7 @@ class CreateEnterprisesTable extends Migration
             $table->string('name',100)->nullable();
             $table->string('website',255)->nullable();
             $table->string('phone',15)->nullable();
+            $table->string('email',255)->nullable();
             $table->longText('details')->nullable();
             $table->longText('schedule')->nullable();
             $table->string('portrait_image')->nullable();

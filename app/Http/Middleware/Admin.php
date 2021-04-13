@@ -18,7 +18,7 @@ class Admin
     {
         $user = Auth::user();
         if(!$user->hasRole(["100","99"])) {
-            return redirect()->route('home');
+            return redirect()->route('admin.home');
         }
 
         return $next($request);

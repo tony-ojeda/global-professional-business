@@ -13,11 +13,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12 mb-2">
-                                <input 
-                                    type="text" 
-                                    class="form-control form-control-sm" 
-                                    name="enterprise_address" 
-                                    id="enterprise_address" 
+                                <input
+                                    type="text"
+                                    class="form-control form-control-sm"
+                                    name="enterprise_address"
+                                    id="enterprise_address"
                                     autocomplete="off"
                                     v-on:keypress.enter.prevent=""
                                     placeholder="Buscar una dirección"
@@ -88,7 +88,7 @@
             $('#enterpriseAddressModal').on('hide.bs.modal', () => {
                 this.closed();
             });
-            
+
         },
         methods: {
             init: function()
@@ -134,7 +134,7 @@
                 let options = {
                     // bounds: defaultBounds,
                     types: ['address'],
-                    componentRestrictions: countryRestrict
+                    // componentRestrictions: countryRestrict
                 };
 
                 this.autocomplete = new google.maps.places.Autocomplete(input, options);
@@ -161,14 +161,14 @@
                     this.editMap();
                 }
             },
-            editMap: function() 
+            editMap: function()
             {
                 let posIni = {lat: this.extra_info.address_object.latitude, lng: this.extra_info.address_object.longitude};
                 let bounds = new google.maps.LatLngBounds();
                 // let icon = this.markerUserIcon;
 
                 this.initMarker(posIni);
-                // if(this.current_marker == null) 
+                // if(this.current_marker == null)
                 // {
                 //     this.current_marker = new google.maps.Marker({
                 //         position: posIni,
@@ -177,7 +177,7 @@
                 //         // icon: icon,
                 //     });
                 // }
-                
+
 
                 // google.maps.event.addListenerOnce(this.current_marker, 'dragend',(data) => {
                 //     this.geocodeLatLng()
@@ -196,7 +196,7 @@
             },
             initMarker: function(posIni)
             {
-                if(this.current_marker == null) 
+                if(this.current_marker == null)
                 {
                     this.current_marker = new google.maps.Marker({
                         position: posIni,
@@ -205,7 +205,7 @@
                         // icon: icon,
                     });
                 }
-                
+
 
                 google.maps.event.addListenerOnce(this.current_marker, 'dragend',(data) => {
                     this.geocodeLatLng()
@@ -214,7 +214,7 @@
             geocodeLatLng: function() {
                 let geocoder = new google.maps.Geocoder;
                 let latlng = {
-                    lat: this.current_marker.getPosition().lat(), 
+                    lat: this.current_marker.getPosition().lat(),
                     lng: this.current_marker.getPosition().lng()
                 };
                 geocoder.geocode({'location': latlng}, (results, status) => {
@@ -242,7 +242,7 @@
                         }
                     } else {
                     }
-                    
+
                 });
             },
             closed: function() {

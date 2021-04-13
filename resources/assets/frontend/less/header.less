@@ -1,0 +1,215 @@
+#header {
+	left: 0;
+	padding: 1rem 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+
+    &.header-white {
+        background-color: @blanco;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+        .logo {
+            img {
+                &.black {
+                    display: block;
+                }
+
+                &.white {
+                    display: none;
+                }
+            }
+        }
+
+        #main-nav {
+            .main-nav-box {
+                .main-nav {
+                    li {
+                        a {
+                            color: @negro;
+                        }
+                    }
+                }
+
+                .login-nav {
+                    .btn-outline-white {
+                        border-color: @negro;
+                        color: @negro;
+                    }
+                }
+            }
+        }
+    }
+
+	.logo {
+		width: 120px;
+
+		img {
+			height: auto;
+			width: 100%;
+
+            &.black {
+                display: none;
+            }
+
+            &.white {
+                display: block;
+            }
+		}
+
+	}
+
+	#main-nav {
+		.main-nav-button {
+			align-content: center;
+			align-items: center;
+			background-color: transparent;
+			border: none;
+			display: flex;
+			flex-wrap: wrap;
+			height: 60px;
+			justify-content: center;
+			margin-left: auto;
+			padding: 1rem;
+			position: relative;
+			width: 60px;
+			z-index: 5;
+
+            @media @lg {
+                display: none;
+            }
+
+			&:focus,
+			&:visited {
+				border: none;
+				outline: none;
+			}
+
+			span {
+				background-color: @blanco;
+				border-radius: 1rem;
+				display: block;
+				flex: 0 0 auto;
+				height: 3px;
+				margin-bottom: 0.25rem;
+				transition: all .4s ease;
+				transform-origin: 0 0;
+				width: 1.5rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&.active {
+				span:first-child {
+					transform: rotate(45deg) translate(3px, -4px);
+				}
+
+				span:nth-child(2) {
+					opacity: 0;
+				}
+
+				span:last-child {
+					transform: rotate(-45deg) translate(0px, 3px);
+				}
+			}
+		}
+
+		.main-nav-box {
+			align-content: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, 0.95);
+			display: flex;
+			flex-wrap: wrap;
+			height: 100vh;
+			left: 0;
+			opacity: 0;
+			padding: 5.75rem 2rem 2rem;
+			position: fixed;
+			top: 0;
+			transition: .4s all ease;
+			visibility: hidden;
+			width: 100%;
+			z-index: 4;
+
+            @media @lg {
+                background-color: transparent;
+                height: auto;
+                justify-content: flex-end;
+                left: auto;
+                opacity: 1;
+                padding: 0;
+                position: relative;
+                top: auto;
+                visibility: initial;
+                width: auto;
+            }
+
+			&.active {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			.main-nav {
+				flex: 0 0 100%;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+                @media @lg {
+                    display: flex;
+                    flex: 0 0 auto;
+                    justify-content: flex-end;
+                }
+
+				li {
+                    text-align: center;
+
+					a {
+						color: @blanco;
+						display: block;
+						font-size: 1rem;
+						padding: 0.75rem 1rem;
+						text-align: center;
+                        text-transform: uppercase;
+
+                        @media @lg {
+                            display: inline-block;
+                            vertical-align: top;
+                        }
+					}
+				}
+			}
+
+			.login-nav {
+				flex: 0 0 100%;
+                text-align: center;
+
+                @media @lg {
+                    flex: 0 0 auto;
+                    margin-left: 2rem;
+                }
+
+				.btn {
+					display: block;
+					margin-top: 1rem;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                    text-transform: uppercase;
+
+                    @media @lg {
+                        display: inline-block;
+                        margin-left: 1rem;
+                        margin-top: 0;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+				}
+			}
+		}
+	}
+}

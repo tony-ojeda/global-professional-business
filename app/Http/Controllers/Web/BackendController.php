@@ -22,7 +22,7 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboardh"
-            ], 
+            ],
             [
                 'link' => '#',
                 'name' => "Inicio"
@@ -38,7 +38,7 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboard"
-            ], 
+            ],
             [
                 'name' => "Inicio"
             ]
@@ -65,7 +65,7 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboard"
-            ], 
+            ],
             [
                 'name' => "Usuarios"
             ]
@@ -82,11 +82,11 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboard"
-            ], 
+            ],
             [
                 'link' => '#',
                 'name' => "Módulos"
-            ], 
+            ],
             [
                 'name' => "Categorías"
             ]
@@ -101,11 +101,11 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboard"
-            ], 
+            ],
             [
                 'link' => '#',
                 'name' => "Módulos"
-            ], 
+            ],
             [
                 'name' => "Empresas"
             ]
@@ -122,11 +122,11 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboard"
-            ], 
+            ],
             [
                 'link' => '#',
                 'name' => "Blog"
-            ], 
+            ],
             [
                 'name' => "Noticias"
             ]
@@ -141,11 +141,11 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboard"
-            ], 
+            ],
             [
                 'link' => '#',
                 'name' => "Módulos"
-            ], 
+            ],
             [
                 'name' => "Testimoniales"
             ]
@@ -160,11 +160,11 @@ class BackendController extends Controller
             [
                 'link' => '#',
                 'name' => "Dashboard"
-            ], 
+            ],
             [
                 'link' => '#',
                 'name' => "Blog"
-            ], 
+            ],
             [
                 'name' => "Videos"
             ]

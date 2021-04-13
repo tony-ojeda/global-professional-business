@@ -3,30 +3,49 @@ const mix = require('laravel-mix');
 /// WEB
 
 mix
+    .setPublicPath('public')
     .js('resources/assets/backend/js/app.js', 'public/backend/js/app.js')
     .sass('resources/assets/backend/scss/app.scss','public/backend/css/app.css')
     .js('resources/assets/login/js/app.js', 'public/login/js/app.js')
     .sass('resources/assets/login/scss/app.scss','public/login/css/app.css')
+    .less(
+		'resources/assets/frontend/less/app.less',
+		'public/frontend/css/app.css'
+   	)
+	.js('resources/assets/frontend/js/app.js',
+		'public/frontend/js/app.js')
+	.js('resources/assets/frontend/js/custom.js',
+		'public/frontend/js/custom.js')
     .sourceMaps()
     .webpackConfig({
         devtool: 'source-map'
     })
     .options({
         processCssUrls: false
-    });
+    })
+    .browserSync({
+		proxy: 'http://localhost/gpb/public',
+		files: [
+            'app/**/*',
+            'public/**/*',
+            'resources/views/**/*',
+			'resources/assets/**/*',
+            'routes/**/*'
+        ]
+   });
 
 
-mix.browserSync({
-    proxy : 'http://localhost/gpb/public/',
-    open: true,
-    files: [
-        'app/**/*',
-        'public/**/*',
-        'resources/views/**/*',
-        'resources/assets/**/*',
-        'routes/**/*'
-    ]
-});
+// mix.browserSync({
+//     proxy : 'http://localhost/gpb/public/',
+//     open: true,
+//     files: [
+//         'app/**/*',
+//         'public/**/*',
+//         'resources/views/**/*',
+//         'resources/assets/**/*',
+//         'routes/**/*'
+//     ]
+// });
 
 
 /// VUEXY

@@ -35006,7 +35006,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\wamp64\www\gpb\resources\assets\login\js\app.js */"./resources/assets/login/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\gpb\resources\assets\login\js\app.js */"./resources/assets/login/js/app.js");
 
 
 /***/ })

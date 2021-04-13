@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $this->userRepository = $userRepository;
     }
-    
+
     public function login()
     {
     	$messages = [
@@ -40,13 +40,13 @@ class UserController extends Controller
         ];
 
 
-        if ( 
+        if (
             Auth::attempt(
                 [
                     'email' => request('email'),
                     'password' => request('password')
                 ],true
-            ) 
+            )
         ){
         	$response["error"] = FALSE;
         	$response["type"] = 3;
@@ -54,7 +54,7 @@ class UserController extends Controller
         	$response["subtitle"] = "Bienvenido, " . Auth::user()->name;
         	$response["url"] = route("admin.home");
         }
-        
+
 
         return response()->json($response,200);
     }
@@ -63,7 +63,7 @@ class UserController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('home');
+        return redirect()->route('admin.login');
     }
 
     public function controller()
