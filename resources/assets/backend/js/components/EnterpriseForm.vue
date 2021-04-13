@@ -338,7 +338,8 @@
                         postal_code: '',
                         latitude: '',
                         longitude: '',
-                    }
+                    },
+                    deleted_images: []
                 }
                 this.clearErrors(1);
                 this.portrait_image_text = 'Seleccionar una imagen';
