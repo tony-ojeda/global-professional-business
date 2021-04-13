@@ -10,7 +10,8 @@ class TestimonialController extends Controller
 {
     protected $testimonial;
 
-    public function __construct(Testimonial $testimonial) {
+    public function __construct(Testimonial $testimonial)
+    {
         $this->testimonial = $testimonial;
     }
 
@@ -30,21 +31,20 @@ class TestimonialController extends Controller
 
         $rules = [
             'title' => 'required',
-            'portrait_image' => 'required|image|mimes:jpg,png|max:600',
+            'portrait_image' => 'required|image|mimes:jpg,jpeg,png|max:600',
             'content' => 'required'
         ];
 
-        if(isset($data["id"]) && $data["id"] != '')
-        {
-            $rules["portrait_image"] = 'image|mimes:jpg,png|max:600';
+        if (isset($data["id"]) && $data["id"] != '') {
+            $rules["portrait_image"] = 'image|mimes:jpg,jpeg,png|max:600';
         }
         
-        request()->validate($rules,$messages);
+        request()->validate($rules, $messages);
         //////////////
 
         //INICIALIZACION
         $response = [
-            'error' => TRUE,
+            'error' => true,
             'type' => 2,
             'title' => 'Error',
             'subtitle' => ''
@@ -56,12 +56,12 @@ class TestimonialController extends Controller
         //CREACION|ACTUALIZACION
         try {
             $model = $this->testimonial->createUpdate($data);
-            $response["error"] = FALSE;
+            $response["error"] = false;
             $response["type"] = 1;
             // $response["url"] = route('post.update',['id' => $model->id]);
             $response["title"] = "Ok";
             $response["subtitle"] = "Testimonial actualizada correctamente";
-            if($model->wasRecentlyCreated) {
+            if ($model->wasRecentlyCreated) {
                 $response["subtitle"] = "Testimonial creada correctamente";
             }
         } catch (\Throwable $th) {
@@ -72,7 +72,7 @@ class TestimonialController extends Controller
         //////////////
 
         //RESPUESTA
-        return response()->json($response,200);
+        return response()->json($response, 200);
         //////////////
     }
 
@@ -80,7 +80,7 @@ class TestimonialController extends Controller
     {
         $id = request('id');
         $response = [
-            'error' => TRUE,
+            'error' => true,
             'type' => 2,
             'title' => 'Error',
         ];
@@ -88,7 +88,7 @@ class TestimonialController extends Controller
         try {
             $this->testimonial->delete($id);
             $response = [
-                'error' => FALSE,
+                'error' => false,
                 'type' => 3,
                 'title' => 'Ok',
                 'subtitle' => 'Testimonial eliminada correctamente',
@@ -112,13 +112,13 @@ class TestimonialController extends Controller
     {
         $id = request('id');
         $fields = ['id','title','portrait_image','content'];
-        $model = $this->testimonial->find(request('id'),$fields);
+        $model = $this->testimonial->find(request('id'), $fields);
 
         $model->portrait_image = asset('storage/' . $model->portrait_image);
         $response = [
             "model" => $model
         ];
 
-        return response()->json($response,200);
+        return response()->json($response, 200);
     }
 }
