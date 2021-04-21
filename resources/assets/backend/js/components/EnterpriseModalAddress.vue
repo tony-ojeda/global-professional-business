@@ -152,14 +152,11 @@
                     }
                 }
 
-                if(this.extra_info.address_object['country'] == 'Perú')
-                {
-                    this.extra_info.address_object.latitude = place.geometry.location.lat();
-                    this.extra_info.address_object.longitude = place.geometry.location.lng();
-                    this.extra_info.address_object.formatted_address = place.formatted_address;
-                    this.current_address = place.formatted_address;
-                    this.editMap();
-                }
+                this.extra_info.address_object.latitude = place.geometry.location.lat();
+                this.extra_info.address_object.longitude = place.geometry.location.lng();
+                this.extra_info.address_object.formatted_address = place.formatted_address;
+                this.current_address = place.formatted_address;
+                this.editMap();
             },
             editMap: function()
             {
@@ -228,14 +225,12 @@
                                     this.extra_info.address_object[addressType] = val;
                                 }
                             }
-                            if(this.extra_info.address_object['country'] == 'Perú')
-                            {
-                                this.extra_info.address_object.latitude = latlng.lat;
-                                this.extra_info.address_object.longitude = latlng.lng;
-                                this.editMap();
-                                this.extra_info.address_object.formatted_address = results[0].formatted_address;
-                                this.current_address = results[0].formatted_address;
-                            }
+
+                            this.extra_info.address_object.latitude = latlng.lat;
+                            this.extra_info.address_object.longitude = latlng.lng;
+                            this.editMap();
+                            this.extra_info.address_object.formatted_address = results[0].formatted_address;
+                            this.current_address = results[0].formatted_address;
 
                         } else {
 
