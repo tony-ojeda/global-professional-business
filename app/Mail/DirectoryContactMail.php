@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class DirectoryContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,8 +30,8 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from('gabriel@codea.pe')
-                    ->subject('Mensaje de Contacto '.$this->mail_info['name'])
-                    ->view('emails.contact_form');
+        return $this->from('gabriel@codea.pe', 'GPB')
+                    ->subject('[GPB] '.$this->mail_info['name'])
+                    ->view('emails.directory_contact_form');
     }
 }

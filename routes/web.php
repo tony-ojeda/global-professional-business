@@ -266,8 +266,28 @@ Route::group([
         'as' => 'directory'
     ]);
 
+    Route::get('directorio/mis-negocios', [
+        'uses' => 'DirectoryController@myBusiness',
+        'as' => 'directory.my_business'
+    ]);
+
+    Route::post('directorio/mis-negocios/listar', [
+        'uses' => 'DirectoryController@listMyBusiness',
+        'as' => 'directory.my_business.list'
+    ]);
+
     Route::get('directorio/registro', [
         'uses' => 'DirectoryController@newBusiness',
         'as' => 'directory.register'
+    ]);
+
+    Route::get('directorio/negocio', [
+        'uses' => 'DirectoryController@business',
+        'as' => 'directory.business'
+    ]);
+
+    Route::post('directorio/enviar-mensaje', [
+        'uses' => 'DirectoryController@sendMessage',
+        'as' => 'directory.send_message'
     ]);
 });

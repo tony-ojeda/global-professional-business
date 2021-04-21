@@ -1,5 +1,5 @@
 <template>
-    <div class="table-responsive">
+    <div>
         <table :id="table_container" class="table dt-responsive" style="border-collapse: collapse; border-spacing: 0; width: 100%;"></table>
     </div>
 </template>
@@ -8,6 +8,7 @@
     import { EventBus } from '../EventBus';
     import langs from '../mixins/langs.js';
     import datatable from '../mixins/datatable.js';
+
     export default {
         mixins: [ langs, datatable ],
         props: {
@@ -65,6 +66,10 @@
                         { data: 'n', title: "N°", width: 20, sortable: false },
                         { data: 'id', title: "id", visible: false, sortable: false },
                         { data: "name", title: "Empresa", sortable: false },
+                        { data: "website", title: "Web", sortable: false },
+                        { data: "address", title: "Dirección", sortable: false },
+                        { data: "category_name", title: "Categoría", sortable: false },
+                        { data: "phone", title: "Teléfono", sortable: false },
                         {
                             data: null,
                             title: 'Acciones',

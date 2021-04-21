@@ -81,8 +81,8 @@
         data() {
             return {
                 model: {
-                    email: '',
-                    password: '',
+                    input_search: '',
+                    categories: [],
                 },
             }
         },
@@ -92,8 +92,8 @@
         methods: {
             clearModel: function() {
                 this.model = {
-                    email: '',
-                    password: '',
+                    input_search: '',
+                    categories: [],
                 }
             },
             formController: function(url, event) {
