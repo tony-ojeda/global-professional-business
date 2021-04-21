@@ -10,7 +10,8 @@ class EnterpriseController extends Controller
 {
     protected $enterprise;
 
-    public function __construct(Enterprise $enterprise) {
+    public function __construct(Enterprise $enterprise)
+    {
         $this->enterprise = $enterprise;
     }
 
@@ -34,16 +35,16 @@ class EnterpriseController extends Controller
         $rules = [
             'category_id' => 'required',
             'name' => 'required',
-            'website' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'details' => 'required',
-            'schedule' => 'required',
-            'portrait_image' => 'required|image|mimes:jpg,jpeg,png|max:800'
+            // 'website' => 'required',
+            // 'phone' => 'required',
+            // 'email' => 'required',
+            // 'details' => 'required',
+            // 'schedule' => 'required',
+            'portrait_image' => 'image|mimes:jpg,jpeg,png|max:800'
             // 'address' => 'required',
         ];
 
-        if(request('id')) {
+        if (request('id')) {
             $rules["portrait_image"] = 'image|mimes:jpg,jpeg,png|max:800';
         }
 
@@ -53,19 +54,20 @@ class EnterpriseController extends Controller
         // REGISTRO | ACTUALIZACION
         $data = request()->all();
         $response = [
-            "error" => FALSE,
+            "error" => false,
             "type" => 1,
             "title" => "OK",
             "subtitle" => "Empresa creada correctamente",
+            "reload" => 1
         ];
         $model = $this->enterprise->createUpdate($data);
-        if(!$model->wasRecentlyCreated) {
+        if (!$model->wasRecentlyCreated) {
             $response["subtitle"] = "Empresa actualizada correctamente";
         }
         ////////
 
         // RESPUESTA
-        return response()->json($response,200);
+        return response()->json($response, 200);
         ////////
     }
 
@@ -73,7 +75,7 @@ class EnterpriseController extends Controller
     {
         $records = $this->enterprise->list();
 
-        return response()->json($records,200);
+        return response()->json($records, 200);
     }
 
     public function find()
@@ -81,14 +83,14 @@ class EnterpriseController extends Controller
         $id = request('id');
         $fields = ['id','user_id','category_id','name','website','phone', 'email','details','schedule','portrait_image','address','address_object'];
         $with = [
-            'images' => static function($query) {
-                $query->select('id','enterprise_id','url_image','position');
-                $query->orderBy('id','asc');
+            'images' => static function ($query) {
+                $query->select('id', 'enterprise_id', 'url_image', 'position');
+                $query->orderBy('id', 'asc');
             }
         ];
-        $model = $this->enterprise->find(request('id'),$fields,$with);
+        $model = $this->enterprise->find(request('id'), $fields, $with);
         $model->portrait_image = asset('storage/' . $model->portrait_image);
-        $model->images->map(static function($item,$index) {
+        $model->images->map(static function ($item, $index) {
             $item->url_image = asset('storage/' . $item->url_image);
             return $item;
         });
@@ -97,7 +99,7 @@ class EnterpriseController extends Controller
             "model" => $model
         ];
 
-        return response()->json($response,200);
+        return response()->json($response, 200);
     }
 
     public function delete()
@@ -112,7 +114,6 @@ class EnterpriseController extends Controller
             'url' => ""
         ];
 
-        return response()->json($response,200);
+        return response()->json($response, 200);
     }
-
 }

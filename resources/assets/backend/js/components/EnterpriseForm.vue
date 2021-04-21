@@ -338,7 +338,8 @@
                         postal_code: '',
                         latitude: '',
                         longitude: '',
-                    }
+                    },
+                    deleted_images: []
                 }
                 this.clearErrors(1);
                 this.portrait_image_text = 'Seleccionar una imagen';
@@ -354,18 +355,6 @@
 
             },
             formController: async function(event) {
-
-                // file.status = Dropzone.QUEUED;
-                // let test = this.$refs.myVueDropzone1.getQueuedFiles();
-                // test.forEach(element => {
-                //     // console.log(element.name);
-                //     // fd.append('files[]',element);
-                //     element.status =1;
-
-                // });
-
-                // return;
-
                 EventBus.$emit('loading',true);
                 let target = $(event.target);
                 let fd = new FormData(event.target);

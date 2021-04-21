@@ -2,7 +2,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import EventBus from './EventBus';
 import Swal from 'sweetalert2';
 
 const files = require.context('./', true, /\.vue$/i);
