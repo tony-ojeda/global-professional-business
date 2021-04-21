@@ -4,7 +4,7 @@
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('vuexy/vendors/css/tables/datatable/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vuexy/vendors/css/tables/datatable/responsive.dataTables.min.css') }}">
-    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAjzBrEay4xjTpH_gEf2SsW47WxK9kY6MQ&libraries=places"></script>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyBG1-Mdd_161zFpQqTuwasscPZ-Lpo_rCQ&libraries=places"></script>
 @endsection
 
 @section('content')
