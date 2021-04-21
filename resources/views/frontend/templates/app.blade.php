@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="csrf-token" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Favicons -->
 	<link rel="icon" href="{{ asset('frontend/img/favicon.png') }}">
 	<!-- Title -->
@@ -40,8 +40,10 @@
 			<div class="row align-items-center">
 				<div class="col-6 col-lg-2">
 					<div class="logo">
-						<img class="white" src="{{ asset('/frontend/img/logo-blanco.png') }}" alt="">
-						<img class="black" src="{{ asset('/frontend/img/logo-negro.png') }}" alt="">
+                        <a href="{{ route('frontend.index') }}">
+                            <img class="white" src="{{ asset('/frontend/img/logo-blanco.png') }}" alt="">
+                            <img class="black" src="{{ asset('/frontend/img/logo-negro.png') }}" alt="">
+                        </a>
 					</div>
 				</div>
 				<div class="col-6 col-lg-10">
@@ -74,7 +76,7 @@
                             @elseif ( ( strpos(url()->current(), '/directorio') !== false ) )
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.directory.register') }}" class="btn btn-outline-white">Registrar Negocio</a>
-                                    <a href="#" class="btn btn-red">{{ Auth::user()->name }}</a>
+                                    <a href="{{ route('frontend.directory.my_business') }}" class="btn btn-red">{{ Auth::user()->name }}</a>
                                 </div>
                             @endif
 						</div>
@@ -132,10 +134,12 @@
     @endif
 
 	<!-- Scripts -->
-	<script src="{{ asset('/frontend/js/app.js?'.time()) }}"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @yield('scripts')
+	<script src="{{ asset('/frontend/js/app.js?'.time()) }}"></script>
 	<script src="{{ asset('/frontend/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('/frontend/js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('/frontend/js/custom.js?'.time()) }}"></script>
+
 </body>
 </html>

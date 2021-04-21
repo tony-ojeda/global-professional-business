@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\CountryList;
+use App\Enterprise;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
 use App\Testimonial;
@@ -14,8 +15,9 @@ class IndexController extends Controller
     public function index() {
         $countries = CountryList::orderBy('name')->get();
         $testimonials = Testimonial::all();
+        $enterprises = Enterprise::select('portrait_image')->get();
 
-		return view('frontend.index')->with(compact('countries', 'testimonials'));
+		return view('frontend.index')->with(compact('countries', 'testimonials', 'enterprises'));
 	}
 
     public function sendMessage() {

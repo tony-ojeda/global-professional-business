@@ -481,7 +481,17 @@ section {
   border-radius: 100%;
   height: 160px;
   margin: 0 auto 2rem;
+  overflow: hidden;
   width: 160px;
+}
+#team .staff .staff-photo img {
+  display: block;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
 }
 #team .staff .staff-name {
   color: #000000;
@@ -512,12 +522,12 @@ section {
 }
 #team .staff .staff-rrss li a img {
   display: block;
-  height: 12px;
+  height: 18px;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
-  width: 12px;
+  width: 18px;
 }
 #clients .owl-clients {
   position: relative;
@@ -732,6 +742,10 @@ section {
 #plans .plan {
   border-radius: 1rem;
   padding: 2rem;
+  transition: border 0.2s ease;
+}
+#plans .plan.selected {
+  border: 4px solid #000000;
 }
 #plans .plan .plan--header {
   align-items: flex-start;
@@ -1158,6 +1172,224 @@ section {
 }
 #directory .enterprise .enterprise--address svg path {
   fill: #FE0000;
+}
+.inner-content {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+.inner-content h1 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+@media screen and (min-width: 992px) {
+  .inner-content h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .inner-content h1:after {
+    width: 90px;
+  }
+}
+.inner-content .white-box {
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+.inner-content .white-box form .form-group label {
+  color: #6A6A6A;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.inner-content .white-box form .form-group input,
+.inner-content .white-box form .form-group textarea,
+.inner-content .white-box form .form-group select {
+  border: none;
+  border-bottom: 1px solid #6A6A6A;
+  border-image-width: 0;
+  border-radius: 0;
+  height: 48px;
+  padding: 0.5rem 0;
+}
+.inner-content .white-box form .form-group input[type="file"],
+.inner-content .white-box form .form-group textarea[type="file"],
+.inner-content .white-box form .form-group select[type="file"] {
+  border-bottom: none;
+}
+.inner-content .white-box form .form-group textarea {
+  height: 100px;
+  resize: none;
+}
+.inner-content .white-box form button {
+  background-color: #FF0000;
+  border-radius: 1rem;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.inner-content .white-box form button:disabled {
+  opacity: 0.7;
+}
+.inner-content .white-box form #map {
+  height: 300px;
+}
+.inner-content .white-box #plans .plan {
+  cursor: pointer;
+}
+.inner-content .dataTables_wrapper {
+  font-family: 'Open Sans', sans-serif;
+}
+.inner-content .dataTables_wrapper .dataTables_length {
+  float: none;
+}
+.inner-content .dataTables_wrapper .dataTables_length label {
+  align-items: center;
+  display: flex;
+  font-size: 0.75rem;
+}
+.inner-content .dataTables_wrapper .dataTables_length label select {
+  flex: 0 0 auto;
+  margin: 0 0.5rem;
+  width: 60px;
+}
+.inner-content .dataTables_wrapper .dataTables_scroll .dataTables_scrollHead .dataTables_scrollHeadInner .table thead tr th {
+  font-size: 0.75rem;
+}
+.inner-content .owl-banner {
+  margin-bottom: 4rem;
+  position: relative;
+}
+.inner-content .owl-banner .owl-stage-outer {
+  background-color: #D6D6D6;
+  border-radius: 1rem;
+}
+.inner-content .owl-banner .item {
+  height: 380px;
+}
+.inner-content .owl-banner .owl-nav .owl-prev,
+.inner-content .owl-banner .owl-nav .owl-next {
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.4s ease;
+  width: 48px;
+}
+.inner-content .owl-banner .owl-nav .owl-prev img,
+.inner-content .owl-banner .owl-nav .owl-next img {
+  display: block;
+}
+.inner-content .owl-banner .owl-nav .owl-prev:hover,
+.inner-content .owl-banner .owl-nav .owl-next:hover {
+  background-color: #FF0000;
+}
+.inner-content .owl-banner .owl-nav .owl-prev {
+  left: -64px;
+}
+.inner-content .owl-banner .owl-nav .owl-next {
+  right: -64px;
+}
+.inner-content .owl-banner .owl-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.inner-content .owl-banner .owl-dots .owl-dot {
+  border: 1px solid #C1C1C1;
+  border-radius: 100%;
+  height: 10px;
+  margin-left: 10px;
+  width: 10px;
+}
+.inner-content .owl-banner .owl-dots .owl-dot:first-child {
+  margin-left: 0;
+}
+.inner-content .owl-banner .owl-dots .owl-dot.active {
+  background-color: #FF0000;
+  border-color: #FF0000;
+}
+.inner-content .contact-box {
+  margin-bottom: 4rem;
+}
+.inner-content .contact-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  padding-bottom: 1.5rem;
+  position: relative;
+  text-align: left;
+  text-transform: none;
+}
+.inner-content .contact-box h3:after {
+  background-color: #FF0000;
+  border-radius: 2rem;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 32px;
+}
+.inner-content .contact-box .contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.inner-content .contact-box .contact-list li {
+  align-items: center;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.inner-content .contact-box .contact-list li:last-child {
+  margin-bottom: 0;
+}
+.inner-content .contact-box .contact-list li img {
+  display: block;
+  flex: 0 0 auto;
+  height: 20px;
+  margin-right: 0.75rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  width: 20px;
+}
+.inner-content .contact-box .contact-list li .txt {
+  color: #000000;
+  flex: 1 1 0;
+  font-size: 1rem;
+}
+.inner-content #map {
+  background-color: #D6D6D6;
+  border-radius: 1rem;
+  height: 500px;
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+.inner-content .contact-form {
+  margin-bottom: 4rem;
+}
+.inner-content .contact-form .success-message {
+  color: #000000;
+  font-size: 0.875rem;
+  margin-top: 1rem;
 }
 #footer {
   background-color: #000000;

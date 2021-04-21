@@ -92,7 +92,7 @@
 				<div class="col-12 col-lg-3">
 					<div class="staff">
 						<div class="staff-photo">
-
+                            <img src="{{ asset('frontend/img/ysabel-b.jpg') }}" alt="">
 						</div>
 						<div class="staff-name">
 							Ysabel B.
@@ -102,23 +102,8 @@
 						</div>
 						<ul class="staff-rrss">
 							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/linkedin.svg') }}" alt="">
-								</a>
-							</li>
-							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/facebook.svg') }}" alt="">
-								</a>
-							</li>
-							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/twitter.svg') }}" alt="">
-								</a>
-							</li>
-							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/instagram.svg') }}" alt="">
+								<a href="mailto:ysabel@globalprofessionalbusiness.com" target="_blank">
+									<img src="{{ asset('frontend/img/mail-negro.svg') }}" alt="">
 								</a>
 							</li>
 						</ul>
@@ -127,33 +112,118 @@
 				<div class="col-12 col-lg-3">
 					<div class="staff">
 						<div class="staff-photo">
-
+                            <img src="{{ asset('frontend/img/william-d.jpg') }}" alt="">
 						</div>
 						<div class="staff-name">
-							Ysabel B.
+							William D.
 						</div>
 						<div class="staff-job-title">
-							President
+							Senior Vice-President
 						</div>
 						<ul class="staff-rrss">
 							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/linkedin.svg') }}" alt="">
+								<a href="mailto:williaml@globalprofessionalbusiness.com" target="_blank">
+									<img src="{{ asset('frontend/img/mail-negro.svg') }}" alt="">
 								</a>
 							</li>
+						</ul>
+					</div>
+				</div>
+                <div class="col-12 col-lg-3">
+					<div class="staff">
+						<div class="staff-photo">
+                            <img src="{{ asset('frontend/img/karla-p.jpg') }}" alt="">
+						</div>
+						<div class="staff-name">
+							Karla P.
+						</div>
+						<div class="staff-job-title">
+							Vice President, Marketing
+						</div>
+						<ul class="staff-rrss">
 							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/facebook.svg') }}" alt="">
+								<a href="mailto:karlal@globalprofessionalbusiness.com" target="_blank">
+									<img src="{{ asset('frontend/img/mail-negro.svg') }}" alt="">
 								</a>
 							</li>
+						</ul>
+					</div>
+				</div>
+                <div class="col-12 col-lg-3">
+					<div class="staff">
+						<div class="staff-photo">
+                            <img src="{{ asset('frontend/img/estelle-e.jpg') }}" alt="">
+						</div>
+						<div class="staff-name">
+							Estelle E.
+						</div>
+						<div class="staff-job-title">
+							Vice President, Communications & Public Relations
+						</div>
+						<ul class="staff-rrss">
 							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/twitter.svg') }}" alt="">
+								<a href="mailto:estelle@globalprofessionalbusiness.com" target="_blank">
+									<img src="{{ asset('frontend/img/mail-negro.svg') }}" alt="">
 								</a>
 							</li>
+						</ul>
+					</div>
+				</div>
+                <div class="col-12 col-lg-3">
+					<div class="staff">
+						<div class="staff-photo">
+                            <img src="{{ asset('frontend/img/estelle-e.jpg') }}" alt="">
+						</div>
+						<div class="staff-name">
+							Jake S.
+						</div>
+						<div class="staff-job-title">
+							Vice President, Computer Science Engineer
+						</div>
+						<ul class="staff-rrss">
 							<li>
-								<a href="#" target="_blank">
-									<img src="{{ asset('frontend/img/instagram.svg') }}" alt="">
+								<a href="mailto:jakel@globalprofessionalbusiness.com" target="_blank">
+									<img src="{{ asset('frontend/img/mail-negro.svg') }}" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+                <div class="col-12 col-lg-3">
+					<div class="staff">
+						<div class="staff-photo">
+                            <img src="{{ asset('frontend/img/kimberly-s.jpg') }}" alt="">
+						</div>
+						<div class="staff-name">
+							Kimberly S.
+						</div>
+						<div class="staff-job-title">
+							Vice President, Civil Engineer
+						</div>
+						<ul class="staff-rrss">
+							<li>
+								<a href="mailto:kiml@globalprofessionalbusiness.com" target="_blank">
+									<img src="{{ asset('frontend/img/mail-negro.svg') }}" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+                <div class="col-12 col-lg-3">
+					<div class="staff">
+						<div class="staff-photo">
+                            <img src="{{ asset('frontend/img/bryan-x.png') }}" alt="">
+						</div>
+						<div class="staff-name">
+							Bryan X. G.
+						</div>
+						<div class="staff-job-title">
+							Business Economist
+						</div>
+						<ul class="staff-rrss">
+							<li>
+								<a href="mailto:bryanl@globalprofessionalbusiness.com" target="_blank">
+									<img src="{{ asset('frontend/img/mail-negro.svg') }}" alt="">
 								</a>
 							</li>
 						</ul>
@@ -170,7 +240,11 @@
                 </div>
                 <div class="col-12 col-lg-8">
                     <div class="owl-carousel owl-clients">
-                        <div class="item"></div>
+                        @foreach ($enterprises as $enterprise)
+                            <div class="item">
+                                <img src="{{ asset('storage/'.$enterprise->portrait_image) }}" alt="">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -270,7 +344,7 @@
                                 </div>
                                 <div class="item--profile">
                                     <div class="profile--img">
-                                        <img src="{{ asset($testimonial->portrait_image) }}" alt="">
+                                        <img src="{{ asset('storage/'.$testimonial->portrait_image) }}" alt="">
                                     </div>
                                     <div class="profile--name">
                                         {{ $testimonial->title }}
