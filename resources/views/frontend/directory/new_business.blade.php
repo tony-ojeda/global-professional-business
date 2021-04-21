@@ -11,6 +11,7 @@
                     <h1>Registrar Negocio</h1>
                     <div class="white-box">
                         <directory-new-business
+                            :url="'{{ route('admin.enterprises.controller') }}'"
                             :categories="{{ $categories }}"
                         ></directory-new-business>
                     </div>

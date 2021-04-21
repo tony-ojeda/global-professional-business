@@ -113,7 +113,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="1 == 2">
             <div class="col-12">
                 <h4>Dirección</h4>
             </div>
@@ -220,8 +220,10 @@
 
 <script>
     import { EventBus } from '../EventBus';
+    import swalMessages from "../mixins/swalMessages";
 
     export default {
+        mixins: [swalMessages],
         props: {
             url: {
                 type: String,
@@ -275,7 +277,7 @@
                 }).then(response => {
                     $(event.target).find('button').attr('disabled', false);
                     this.clearModel();
-                    this.$parent.alertMsg( response.data );
+                    this.alertMsg( response.data );
                 }).catch(error => {
                     $(event.target).find('button').attr('disabled', false);
 
