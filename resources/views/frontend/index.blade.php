@@ -172,7 +172,7 @@
                 <div class="col-12 col-lg-3">
 					<div class="staff">
 						<div class="staff-photo">
-                            <img src="{{ asset('frontend/img/estelle-e.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/img/jake-s.jpg') }}" alt="">
 						</div>
 						<div class="staff-name">
 							Jake S.
