@@ -7,24 +7,23 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\ImageMethods;
 
-class EnterpriseRepository {
-
+class EnterpriseRepository
+{
     use ImageMethods;
 
-	public function createUpdate($data) 
-	{
-        $id = isset($data["id"]) ? $data["id"] : NULL;
-        if( isset($data["extra_info"]) )
-        {
+    public function createUpdate($data)
+    {
+        $id = isset($data["id"]) ? $data["id"] : null;
+        if (isset($data["extra_info"])) {
             $extra_info = json_decode($data["extra_info"]);
-            if($extra_info->address_object->formatted_address == '') {
+            if ($extra_info->address_object->formatted_address == '') {
                 $data["address"] = $extra_info->address_object->route . " " . $extra_info->address_object->street_number . ", " . $extra_info->address_object->locality . ", " . $extra_info->address_object->country;
             } else {
                 $data["address"] = $extra_info->address_object->formatted_address;
             }
             
             $data["address_object"] = $extra_info->address_object;
-            $data["latitude"] = $extra_info->address_object->latitude; 
+            $data["latitude"] = $extra_info->address_object->latitude;
             $data["longitude"] = $extra_info->address_object->longitude;
 
             $deleted_images = $extra_info->deleted_images;
@@ -33,25 +32,23 @@ class EnterpriseRepository {
             unset($data["extra_info"]);
         }
 
-        if( isset($data["files"]) ) 
-        {
+        if (isset($data["files"])) {
             $files = $data["files"];
             unset($data["files"]);
         }
 
-        if( isset($data["portrait_image"]) ) 
-        {
+        if (isset($data["portrait_image"])) {
             $portrait_image = $data["portrait_image"];
             unset($data["portrait_image"]);
         }
 
-        $model = Enterprise::updateOrCreate(['id' => $id],$data);
+        $model = Enterprise::updateOrCreate(['id' => $id], $data);
 
-        if( isset($portrait_image) ) {
-            $this->manageImgs($model,$portrait_image,'portrait_image','public','empresas');
+        if (isset($portrait_image)) {
+            $this->manageImgs($model, $portrait_image, 'portrait_image', 'public', 'empresas');
         }
 
-        if( isset($files) && count($files) > 0 ) {
+        if (isset($files) && count($files) > 0) {
             foreach ($files as $key => $image) {
                 $image_data["enterprise_id"] = $model->id;
                 $image_data["file"] = $image;
@@ -63,46 +60,57 @@ class EnterpriseRepository {
         return $model;
     }
     
-    public function find($id,$select = '*',$with = [])
-	{
+    public function find($id, $select = '*', $with = [])
+    {
         return Enterprise::whereId($id)
                     ->select($select)
                     ->with($with)
                     ->first();
     }
 
-	public function delete($id)
-	{
-		return Enterprise::destroy($id);
+    public function delete($id)
+    {
+        return Enterprise::destroy($id);
     }
 
     public function list()
     {
-        
         $meta = new \stdClass();
         $meta->draw = intval(request('draw'));
 
         $start = intval(request('start'));
         $length = intval(request('length'));
-        $page = ( $start / $length ) + 1;
+        $page = ($start / $length) + 1;
         $search_value = request('search.value');
         request()->replace(['page' => $page]);
-        $factor = ( $page - 1 ) * $length;
-        DB::statement(DB::raw('SET @row_number = '. $factor ));
+        $factor = ($page - 1) * $length;
+        $storageUrl = asset('storage');
+        DB::statement(DB::raw('SET @row_number = '. $factor));
+        DB::statement(DB::raw("SET @storage_url = '${storageUrl}'"));
 
         $objs = Enterprise::select(
-                        DB::raw('(@row_number:=@row_number + 1 ) AS n'),
-                        'id',
-                        'name'
-                    )
-                    ->orderBy('id','asc')
-                    ->paginate($length);
+            DB::raw('(@row_number:=@row_number + 1 ) AS n'),
+            'id',
+            'name',
+            'website',
+            'phone',
+            'email',
+            'details',
+            DB::raw("CASE WHEN portrait_image IS NULL
+                THEN ''
+                ELSE
+                CONCAT(@storage_url,'/', portrait_image)
+                END as portrait")
+        )
+        ->with('memberships')
+        ->orderBy('id', 'asc')
+        ->paginate($length);
         
         $meta->recordsTotal = $objs->total();
 
-        // $objs->map(static function($item,$index){
-        //     return $item;
-        // });
+        $objs->map(function ($item, $index) {
+            return $this->defineEnterpriseStatus($item);
+        });
 
         $response = [
             'draw' => $meta->draw,
@@ -113,6 +121,86 @@ class EnterpriseRepository {
         
         return $response;
     }
-    
-    
+
+    public function listFrontend($user)
+    {
+        $meta = new \stdClass();
+        $meta->draw = intval(request('draw'));
+
+        $start = intval(request('start'));
+        $length = intval(request('length'));
+        $page = ($start / $length) + 1;
+        
+        request()->replace(['page' => $page]);
+        $factor = ($page - 1) * $length;
+        DB::statement(DB::raw('SET @row_number = '. $factor));
+
+        $objs = Enterprise::select(
+            DB::raw('(@row_number:=@row_number + 1 ) AS n'),
+            'id',
+            'category_id',
+            'name',
+            'website',
+            'phone',
+            'email',
+            'details',
+            'address',
+            DB::raw("CASE WHEN portrait_image IS NULL
+                THEN ''
+                ELSE
+                CONCAT(@storage_url,'/', portrait_image)
+                END as portrait")
+        )
+        ->with('memberships', 'category')
+        ->where('user_id', $user->id)
+        ->orderBy('id', 'asc')
+        ->paginate($length);
+
+        $meta->recordsTotal = $objs->total();
+
+        $objs->map(function ($item, $index) {
+            return $this->defineEnterpriseStatus($item);
+        });
+
+
+        $response = [
+            'draw' => $meta->draw,
+            'recordsTotal' => $meta->recordsTotal,
+            'recordsFiltered' => $meta->recordsTotal,
+            'data' => $objs->items(),
+        ];
+        
+        return $response;
+    }
+
+    public function defineEnterpriseStatus($enterprise)
+    {
+        $status = [
+            "label" => '',
+            "color" => ''
+        ];
+
+        if (count($enterprise->memberships) == 0) {
+            $status["label"] = 'Pendiente de pago';
+            $status["color"] = 'warning';
+        } elseif ($this->checkPaymentDate($enterprise)) {
+            $status["label"] = 'Vigente';
+            $status["color"] = 'success';
+        } else {
+            $status["label"] = 'Pago vencido';
+            $status["color"] = 'danger';
+        }
+ 
+
+        $enterprise->status = $status;
+        return $enterprise;
+    }
+
+    public function checkPaymentDate($enterprise)
+    {
+        $now = time();
+        return count($enterprise->memberships->filter(static function ($item, $index) use ($now) {
+            return strtotime($item->due_date) >= $now;
+        })) > 0;
+    }
 }

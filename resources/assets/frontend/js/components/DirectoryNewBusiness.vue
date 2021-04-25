@@ -270,6 +270,7 @@
                 var target = $(event.target);
                 var url = url;
                 var fd = new FormData(event.target);
+                fd.append('membership_id',3);
 
                 axios.post(url, fd, { headers: {
                         'Content-type': 'application/x-www-form-urlencoded',

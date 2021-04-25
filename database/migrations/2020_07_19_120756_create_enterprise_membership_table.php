@@ -15,10 +15,10 @@ class CreateEnterpriseMembershipTable extends Migration
     {
         Schema::create('enterprise_membership', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('enterprise_id')->nullable()->constrained();
             $table->foreignId('membership_id')->nullable()->constrained();
-            $table->date('payment_date')->nullable()->default(new DateTime());
+            $table->longText('paypal_data')->nullable();
+            $table->date('payment_date')->nullable();
             $table->date('due_date')->nullable();
             $table->timestamps();
             $table->softDeletes();

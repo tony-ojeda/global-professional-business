@@ -68,8 +68,21 @@
                         { data: "name", title: "Empresa", sortable: false },
                         { data: "website", title: "Web", sortable: false },
                         { data: "address", title: "Dirección", sortable: false },
-                        { data: "category_name", title: "Categoría", sortable: false },
+                        { data: "category.name", title: "Categoría", sortable: false },
                         { data: "phone", title: "Teléfono", sortable: false },
+                        {
+                            data: null,
+                            title: 'Estado',
+                            width: 100,
+                            sortable: false,
+                            render: function(data,type,row) {
+                                return `
+                                    <span data-v-3bcd05f2="" class="badge badge-${row.status.color}">
+                                        ${row.status.label}
+                                    </span>
+                                `;
+                            }
+                        },
                         {
                             data: null,
                             title: 'Acciones',

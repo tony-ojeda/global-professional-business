@@ -27,4 +27,14 @@ class Enterprise extends Model
     {
         return $this->hasMany(EnterpriseImage::class);
     }
+
+    public function memberships()
+    {
+        return $this->hasMany(EnterpriseMembership::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

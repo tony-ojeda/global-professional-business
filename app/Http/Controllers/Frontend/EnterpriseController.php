@@ -1,18 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Web;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\EnterpriseRepository as Enterprise;
+use App\Membership;
 
 class EnterpriseController extends Controller
 {
-    protected $enterprise;
-
     public function __construct(Enterprise $enterprise)
     {
         $this->enterprise = $enterprise;
+    }
+
+    public function list()
+    {
+        $user = request()->user();
+        $records = $this->enterprise->listFrontend($user);
+
+        return response()->json($records, 200);
     }
 
     public function controller()
@@ -35,13 +42,8 @@ class EnterpriseController extends Controller
         $rules = [
             'category_id' => 'required',
             'name' => 'required',
-            // 'website' => 'required',
-            // 'phone' => 'required',
-            // 'email' => 'required',
-            // 'details' => 'required',
-            // 'schedule' => 'required',
-            'portrait_image' => 'image|mimes:jpg,jpeg,png|max:800'
-            // 'address' => 'required',
+            'portrait_image' => 'image|mimes:jpg,jpeg,png|max:800',
+            'membership_id' => 'required'
         ];
 
         if (request('id')) {
@@ -52,13 +54,12 @@ class EnterpriseController extends Controller
         ////////
 
         // REGISTRO | ACTUALIZACION
-        $data = request()->all();
+        $data = request()->except(['membership_id']);
         $response = [
             "error" => false,
             "type" => 1,
             "title" => "OK",
             "subtitle" => "Empresa creada correctamente",
-            // "reload" => 1
         ];
         $model = $this->enterprise->createUpdate($data);
         if (!$model->wasRecentlyCreated) {
@@ -66,11 +67,12 @@ class EnterpriseController extends Controller
         }
         ////////
 
+        $membership = Membership::find(request('membership_id'));
         $request_test = [
-            "value" => 20,
+            "value" => $membership->price,
             "currency" => "usd",
-            "custom_id" => "1",
-            "reference_id" => "3",
+            "custom_id" => $model->id,
+            "reference_id" => $membership->id,
         ];
         $url = app('App\Http\Controllers\Web\PayPalController')->payment_url($request_test);
         $response["url"] = $url;
@@ -78,51 +80,5 @@ class EnterpriseController extends Controller
         // RESPUESTA
         return response()->json($response, 200);
         ////////
-    }
-
-    public function list()
-    {
-        $records = $this->enterprise->list();
-
-        return response()->json($records, 200);
-    }
-
-    public function find()
-    {
-        $id = request('id');
-        $fields = ['id','user_id','category_id','name','website','phone', 'email','details','schedule','portrait_image','address','address_object'];
-        $with = [
-            'images' => static function ($query) {
-                $query->select('id', 'enterprise_id', 'url_image', 'position');
-                $query->orderBy('id', 'asc');
-            }
-        ];
-        $model = $this->enterprise->find(request('id'), $fields, $with);
-        $model->portrait_image = asset('storage/' . $model->portrait_image);
-        $model->images->map(static function ($item, $index) {
-            $item->url_image = asset('storage/' . $item->url_image);
-            return $item;
-        });
-
-        $response = [
-            "model" => $model
-        ];
-
-        return response()->json($response, 200);
-    }
-
-    public function delete()
-    {
-        $id = request('id');
-        $flag = $this->enterprise->delete(request('id'));
-        $response = [
-            'error' => !$flag,
-            'type' => 1,
-            'title' => "OK!",
-            'subtitle' => "Empresa eliminada correctamente",
-            'url' => ""
-        ];
-
-        return response()->json($response, 200);
     }
 }

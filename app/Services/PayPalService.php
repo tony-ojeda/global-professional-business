@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+
 use App\Traits\ConsumesExternalServices;
 use Illuminate\Http\Request;
 
@@ -39,18 +40,18 @@ class PayPalService
 
     public function handlePayment($request)
     {
-        $order = $this->createOrder($request['value'],$request['currency']);
+        $order = $this->createOrder($request['value'], $request['currency'], $request['custom_id'], $request['reference_id']);
 
         $orderLinks = collect($order->links);
 
-        $approve = $orderLinks->where('rel','approve')->first();
+        $approve = $orderLinks->where('rel', 'approve')->first();
 
         return $approve->href;
 
         // return redirect($approve->href);
     }
 
-    public function createOrder($value,$currency)
+    public function createOrder($value, $currency, $custom_id = '', $reference_id = '')
     {
         return $this->makeRequest(
             'POST',
@@ -63,7 +64,9 @@ class PayPalService
                         "amount" => [
                             "currency_code" => strtoupper($currency),
                             "value" => $value
-                        ]
+                        ],
+                        "custom_id" => $custom_id,
+                        "reference_id" => $reference_id
                     ]
                 ],
                 'application_context' => [
@@ -91,5 +94,4 @@ class PayPalService
             ]
         );
     }
-
 }
