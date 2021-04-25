@@ -143,7 +143,7 @@
         <div id="plans" class="row choose-plan">
             <div class="row">
                 <div class="col-12 col-lg-4">
-                    <div class="plan plan-free selected" data-plan="free">
+                    <div class="plan plan-free" :class="{'selected': model.membership_id === 1}" data-plan="free" @click="changeMembership(1)">
                         <div class="plan--header">
                             <div class="plan--header-title">
                                 Gratis
@@ -165,7 +165,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <div class="plan plan-basic" data-plan="basic">
+                    <div class="plan plan-basic" :class="{'selected': model.membership_id === 2}" data-plan="basic" @click="changeMembership(2)">
                         <div class="plan--header">
                             <div class="plan--header-title">
                                 Básico
@@ -187,7 +187,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <div class="plan plan-premium" data-plan="premium">
+                    <div class="plan plan-premium" :class="{'selected': model.membership_id === 3}" data-plan="premium" @click="changeMembership(3)">
                         <div class="plan--header">
                             <div class="plan--header-title">
                                 Premium
@@ -244,6 +244,7 @@
                     email: '',
                     schedule: '',
                     details: '',
+                    membership_id: 1
                 },
             }
         },
@@ -260,7 +261,11 @@
                     email: '',
                     schedule: '',
                     details: '',
+                    membership_id: 1
                 }
+            },
+            changeMembership: function(membership_id) {
+                this.model.membership_id = membership_id
             },
             formController: function(url, event) {
                 var vm = this;
@@ -270,7 +275,7 @@
                 var target = $(event.target);
                 var url = url;
                 var fd = new FormData(event.target);
-                fd.append('membership_id',3);
+                fd.append('membership_id',this.model.membership_id);
 
                 axios.post(url, fd, { headers: {
                         'Content-type': 'application/x-www-form-urlencoded',

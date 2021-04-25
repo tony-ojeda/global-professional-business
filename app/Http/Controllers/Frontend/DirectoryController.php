@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Mail;
 
 class DirectoryController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $categories = Category::all();
         $enterprises = Enterprise::leftjoin('categories', 'enterprises.category_id', '=', 'categories.id')
-            ->select('enterprises.id', 'portrait_image', 'enterprises.name as enterprise_name', 'categories.name as category_name', 'enterprises.address as enterprise_address' )
+            ->select('enterprises.id', 'portrait_image', 'enterprises.name as enterprise_name', 'categories.name as category_name', 'enterprises.address as enterprise_address')
+            ->currentPayment()
             ->get();
 
         $enterprises->map(function ($item, $key) {
@@ -25,11 +27,13 @@ class DirectoryController extends Controller
         return view('frontend.directory')->with(compact('categories', 'enterprises'));
     }
 
-    public function myBusiness() {
+    public function myBusiness()
+    {
         return view('frontend.directory.my_business');
     }
 
-    public function listMyBusiness() {
+    public function listMyBusiness()
+    {
         $enterprises = Enterprise::leftjoin('categories', 'enterprises.category_id', '=', 'enterprises.category_id')
             ->where('enterprises.user_id', Auth::user()->id)
             ->select('enterprises.id', 'website', 'address', 'categories.name as category_name', 'phone')
@@ -38,26 +42,29 @@ class DirectoryController extends Controller
         return $enterprises;
     }
 
-    public function newBusiness() {
+    public function newBusiness()
+    {
         $categories = Category::select('id', 'name')->get();
 
         return view('frontend.directory.new_business')->with(compact('categories'));
     }
 
-    public function business() {
+    public function business()
+    {
         return view('frontend.directory.business');
     }
 
-    public function sendMessage() {
+    public function sendMessage()
+    {
         $messages = [
-			'message.required'          => 'Mensaje es obligatorio.',
-		];
+            'message.required'          => 'Mensaje es obligatorio.',
+        ];
 
-		$rules = [
-			'message'       => 'required',
-		];
+        $rules = [
+            'message'       => 'required',
+        ];
 
-		request()->validate($rules, $messages);
+        request()->validate($rules, $messages);
 
         $mail_info = request()->all();
         $mail_info['name'] = Auth::user()->name;

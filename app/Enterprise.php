@@ -37,4 +37,11 @@ class Enterprise extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function scopeCurrentPayment($query)
+    {
+        return $query->whereHas('memberships', static function ($query) {
+            $query->where('due_date', '>=', date('Y-m-d'));
+        });
+    }
 }
