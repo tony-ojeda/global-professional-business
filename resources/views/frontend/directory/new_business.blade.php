@@ -13,6 +13,7 @@
                         <directory-new-business
                             :url="'{{ route('frontend.enterprises.controller') }}'"
                             :categories="{{ $categories }}"
+                            :enterprise="{{ json_encode($enterprise) }}"
                         ></directory-new-business>
                     </div>
                 </div>

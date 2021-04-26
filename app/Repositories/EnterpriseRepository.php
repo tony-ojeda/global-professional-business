@@ -60,11 +60,12 @@ class EnterpriseRepository
         return $model;
     }
     
-    public function find($id, $select = '*', $with = [])
+    public function find($id, $select = '*', $with = [], $where = [])
     {
         return Enterprise::whereId($id)
                     ->select($select)
                     ->with($with)
+                    ->where($where)
                     ->first();
     }
 
@@ -158,8 +159,12 @@ class EnterpriseRepository
 
         $meta->recordsTotal = $objs->total();
 
+        
+
         $objs->map(function ($item, $index) {
-            return $this->defineEnterpriseStatus($item);
+            $this->defineEnterpriseStatus($item);
+            $item->editUrl = route('frontend.directory.update', ['enterprise_id' => $item->id]);
+            return $item;
         });
 
 

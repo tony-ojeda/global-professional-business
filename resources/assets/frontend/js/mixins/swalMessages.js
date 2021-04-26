@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { EventBus } from '../EventBus';
 
 export default {
@@ -17,7 +18,7 @@ export default {
             switch (data.type) {
                 case 1:
                     Swal.fire({
-                        type: 'success',
+                        icon: 'success',
                         title: data.title,
                         text: data.subtitle,
                         showConfirmButton: true,
@@ -33,7 +34,7 @@ export default {
                     break;
                 case 2:
                     Swal.fire({
-                        type: 'warning',
+                        icon: 'warning',
                         title: data.title,
                         text: data.subtitle,
                         showConfirmButton: true,
@@ -41,11 +42,11 @@ export default {
                     break;
                 case 3:
                     Swal.fire({
-                        type: 'success',
+                        icon: 'success',
                         title: data.title,
                         text: data.subtitle,
                         showConfirmButton: true,
-                        timer: 1500,
+                        timer: 2000,
                     }).then((result) => {
                         if(data.sendEvent) {
                             EventBus.$emit(data.channel);
@@ -58,7 +59,7 @@ export default {
                     break;
                 case 4:
                     Swal.fire({
-                        type: "warning",
+                        icon: "warning",
                         title: data.title,
                         text: data.subtitle,
                         // showCancelButton: true,
@@ -79,7 +80,7 @@ export default {
                     break;
                 case 5:
                     Swal.fire({
-                        type: "success",
+                        icon: "success",
                         title: data.title,
                         text: data.subtitle,
                         confirmButtonText: "OK",

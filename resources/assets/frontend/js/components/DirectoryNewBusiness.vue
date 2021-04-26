@@ -135,6 +135,13 @@
                 <div id="map"></div>
             </div>
         </div>
+
+        <div class="row" v-if="model.id">
+            <div class="col-12">
+                <input type="checkbox" v-model="model.change_membership">
+                <label for="">¿Actualizar membresia?</label>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <h4>Tipo de Plan</h4>
@@ -232,11 +239,18 @@
             categories: {
                 type: Array,
                 default: []
-            }
+            },
+            enterprise: {
+                type: Object,
+                default: function() {
+                    return {}
+                }
+            },
         },
         data() {
             return {
                 model: {
+                    id: null,
                     name: '',
                     website: '',
                     category_id: '',
@@ -244,16 +258,31 @@
                     email: '',
                     schedule: '',
                     details: '',
-                    membership_id: 1
+                    membership_id: 1,
+                    change_membership: false
                 },
             }
         },
         created() {
-            this.clearModel();
+            let data = {
+                title: 'ok',
+                subtitle: 'yupi'
+            }
+             this.alertMsg( data );
+            if(this.enterprise){
+                for(let propertyName in this.model) {
+                    
+                    if(this.enterprise.hasOwnProperty(propertyName)) {
+                        this.model[propertyName] = this.enterprise[propertyName];
+                    }
+                }
+                this.model.membership_id = this.enterprise.memberships[0].membership_id;
+            }
         },
         methods: {
             clearModel: function() {
                 this.model = {
+                    id: null,
                     name: '',
                     website: '',
                     category_id: '',
@@ -261,20 +290,23 @@
                     email: '',
                     schedule: '',
                     details: '',
-                    membership_id: 1
+                    membership_id: 1,
+                    change_membership: false
                 }
             },
             changeMembership: function(membership_id) {
                 this.model.membership_id = membership_id
             },
             formController: function(url, event) {
-                var vm = this;
-
                 $(event.target).find('button').attr('disabled', true);
 
-                var target = $(event.target);
-                var url = url;
-                var fd = new FormData(event.target);
+                let target = $(event.target);
+                let fd = new FormData(event.target);
+                if(this.model.id)
+                    fd.append('id',this.model.id);
+                if(this.model.change_membership)
+                    fd.append('change_membership',1);
+
                 fd.append('membership_id',this.model.membership_id);
 
                 axios.post(url, fd, { headers: {
@@ -282,13 +314,17 @@
                     }
                 }).then(response => {
                     $(event.target).find('button').attr('disabled', false);
-                    this.clearModel();
+                    if(!response.data.error) this.clearModel();
                     this.alertMsg( response.data );
                 }).catch(error => {
                     $(event.target).find('button').attr('disabled', false);
 
-                    console.log(error.response);
-                    var obj = error.response.data.errors;
+                    if(!error.response) {
+                        console.log(error)
+                        return
+                    }
+
+                    let obj = error.response.data.errors;
                     $('#contact-form').animate({
                         scrollTop: 0
                     }, 500, 'swing');

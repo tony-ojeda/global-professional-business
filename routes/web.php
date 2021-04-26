@@ -26,10 +26,10 @@ Route::post('/admin/login/ct', [
     'as' => 'login.ct'
 ]);
 
-Route::get('/admin/testing', [
-    'uses' => 'Web\BackendController@testing',
-    'as' => 'testing'
-]);
+// Route::get('/admin/testing', [
+//     'uses' => 'Web\BackendController@testing',
+//     'as' => 'testing'
+// ]);
 
 Route::post('/admin/paypal/pay', [
     'uses' => 'Web\PayPalController@pay',
@@ -62,6 +62,11 @@ Route::group([
     Route::get('/', [
         'uses' => 'BackendController@index',
         'as' => 'home'
+    ]);
+
+    Route::get('/logout', [
+        'uses' => 'UserController@logout',
+        'as' => 'logout'
     ]);
 
 
@@ -278,6 +283,11 @@ Route::group([
     Route::get('directorio/registro', [
         'uses' => 'DirectoryController@newBusiness',
         'as' => 'directory.register'
+    ]);
+
+    Route::get('directorio/actualizar/{enterprise_id}', [
+        'uses' => 'DirectoryController@newBusiness',
+        'as' => 'directory.update'
     ]);
 
     Route::post('directorio/controller', [

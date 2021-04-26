@@ -28,6 +28,7 @@
                 type: String,
                 default: ''
             },
+            
         },
         data() {
             return {
@@ -53,7 +54,7 @@
                     responsive: true,
                     processing: true,
                     serverSide: true,
-                    scrollY: 200,
+                    // scrollY: 200,
                     searching: false,
                     ajax: {
                         url: current_url,
@@ -102,7 +103,14 @@
                     ]
                 });
 
-                this.dataTableAddCommonEvents(this.table_container);
+                $('#' + this.table_container + ' tbody')
+                .on('click','.edit', (event) => {
+                    let row = $(event.target).parents('tr');    
+                    let url = this.dataTableGetField(this.datatable,row,'editUrl');
+                    window.location = url;
+                })
+
+                // this.dataTableAddCommonEvents(this.table_container);
             }
         },
     }

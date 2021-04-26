@@ -32,21 +32,19 @@ class DirectoryController extends Controller
         return view('frontend.directory.my_business');
     }
 
-    public function listMyBusiness()
+    public function newBusiness($enterprise_id = null)
     {
-        $enterprises = Enterprise::leftjoin('categories', 'enterprises.category_id', '=', 'enterprises.category_id')
-            ->where('enterprises.user_id', Auth::user()->id)
-            ->select('enterprises.id', 'website', 'address', 'categories.name as category_name', 'phone')
-            ->get();
-
-        return $enterprises;
-    }
-
-    public function newBusiness()
-    {
+        $enterprise = null;
+        if (!is_null($enterprise_id)) {
+            $enterprise = $this->getEnterprise($enterprise_id);
+            if (is_null($enterprise)) {
+                return redirect()->route('frontend.directory.register');
+            }
+        }
+        
         $categories = Category::select('id', 'name')->get();
 
-        return view('frontend.directory.new_business')->with(compact('categories'));
+        return view('frontend.directory.new_business')->with(compact('categories', 'enterprise'));
     }
 
     public function business()
@@ -73,5 +71,26 @@ class DirectoryController extends Controller
 
         Mail::to('gabriel@codea.pe')
             ->send(new DirectoryContactMail($mail_info));
+    }
+
+    public function getEnterprise($enterprise_id)
+    {
+        $where = [
+            ['user_id', '=' ,request()->user()->id]
+        ];
+        $with = [
+            'memberships' => static function ($query) {
+                $query->select('id', 'enterprise_id', 'membership_id', 'due_date')
+                    ->whereNotNull('due_date')
+                    ->with('membership')
+                    ->orderBy('due_date', 'desc')
+                    ->first();
+            }
+        ];
+
+        $enterprise = app('App\Repositories\EnterpriseRepository')->find($enterprise_id, '*', $with, $where);
+        $enterprise->portrait_image = is_null($enterprise->portrait_image) ? '' : asset('storage'. $enterprise);
+
+        return $enterprise;
     }
 }

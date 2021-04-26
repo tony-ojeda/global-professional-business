@@ -23,6 +23,14 @@ class EnterpriseMembershipRepository
                     ->first();
     }
 
+    public function list($select = '*', $with = [], $where = [])
+    {
+        return EnterpriseMembership::select($select)
+                    ->with($with)
+                    ->where($where)
+                    ->get();
+    }
+
     public function delete($id)
     {
         return EnterpriseMembership::destroy($id);

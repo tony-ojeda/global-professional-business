@@ -20,6 +20,8 @@ class CreateEnterpriseMembershipTable extends Migration
             $table->longText('paypal_data')->nullable();
             $table->date('payment_date')->nullable();
             $table->date('due_date')->nullable();
+            $table->boolean('is_active')->nullable()->default(false);
+            $table->date('change_membership_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

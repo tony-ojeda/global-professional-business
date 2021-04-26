@@ -24,6 +24,7 @@ class EnterpriseController extends Controller
 
     public function controller()
     {
+        $id = request('id');
         // VALIDACIONES
         $messages = [
             'category_id.required' => 'La categoría es obligatoria.',
@@ -46,7 +47,7 @@ class EnterpriseController extends Controller
             'membership_id' => 'required'
         ];
 
-        if (request('id')) {
+        if (!is_null($id)) {
             $rules["portrait_image"] = 'image|mimes:jpg,jpeg,png|max:800';
         }
 
@@ -54,31 +55,53 @@ class EnterpriseController extends Controller
         ////////
 
         // REGISTRO | ACTUALIZACION
-        $data = request()->except(['membership_id']);
+        $data = request()->except(['membership_id','change_membership']);
+        $data["user_id"] = request()->user()->id;
         $response = [
             "error" => false,
-            "type" => 1,
+            "type" => 3,
             "title" => "OK",
             "subtitle" => "Empresa creada correctamente",
+            "url" => route('frontend.directory.my_business')
         ];
-        $model = $this->enterprise->createUpdate($data);
-        if (!$model->wasRecentlyCreated) {
-            $response["subtitle"] = "Empresa actualizada correctamente";
+        try {
+            $model = $this->enterprise->createUpdate($data);
+            if (!$model->wasRecentlyCreated) {
+                $response["subtitle"] = "Empresa actualizada correctamente";
+            }
+            $membership = Membership::find(request('membership_id'));
+            if (is_null($id) && $membership->id != 1) {
+                $this->paypalTrigger($model, $membership, $response);
+            } elseif (!is_null($id) && request('change_membership') && $membership->id != 1) {
+                $this->paypalTrigger($model, $membership, $response);
+            } elseif (is_null($id) && $membership->id == 1) {
+                app('App\Http\Controllers\Web\PayPalController')->disabledPreviousMemberships($model->id);
+                app('App\Http\Controllers\Web\PayPalController')->generateEnterpriseMembership($model->id, $membership->id);
+            }
+        } catch (\Throwable $th) {
+            $response["title"] = "Error";
+            $response["error"] = true;
+            $response["subtitle"] = "Hubo un error, contactarse con nosotros.";
+            // $response["subtitle"] = $th->getMessage();
+            $response["type"] = 2;
         }
         ////////
 
-        $membership = Membership::find(request('membership_id'));
-        $request_test = [
-            "value" => $membership->price,
-            "currency" => "usd",
-            "custom_id" => $model->id,
-            "reference_id" => $membership->id,
-        ];
-        $url = app('App\Http\Controllers\Web\PayPalController')->payment_url($request_test);
-        $response["url"] = $url;
-
+        
         // RESPUESTA
         return response()->json($response, 200);
         ////////
+    }
+
+    public function paypalTrigger($enterprise, $membership, &$response)
+    {
+        $paypal_params = [
+            "value" => $membership->price,
+            "currency" => "usd",
+            "custom_id" => $enterprise->id,
+            "reference_id" => $membership->id,
+        ];
+        $response["url"] = app('App\Http\Controllers\Web\PayPalController')->payment_url($paypal_params);
+        $response["subtitle"] = "Proceda a realizar el pago";
     }
 }

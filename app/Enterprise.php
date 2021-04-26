@@ -42,6 +42,7 @@ class Enterprise extends Model
     {
         return $query->whereHas('memberships', static function ($query) {
             $query->where('due_date', '>=', date('Y-m-d'));
+            $query->where('is_active', '=', 1);
         });
     }
 }

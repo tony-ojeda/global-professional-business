@@ -12,11 +12,10 @@
       <div class="col-12 col-md-12">
           <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Listado</h4>
+                    <h4 class="card-title">Bienvenido</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <payment-test :url="'{{ route('paypal.pay') }}'"></payment-test>
                     </div>
                 </div>
           </div>
