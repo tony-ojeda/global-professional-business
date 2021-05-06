@@ -262,46 +262,49 @@ Route::group([
         'as' => 'register.validate'
     ]);
 
-    /**
-     * Directorio
-     */
-    Route::get('directorio', [
-        'uses' => 'DirectoryController@index',
-        'as' => 'directory'
-    ]);
+    Route::group(['middleware' => 'auth'], function() {
+        /**
+         * Directorio
+         */
+        Route::get('directorio', [
+            'uses' => 'DirectoryController@index',
+            'as' => 'directory'
+        ]);
 
-    Route::get('directorio/mis-negocios', [
-        'uses' => 'DirectoryController@myBusiness',
-        'as' => 'directory.my_business'
-    ]);
+        Route::get('directorio/mis-negocios', [
+            'uses' => 'DirectoryController@myBusiness',
+            'as' => 'directory.my_business'
+        ]);
 
-    Route::post('directorio/mis-negocios/listar', [
-        'uses' => 'EnterpriseController@list',
-        'as' => 'directory.my_business.list'
-    ]);
+        Route::post('directorio/mis-negocios/listar', [
+            'uses' => 'EnterpriseController@list',
+            'as' => 'directory.my_business.list'
+        ]);
 
-    Route::get('directorio/registro', [
-        'uses' => 'DirectoryController@newBusiness',
-        'as' => 'directory.register'
-    ]);
+        Route::get('directorio/registro', [
+            'uses' => 'DirectoryController@newBusiness',
+            'as' => 'directory.register'
+        ]);
 
-    Route::get('directorio/actualizar/{enterprise_id}', [
-        'uses' => 'DirectoryController@newBusiness',
-        'as' => 'directory.update'
-    ]);
+        Route::get('directorio/actualizar/{enterprise_id}', [
+            'uses' => 'DirectoryController@newBusiness',
+            'as' => 'directory.update'
+        ]);
 
-    Route::post('directorio/controller', [
-        'uses' => 'EnterpriseController@controller',
-        'as' => 'enterprises.controller'
-    ]);
+        Route::post('directorio/controller', [
+            'uses' => 'EnterpriseController@controller',
+            'as' => 'enterprises.controller'
+        ]);
 
-    Route::get('directorio/negocio', [
-        'uses' => 'DirectoryController@business',
-        'as' => 'directory.business'
-    ]);
+        Route::get('directorio/negocio', [
+            'uses' => 'DirectoryController@business',
+            'as' => 'directory.business'
+        ]);
 
-    Route::post('directorio/enviar-mensaje', [
-        'uses' => 'DirectoryController@sendMessage',
-        'as' => 'directory.send_message'
-    ]);
+        Route::post('directorio/enviar-mensaje', [
+            'uses' => 'DirectoryController@sendMessage',
+            'as' => 'directory.send_message'
+        ]);
+    });
 });
+
