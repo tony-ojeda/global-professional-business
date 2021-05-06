@@ -81,7 +81,7 @@
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.directory.register') }}" class="btn btn-outline-white">Registrar Negocio</a>
                                     <a href="{{ route('frontend.directory.my_business') }}" class="btn btn-red">{{ Auth::user()->name }}</a>
-                                    <a href="#" class="btn-logout">
+                                    <a href="{{ route('admin.logout') }}" class="btn-logout">
                                         <img src="{{ asset('frontend/img/logout.svg') }}" alt="">
                                     </a>
                                 </div>
