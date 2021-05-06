@@ -212,8 +212,7 @@
             <div class="form-body">
                 <div class="row">
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary mr-1 mb-1" v-if="!model.id">Registrar</button>
-                        <button type="submit" class="btn btn-primary mr-1 mb-1" v-else>Actualizar</button>
+                        <button type="submit" class="btn btn-primary mr-1 mb-1" :disabled="!model.id">Actualizar</button>
                         <button type="button" class="btn btn-outline-warning mr-1 mb-1" @click="clearModel()">Limpiar</button>
                     </div>
                 </div>
@@ -249,6 +248,17 @@
         },
         data() {
             return {
+                empty_address_object: {
+                    formatted_address: '',
+                    street_number: '',
+                    route: '',
+                    locality: '',
+                    administrative_area_level_1: '',
+                    country: '',
+                    postal_code: '',
+                    latitude: '',
+                    longitude: '',
+                },
                 model: {
                     id: null,
                     category_id: '',
@@ -305,7 +315,10 @@
 
             EventBus.$on('edit',(data) => {
                 this.model = data.model;
-                this.extra_info.address_object = data.model.address_object;
+                if(data.model.address_object)
+                    this.extra_info.address_object = data.model.address_object;
+                else
+                    this.extra_info.address_object = {...this.empty_address_object};
             });
 
             EventBus.$on('addressClosed',(data) => {
@@ -328,17 +341,7 @@
                     images: [],
                 }
                 this.extra_info = {
-                    address_object: {
-                        formatted_address: '',
-                        street_number: '',
-                        route: '',
-                        locality: '',
-                        administrative_area_level_1: '',
-                        country: '',
-                        postal_code: '',
-                        latitude: '',
-                        longitude: '',
-                    },
+                    address_object: {...this.empty_address_object},
                     deleted_images: []
                 }
                 this.clearErrors(1);
@@ -355,6 +358,8 @@
 
             },
             formController: async function(event) {
+                if(!this.model.id) return;
+
                 EventBus.$emit('loading',true);
                 let target = $(event.target);
                 let fd = new FormData(event.target);
@@ -363,11 +368,8 @@
 
                 let files = this.$refs.myVueDropzone1.getQueuedFiles();
                 files.forEach(element => {
-                    // console.log(element.name);
                     fd.append('files[]',element);
                 });
-
-                // fd = await this.addfilesFormData(fd);
 
                 axios.post(this.url,fd,
                             { headers: {
