@@ -26,22 +26,22 @@ Route::post('/admin/login/ct', [
     'as' => 'login.ct'
 ]);
 
-Route::get('/admin/testing', [
-    'uses' => 'Web\BackendController@testing',
-    'as' => 'testing'
-]);
+// Route::get('/admin/testing', [
+//     'uses' => 'Web\BackendController@testing',
+//     'as' => 'testing'
+// ]);
 
-Route::post('/adminpaypal/pay', [
+Route::post('/admin/paypal/pay', [
     'uses' => 'Web\PayPalController@pay',
     'as' => 'paypal.pay'
 ]);
 
-Route::get('/adminpaypal/approval', [
+Route::get('/admin/paypal/approval', [
     'uses' => 'Web\PayPalController@approval',
     'as' => 'paypal.approval'
 ]);
 
-Route::get('/adminpaypal/cancel', [
+Route::get('/admin/paypal/cancel', [
     'uses' => 'Web\PayPalController@cancel',
     'as' => 'paypal.cancelled'
 ]);
@@ -58,11 +58,15 @@ Route::group([
     'as' => 'admin.',
     'middleware' => ['auth','admin'],
     'namespace' => 'Web'
-], function(){
-
+], function () {
     Route::get('/', [
         'uses' => 'BackendController@index',
         'as' => 'home'
+    ]);
+
+    Route::get('/logout', [
+        'uses' => 'UserController@logout',
+        'as' => 'logout'
     ]);
 
 
@@ -218,7 +222,7 @@ Route::group([
 Route::group([
     'as' => 'frontend.',
     'namespace' => 'Frontend'
-], function(){
+], function () {
     /**
      * Home
      */
@@ -272,13 +276,23 @@ Route::group([
     ]);
 
     Route::post('directorio/mis-negocios/listar', [
-        'uses' => 'DirectoryController@listMyBusiness',
+        'uses' => 'EnterpriseController@list',
         'as' => 'directory.my_business.list'
     ]);
 
     Route::get('directorio/registro', [
         'uses' => 'DirectoryController@newBusiness',
         'as' => 'directory.register'
+    ]);
+
+    Route::get('directorio/actualizar/{enterprise_id}', [
+        'uses' => 'DirectoryController@newBusiness',
+        'as' => 'directory.update'
+    ]);
+
+    Route::post('directorio/controller', [
+        'uses' => 'EnterpriseController@controller',
+        'as' => 'enterprises.controller'
     ]);
 
     Route::get('directorio/negocio', [

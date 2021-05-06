@@ -15,7 +15,13 @@ class CreateMembershipsTable extends Migration
     {
         Schema::create('memberships', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100)->nullable();
+            $table->longText('description')->nullable();
+            $table->double('price', 6, 2)->nullable()->default(0.00);
+            $table->integer('month_duration')->unsigned()->nullable()->default(1);
+            $table->boolean('is_actived')->nullable()->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -27,4 +27,22 @@ class Enterprise extends Model
     {
         return $this->hasMany(EnterpriseImage::class);
     }
+
+    public function memberships()
+    {
+        return $this->hasMany(EnterpriseMembership::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function scopeCurrentPayment($query)
+    {
+        return $query->whereHas('memberships', static function ($query) {
+            $query->where('due_date', '>=', date('Y-m-d'));
+            $query->where('is_active', '=', 1);
+        });
+    }
 }

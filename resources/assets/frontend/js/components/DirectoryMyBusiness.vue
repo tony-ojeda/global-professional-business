@@ -28,6 +28,7 @@
                 type: String,
                 default: ''
             },
+            
         },
         data() {
             return {
@@ -53,7 +54,7 @@
                     responsive: true,
                     processing: true,
                     serverSide: true,
-                    scrollY: 200,
+                    // scrollY: 200,
                     searching: false,
                     ajax: {
                         url: current_url,
@@ -68,8 +69,21 @@
                         { data: "name", title: "Empresa", sortable: false },
                         { data: "website", title: "Web", sortable: false },
                         { data: "address", title: "Dirección", sortable: false },
-                        { data: "category_name", title: "Categoría", sortable: false },
+                        { data: "category.name", title: "Categoría", sortable: false },
                         { data: "phone", title: "Teléfono", sortable: false },
+                        {
+                            data: null,
+                            title: 'Estado',
+                            width: 100,
+                            sortable: false,
+                            render: function(data,type,row) {
+                                return `
+                                    <span data-v-3bcd05f2="" class="badge badge-${row.status.color}">
+                                        ${row.status.label}
+                                    </span>
+                                `;
+                            }
+                        },
                         {
                             data: null,
                             title: 'Acciones',
@@ -89,7 +103,14 @@
                     ]
                 });
 
-                this.dataTableAddCommonEvents(this.table_container);
+                $('#' + this.table_container + ' tbody')
+                .on('click','.edit', (event) => {
+                    let row = $(event.target).parents('tr');    
+                    let url = this.dataTableGetField(this.datatable,row,'editUrl');
+                    window.location = url;
+                })
+
+                // this.dataTableAddCommonEvents(this.table_container);
             }
         },
     }

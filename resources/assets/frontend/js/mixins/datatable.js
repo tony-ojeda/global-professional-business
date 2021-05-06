@@ -16,6 +16,12 @@ export default {
 
             return id;
         },
+        dataTableGetField: function(dt,row,field) {
+            if(row.hasClass('child'))
+                row = row.prev();
+
+            return dt.row( row ).data()[field];
+        },
         dataTableAddCommonEvents: function(table_container) {
             $('#' + table_container + ' tbody')
             .on('click','.edit', (event) => {

@@ -58,13 +58,22 @@ class EnterpriseController extends Controller
             "type" => 1,
             "title" => "OK",
             "subtitle" => "Empresa creada correctamente",
-            "reload" => 1
+            // "reload" => 1
         ];
         $model = $this->enterprise->createUpdate($data);
         if (!$model->wasRecentlyCreated) {
             $response["subtitle"] = "Empresa actualizada correctamente";
         }
         ////////
+
+        $request_test = [
+            "value" => 20,
+            "currency" => "usd",
+            "custom_id" => "1",
+            "reference_id" => "3",
+        ];
+        $url = app('App\Http\Controllers\Web\PayPalController')->payment_url($request_test);
+        $response["url"] = $url;
 
         // RESPUESTA
         return response()->json($response, 200);

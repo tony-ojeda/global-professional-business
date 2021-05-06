@@ -67,6 +67,19 @@
                         { data: "name", title: "Empresa", sortable: false },
                         {
                             data: null,
+                            title: 'Estado',
+                            width: 100,
+                            sortable: false,
+                            render: function(data,type,row) {
+                                return `
+                                    <span data-v-3bcd05f2="" class="badge badge-${row.status.color}">
+                                        ${row.status.label}
+                                    </span>
+                                `;
+                            }
+                        },
+                        {
+                            data: null,
                             title: 'Acciones',
                             width: 100,
                             sortable: false,

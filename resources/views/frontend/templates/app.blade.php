@@ -56,19 +56,23 @@
 						<div class="main-nav-box">
                             @if ( Route::currentRouteName() === 'frontend.index' )
                                 <ul class="main-nav">
-                                    <li><a href="{{ route('frontend.index') }}">Inicio</a></li>
-                                    <li><a href="#features">Características</a></li>
-                                    <li><a href="#team">Nosotros</a></li>
-                                    <li><a href="#plans">Planes</a></li>
-                                    <li><a href="#contact-us">Contacto</a></li>
+                                    <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                                    <li><a href="#features">What we do</a></li>
+                                    <li><a href="#team">Featured Staff</a></li>
+                                    <li><a href="#plans">Plans</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#contact-us">Contact</a></li>
                                 </ul>
+                                <div class="login-nav">
+                                    <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a>
+                                </div>
                             @elseif ( ( strpos(url()->current(), '/directorio') !== false ) )
                                 <ul class="main-nav">
                                     <li><a href="{{ route('frontend.directory') }}">Business</a></li>
                                 </ul>
                             @endif
 
-                            @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.login' || Route::currentRouteName() === 'frontend.register' )
+                            @if ( Route::currentRouteName() === 'frontend.login' || Route::currentRouteName() === 'frontend.register' )
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Login</a>
                                     <a href="{{ route('frontend.register') }}" class="btn btn-red">Registro</a>
@@ -77,6 +81,9 @@
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.directory.register') }}" class="btn btn-outline-white">Registrar Negocio</a>
                                     <a href="{{ route('frontend.directory.my_business') }}" class="btn btn-red">{{ Auth::user()->name }}</a>
+                                    <a href="#" class="btn-logout">
+                                        <img src="{{ asset('frontend/img/logout.svg') }}" alt="">
+                                    </a>
                                 </div>
                             @endif
 						</div>
@@ -96,11 +103,12 @@
             <div class="row">
                 <div class="col-12">
                     <ul class="footer-nav">
-                        <li><a href="{{ route('frontend.index') }}">Inicio</a></li>
-                        <li><a href="#features">Características</a></li>
-                        <li><a href="#team">Nosotros</a></li>
-                        <li><a href="#plans">Planes</a></li>
-                        <li><a href="#contact-us">Contacto</a></li>
+                        <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                        <li><a href="#features">What we do</a></li>
+                        <li><a href="#team">Featured Staff</a></li>
+                        <li><a href="#plans">Plans</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#contact-us">Contact</a></li>
                     </ul>
                     <ul class="rrss-nav">
                         <li>
@@ -125,7 +133,7 @@
                         </li>
                     </ul>
                     <div class="copyright">
-                        COPYRIGHT © 2020 Negocios Global Professional. Todos los derechos reservados.
+                        COPYRIGHT © 2021 Global Professional Business. All rights reserved.
                     </div>
                 </div>
             </div>

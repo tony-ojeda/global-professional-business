@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function login()
     {
-    	$messages = [
+        $messages = [
             'email.required' => 'El correo es obligatorio',
             'email.email' => 'Escriba un correo válido',
             'password.required' => 'La clave es obligatoria',
@@ -31,12 +31,12 @@ class UserController extends Controller
         request()->validate($rules, $messages);
 
         $response = [
-            'error' => TRUE,
-	    	'type' => 2,
-	    	'title' => "Error!",
-	    	'subtitle' => "Verifique los datos ingresados",
+            'error' => true,
+            'type' => 2,
+            'title' => "Error!",
+            'subtitle' => "Verifique los datos ingresados",
             'url' => "",
-            'reload' => NULL
+            'reload' => null
         ];
 
 
@@ -45,25 +45,26 @@ class UserController extends Controller
                 [
                     'email' => request('email'),
                     'password' => request('password')
-                ],true
+                ],
+                true
             )
-        ){
-        	$response["error"] = FALSE;
-        	$response["type"] = 3;
-        	$response["title"] = "OK!";
-        	$response["subtitle"] = "Bienvenido, " . Auth::user()->name;
-        	$response["url"] = route("admin.home");
+        ) {
+            $response["error"] = false;
+            $response["type"] = 3;
+            $response["title"] = "OK!";
+            $response["subtitle"] = "Bienvenido, " . Auth::user()->name;
+            $response["url"] = route("admin.home");
         }
 
 
-        return response()->json($response,200);
+        return response()->json($response, 200);
     }
 
     public function logout()
     {
         Auth::logout();
 
-        return redirect()->route('admin.login');
+        return redirect()->route('frontend.index');
     }
 
     public function controller()
@@ -81,11 +82,11 @@ class UserController extends Controller
         $rules = [
             'role_id' => 'required',
             'name' => 'required',
-            'email' => 'required|unique:users,email,'. NULL .',id,deleted_at,NULL',
+            'email' => 'required|unique:users,email,'. null .',id,deleted_at,NULL',
             'password' => 'required'
         ];
 
-        if(!is_null($id)){
+        if (!is_null($id)) {
             $rules['email'] = 'required|email|unique:users,email,'. $id .',id,deleted_at,NULL';
             unset($rules["password"]);
         }
@@ -96,26 +97,26 @@ class UserController extends Controller
         // REGISTRO | ACTUALIZACION
         $data = request()->all();
         $response = [
-            "error" => FALSE,
+            "error" => false,
             "type" => 1,
             "title" => "OK",
             "subtitle" => "Usuario creado correctamente",
         ];
         $model = $this->userRepository->createUpdate($data);
-        if(!$model->wasRecentlyCreated) {
+        if (!$model->wasRecentlyCreated) {
             $response["subtitle"] = "Usuario actualizado correctamente";
         }
         ////////
 
         // RESPUESTA
-        return response()->json($response,200);
+        return response()->json($response, 200);
         ////////
     }
 
     public function list()
     {
         $records = $this->userRepository->list();
-        return response()->json($records,200);
+        return response()->json($records, 200);
     }
 
     public function find()
@@ -123,17 +124,17 @@ class UserController extends Controller
         $id = request('id');
         $fields = ['id','name','email'];
         $with = [
-            'roles' => static function($query) {
-                $query->select('roles.id','roles.name');
+            'roles' => static function ($query) {
+                $query->select('roles.id', 'roles.name');
             }
         ];
-        $model = $this->userRepository->find(request('id'),$fields,$with);
+        $model = $this->userRepository->find(request('id'), $fields, $with);
         $model->role_id = $model->roles[0]->id;
         $response = [
             "model" => $model
         ];
 
-        return response()->json($response,200);
+        return response()->json($response, 200);
     }
 
     public function delete()
@@ -148,7 +149,6 @@ class UserController extends Controller
             'url' => ""
         ];
 
-        return response()->json($response,200);
+        return response()->json($response, 200);
     }
-
 }
