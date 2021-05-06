@@ -6,8 +6,8 @@
 		<div class="item" style="background-image:url('frontend/img/bg-banner.jpg');">
 			<div class="container">
 				<div class="row">
-					<h1>Duis nec libero sed purus</h1>
-					<h2>faucibus aliquet eleifend vel urna</h2>
+					<h1>Discover and Rediscover</h1>
+					<h2>Competitive Global Business</h2>
 				</div>
 			</div>
 		</div>
@@ -19,10 +19,11 @@
 		<div class="container">
 			<div class="row featured-header justify-content-center">
 				<div class="col-12 col-lg-10">
-					<h1>¡ENCUENTRA EL NEGOCIO QUE BUSCAS EN UN SOLO INSTANTE!</h1>
+					<h1>FIND THE BUSINESS YOU'RE LOOKING FOR IN A SINGLE
+                        INSTANT!</h1>
 				</div>
 				<div class="col-12 col-lg-10">
-					<p>NGP es uno de los mayores recursos en línea dedicados a las empresas internacionales. Entregamos sus productos y servicios para ayudar a los empresarios a ser más competitivos en sus respectivas empresas, dándole un giro alrededor del mundo.</p>
+					<p>GPB is one of the largest online resources dedicated to small, medium large businesses. We deliver your products, services to help entrepreneurs become more competitive in their respective companies, giving it a turn around the world.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -32,10 +33,10 @@
 							<img src="{{ asset('frontend/img/ahorre-tiempo.svg') }}" alt="">
 						</div>
 						<h4 class="featured-title">
-							AHORRE TIEMPO
+							SAVE TIME
 						</h4>
 						<p class="featured-description">
-							Encuentra el Negocio que estás buscando con un solo click.
+							Find the Business you are looking for one click.
 						</p>
 					</div>
 				</div>
@@ -45,10 +46,10 @@
 							<img src="{{ asset('frontend/img/mas-ingresos.svg') }}" alt="">
 						</div>
 						<h4 class="featured-title">
-							MÁS INGRESOS
+							MORE INCOME
 						</h4>
 						<p class="featured-description">
-							El Equipo de NGP trabaja arduamente para entregar en línea marketing para las empresas.
+							The GPB Team works hard to deliver online marketing for small, medium, and large companies’ businesses.
 						</p>
 					</div>
 				</div>
@@ -58,10 +59,10 @@
 							<img src="{{ asset('frontend/img/profesionalismo.svg') }}" alt="">
 						</div>
 						<h4 class="featured-title">
-							PROFESIONALISMO
+							PROFESSIONALISM
 						</h4>
 						<p class="featured-description">
-							Los dueños de Negocios pueden personalizar su página y mejorar la comercialización y la visibilidad en línea.
+							Business owners can personalize their page and improve marketing and online visibility.
 						</p>
 					</div>
 				</div>
@@ -71,10 +72,10 @@
 							<img src="{{ asset('frontend/img/confianza.svg') }}" alt="">
 						</div>
 						<h4 class="featured-title">
-							CONFIANZA
+							CONFIDENCE
 						</h4>
 						<p class="featured-description">
-							Contamos con más de cien visitantes únicos cada mes.
+							We have thousands of unique visitors each month.
 						</p>
 					</div>
 				</div>
@@ -85,7 +86,7 @@
 		<div class="container">
 			<div class="row featured-header justify-content-center">
 				<div class="col-12 col-lg-10">
-					<h1>Nosotros</h1>
+					<h1>FEATURED STAFF</h1>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -236,7 +237,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <h1>Empresas que confían en Nosotros</h1>
+                    <h1>BUSINESS THAT ENTRUSTED US</h1>
                 </div>
                 <div class="col-12 col-lg-8">
                     <div class="owl-carousel owl-clients">
@@ -254,7 +255,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <h1>Actualmente estamos en estos Países</h1>
+                    <h1>WE ARE CURRENTLY IN THESE COUNTRIES</h1>
                 </div>
                 <div class="col-6 col-lg-3">
                     <div class="countries--element">
@@ -262,7 +263,7 @@
                             <img src="{{ asset('frontend/img/peru.jpg') }}" alt="">
                         </div>
                         <div class="element--name">
-                            Perú
+                            Peru
                         </div>
                     </div>
                 </div>
@@ -366,13 +367,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <h1>Comience a captar más Clientes</h1>
+                    <h1>PLANS</h1>
                 </div>
                 <div class="col-12 col-lg-4">
                     <div class="plan plan-free">
                         <div class="plan--header">
                             <div class="plan--header-title">
-                                Gratis
+                                Free
                             </div>
                             <div class="plan--header-price">
 
@@ -380,16 +381,16 @@
                         </div>
                         <div class="plan--include">
                             <div class="plan--include-title">
-                                Incluye:
+                                Includes:
                             </div>
                             <ul class="plan--include-list">
-                                <li>1 mes gratis</li>
-                                <li>Publica tu negocio por 1 mes gratis</li>
-                                <li class="disabled">Tu negocio en las primeras búsquedas</li>
+                                <li>1 month free</li>
+                                <li>Publish your business for 1 month for free</li>
+                                <li class="disabled">Your business in the first searches</li>
                             </ul>
                         </div>
                         <div class="plan--cta">
-                            <a href="#">Regístrate</a>
+                            <a href="#">Register</a>
                         </div>
                     </div>
                 </div>
@@ -397,24 +398,24 @@
                     <div class="plan plan-basic">
                         <div class="plan--header">
                             <div class="plan--header-title">
-                                Básico
+                                Basic
                             </div>
                             <div class="plan--header-price">
                                 25$
-                                <small>mensuales</small>
+                                <small>monthly</small>
                             </div>
                         </div>
                         <div class="plan--include">
                             <div class="plan--include-title">
-                                Incluye:
+                                Includes:
                             </div>
                             <ul class="plan--include-list">
-                                <li>Publica tu negocio y obtén 1 mes gratis</li>
-                                <li class="disabled">Tu negocio en las primeras búsquedas</li>
+                                <li>Publish your business for 1 month for free</li>
+                                <li class="disabled">Your business in the first searches</li>
                             </ul>
                         </div>
                         <div class="plan--cta">
-                            <a href="#">Regístrate</a>
+                            <a href="#">Register</a>
                         </div>
                     </div>
                 </div>
@@ -426,20 +427,20 @@
                             </div>
                             <div class="plan--header-price">
                                 200$
-                                <small>anuales</small>
+                                <small>annual</small>
                             </div>
                         </div>
                         <div class="plan--include">
                             <div class="plan--include-title">
-                                Incluye:
+                                Includes:
                             </div>
                             <ul class="plan--include-list">
-                                <li>Publica tu negocio y obtén 1 mes gratis</li>
-                                <li>Tu negocio en las primeras búsquedas</li>
+                                <li>Publish your business for 1 month for free</li>
+                                <li>Your business in the first searches</li>
                             </ul>
                         </div>
                         <div class="plan--cta">
-                            <a href="#">Regístrate</a>
+                            <a href="#">Register</a>
                         </div>
                     </div>
                 </div>
@@ -450,7 +451,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <h1>Eestamos felices por saber de ti</h1>
+                    <h1>WE'RE HAPPY TO HEAR FROM YOU.</h1>
                 </div>
                 <div class="col-12 col-lg-7">
                     <contact-form
@@ -472,41 +473,41 @@
                             <li>
                                 <img src="{{ asset('frontend/img/phone.svg') }}" alt="">
                                 <div class="info">
-                                    <div class="label">Linea Central</div>
+                                    <div class="label">CENTRAL LINE</div>
                                     <a href="tel:+19494680112" class="phone-numer">1-949-468-0112</a>
                                 </div>
                             </li>
                             <li>
                                 <img src="{{ asset('frontend/img/phone.svg') }}" alt="">
                                 <div class="info">
-                                    <div class="label">Peru - Central</div>
+                                    <div class="label">PERU - CENTRAL</div>
                                     <a href="tel:+51017073802" class="phone-numer">51-707-3802</a>
                                 </div>
                             </li>
                             <li>
                                 <img src="{{ asset('frontend/img/phone.svg') }}" alt="">
                                 <div class="info">
-                                    <div class="label">Skype International</div>
+                                    <div class="label">SKYPE INTERNATIONAL</div>
                                     <a href="tel:+19494780844" class="phone-numer">1-949-478-0844</a>
                                 </div>
                             </li>
                             <li>
                                 <img src="{{ asset('frontend/img/whatsapp.svg') }}" alt="">
                                 <div class="info">
-                                    <div class="label">WhatsApp Global</div>
+                                    <div class="label">WHATSAPP GLOBAL</div>
                                     <a href="wa.link/04lo4r" target="_blank" class="phone-numer">1-949-748-0339</a>
                                 </div>
                             </li>
                         </ul>
                         <div class="company--directory">
                             <div class="company--directory-title">
-                                Directorio GPB:
+                                GPB Directory:
                             </div>
                             <div class="directory--element">
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="directory--info">
                                     <div class="directory--title">
-                                        Directa informacion:
+                                        DIRECT INFORMATION:
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:info@globalprofessionalbusiness.com">info@globalprofessionalbusiness.com</a>
@@ -517,7 +518,7 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        Cancelación:
+                                        CANCELLATION:
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:cancellation@globalprofessionalbusiness.com">cancellation@globalprofessionalbusiness.com</a>
@@ -528,7 +529,7 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        Reclamación:
+                                        CLAIM:
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:claims@globalprofessionalbusiness.com">claims@globalprofessionalbusiness.com</a>
@@ -539,7 +540,7 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        Market - Mercado:
+                                        MARKET - MARKET:
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:marketing@globalprofessionalbusiness.com">marketing@globalprofessionalbusiness.com</a>
@@ -550,7 +551,29 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        Director Ejecutivo:
+                                        HELP:
+                                    </div>
+                                    <div class="directory--email">
+                                        <a href="mailto:help@globalprofessionalbusiness.com">help@globalprofessionalbusiness.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="directory--element">
+                                <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
+                                <div class="info">
+                                    <div class="directory--title">
+                                        ACCOUNTING:
+                                    </div>
+                                    <div class="directory--email">
+                                        <a href="mailto:billing@globalprofessionalbusiness.com">billing@globalprofessionalbusiness.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="directory--element">
+                                <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
+                                <div class="info">
+                                    <div class="directory--title">
+                                        CHIEF EXECUTIVE:
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:ceo@globalprofessionalbusiness.com">ceo@globalprofessionalbusiness.com</a>

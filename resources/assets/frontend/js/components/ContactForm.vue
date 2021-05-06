@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>Nombre de la empresa</label>
+                    <label>COMPANY NAME</label>
                     <input type="text" class="form-control" id="business_name" name="business_name" v-model="model.business_name">
                     <div id="business_name-error" class="error invalid-feedback"></div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label>Nombre completo</label>
+                    <label>FULL NAME</label>
                     <input type="text" class="form-control" id="full_name" name="full_name" v-model="model.full_name">
                     <div id="full_name-error" class="error invalid-feedback"></div>
                 </div>
@@ -19,14 +19,14 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>Dirección de correo electrónico</label>
+                    <label>EMAIL ADDRESS</label>
                     <input type="email" class="form-control" id="email" name="email" v-model="model.email">
                     <div id="email-error" class="error invalid-feedback"></div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
-                    <label>Número de teléfono</label>
+                    <label>PHONE NUMBER</label>
                     <input type="phone" class="form-control" id="phone" name="phone" v-model="model.phone">
                     <div id="phone-error" class="error invalid-feedback"></div>
                 </div>
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>URL de su empresa</label>
+                    <label>YOUR COMPANY URL</label>
                     <input type="text" class="form-control" id="website" name="website" v-model="model.website">
                     <div id="website-error" class="error invalid-feedback"></div>
                 </div>
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>Mensaje</label>
+                    <label>MESSAGE</label>
                     <textarea class="form-control" id="message" name="message" rows="3" v-model="model.message"></textarea>
                     <div id="message-error" class="error invalid-feedback"></div>
                 </div>
@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>País</label>
+                    <label>COUNTRY</label>
                     <select class="form-control" id="country" name="country" v-model="model.country">
                         <option value="">Seleccionar</option>
                         <option v-for="country in countries" :value="country.name" v-bind:key="country.id">{{ country.name }}</option>
@@ -65,54 +65,54 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>Tipo de consulta:</label>
+                    <label>QUERY TYPE:</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Publicidad" id="consulta01" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="Advertising" id="consulta01" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta01">
-                        Publicidad
+                        Advertising
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Solicitudes de suscripción" id="consulta02" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="Subscription requests" id="consulta02" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta02">
-                        Solicitudes de suscripción
+                        Subscription requests
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Publicidad Correo electrónico" id="consulta03" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="Advertising Email" id="consulta03" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta03">
-                        Publicidad Correo electrónico
+                        Advertising Email
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Verificación del perfil" id="consulta04" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="Profile verification" id="consulta04" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta04">
-                        Verificación del perfil
+                        Profile verification
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Actualización del perfil" id="consulta05" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="Profile update" id="consulta05" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta05">
-                        Actualización del perfil
+                        Profile update
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Eliminación de perfil" id="consulta06" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="Profile deletion" id="consulta06" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta06">
-                        Eliminación de perfil
+                        Profile deletion
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Interés Página web" id="consulta07" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="Interest Website" id="consulta07" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta07">
-                        Interés Página web
+                        Interest Website
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Consulta General" id="consulta08" v-model="model.request_types" name="request_types[]">
+                    <input class="form-check-input" type="checkbox" value="General Consultation" id="consulta08" v-model="model.request_types" name="request_types[]">
                     <label class="form-check-label" for="consulta08">
-                        Consulta General
+                        General Consultation
                     </label>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                     country: '',
                     request_types: [],
                 },
-                submitText: 'Enviar',
+                submitText: 'Send',
                 successMessage: '',
             }
         },
@@ -182,7 +182,7 @@
                 var vm = this;
 
                 $(event.target).find('button').attr('disabled', true);
-                this.submitText = 'Enviando...'
+                this.submitText = 'Sending...'
 
                 var target = $(event.target);
                 var url = url;
@@ -193,12 +193,12 @@
                     }
                 }).then(response => {
                     $(event.target).find('button').attr('disabled', false);
-                    this.submitText = 'Enviar';
+                    this.submitText = 'Send';
                     this.successMessage = 'Formulario enviado correctamente.';
                     this.clearModel();
                 }).catch(error => {
                     $(event.target).find('button').attr('disabled', false);
-                    this.submitText = 'Enviar';
+                    this.submitText = 'Send';
                     this.successMessage = 'Hubo un error al enviar. Inténtelo nuevamente.';
 
                     console.log(error.response);
