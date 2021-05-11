@@ -87,7 +87,7 @@ class EnterpriseController extends Controller
         }
         ////////
 
-        
+
         // RESPUESTA
         return response()->json($response, 200);
         ////////

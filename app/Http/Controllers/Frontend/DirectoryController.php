@@ -16,15 +16,18 @@ class DirectoryController extends Controller
     {
         $categories = Category::all();
         $enterprises = Enterprise::leftjoin('categories', 'enterprises.category_id', '=', 'categories.id')
-            ->select('enterprises.id', 'portrait_image', 'enterprises.name as enterprise_name', 'categories.name as category_name', 'enterprises.address as enterprise_address')
+            ->select('enterprises.id', 'portrait_image', 'enterprises.name as enterprise_name', 'enterprises.slug', 'categories.name as category_name', 'enterprises.address as enterprise_address', 'enterprises.address_object')
             ->currentPayment()
+            ->with(['images'])
             ->get();
 
         $enterprises->map(function ($item, $key) {
             $item->portrait_image = asset('storage/'.$item->portrait_image);
         });
 
-        return view('frontend.directory')->with(compact('categories', 'enterprises'));
+        $params = request()->only(['name']);
+
+        return view('frontend.directory')->with(compact('categories', 'enterprises','params'));
     }
 
     public function myBusiness()
@@ -41,15 +44,17 @@ class DirectoryController extends Controller
                 return redirect()->route('frontend.directory.register');
             }
         }
-        
+
         $categories = Category::select('id', 'name')->get();
 
         return view('frontend.directory.new_business')->with(compact('categories', 'enterprise'));
     }
 
-    public function business()
+    public function business( $slug = null )
     {
-        return view('frontend.directory.business');
+        $enterprise = Enterprise::where('slug', $slug)->first();
+
+        return view('frontend.directory.business')->with(compact('enterprise'));
     }
 
     public function sendMessage()
@@ -85,12 +90,25 @@ class DirectoryController extends Controller
                     ->with('membership')
                     ->orderBy('due_date', 'desc')
                     ->first();
+            },
+            'images' => static function($query) {
+                $query->select('id','enterprise_id','url_image','position');
+                $query->orderBy('position','asc');
             }
         ];
 
         $enterprise = app('App\Repositories\EnterpriseRepository')->find($enterprise_id, '*', $with, $where);
-        $enterprise->portrait_image = is_null($enterprise->portrait_image) ? '' : asset('storage'. $enterprise);
+        $enterprise->portrait_image = $this->getCorrectImage($enterprise->portrait_image);
+        $enterprise->images->map(function ($item, $key) {
+            $item->url_image = $this->getCorrectImage($item->url_image);
+            return $item;
+        });
 
         return $enterprise;
+    }
+
+    public function getCorrectImage($image)
+    {
+        return is_null($image) ? '' : asset('storage/'. $image);
     }
 }

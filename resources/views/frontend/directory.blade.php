@@ -7,5 +7,6 @@
     <directory
         :categories="{{ $categories }}"
         :enterprises="{{ $enterprises }}"
+        :params="{{ json_encode($params) }}"
     ></directory>
 @endsection

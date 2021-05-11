@@ -236,15 +236,25 @@ Route::group([
         'as' => 'send_message'
     ]);
 
+    Route::get('privacy-policy', [
+        'uses' => 'IndexController@privacyPolicy',
+        'as' => 'privacy_policy'
+    ]);
+
+    Route::get('terms-and-conditions', [
+        'uses' => 'IndexController@termsConditions',
+        'as' => 'terms_conditions'
+    ]);
+
     /**
      * Login
      */
-    Route::get('iniciar-sesion', [
+    Route::get('sign-in', [
         'uses' => 'LoginController@index',
         'as' => 'login'
     ]);
 
-    Route::post('iniciar-sesion/validar', [
+    Route::post('sign-in/validar', [
         'uses' => 'LoginController@login',
         'as' => 'login.validate'
     ]);
@@ -252,12 +262,12 @@ Route::group([
     /**
      * Registro
      */
-    Route::get('registro', [
+    Route::get('sign-up', [
         'uses' => 'LoginController@register',
         'as' => 'register'
     ]);
 
-    Route::post('registro/validar', [
+    Route::post('sign-up/validar', [
         'uses' => 'LoginController@newUser',
         'as' => 'register.validate'
     ]);
@@ -266,42 +276,42 @@ Route::group([
         /**
          * Directorio
          */
-        Route::get('directorio', [
+        Route::get('directory', [
             'uses' => 'DirectoryController@index',
             'as' => 'directory'
         ]);
 
-        Route::get('directorio/mis-negocios', [
+        Route::get('directory/mis-negocios', [
             'uses' => 'DirectoryController@myBusiness',
             'as' => 'directory.my_business'
         ]);
 
-        Route::post('directorio/mis-negocios/listar', [
+        Route::post('directory/mis-negocios/listar', [
             'uses' => 'EnterpriseController@list',
             'as' => 'directory.my_business.list'
         ]);
 
-        Route::get('directorio/registro', [
+        Route::get('directory/registro', [
             'uses' => 'DirectoryController@newBusiness',
             'as' => 'directory.register'
         ]);
 
-        Route::get('directorio/actualizar/{enterprise_id}', [
+        Route::get('directory/actualizar/{enterprise_id}', [
             'uses' => 'DirectoryController@newBusiness',
             'as' => 'directory.update'
         ]);
 
-        Route::post('directorio/controller', [
+        Route::post('directory/controller', [
             'uses' => 'EnterpriseController@controller',
             'as' => 'enterprises.controller'
         ]);
 
-        Route::get('directorio/negocio', [
+        Route::get('directory/{slug}', [
             'uses' => 'DirectoryController@business',
             'as' => 'directory.business'
         ]);
 
-        Route::post('directorio/enviar-mensaje', [
+        Route::post('directory/enviar-mensaje', [
             'uses' => 'DirectoryController@sendMessage',
             'as' => 'directory.send_message'
         ]);
