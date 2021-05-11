@@ -390,7 +390,7 @@
                             </ul>
                         </div>
                         <div class="plan--cta">
-                            <a href="#">Register</a>
+                            <a href="{{ route('frontend.register') }}">Register</a>
                         </div>
                     </div>
                 </div>
@@ -415,7 +415,7 @@
                             </ul>
                         </div>
                         <div class="plan--cta">
-                            <a href="#">Register</a>
+                            <a href="{{ route('frontend.register') }}">Register</a>
                         </div>
                     </div>
                 </div>
@@ -440,7 +440,7 @@
                             </ul>
                         </div>
                         <div class="plan--cta">
-                            <a href="#">Register</a>
+                            <a href="{{ route('frontend.register') }}">Register</a>
                         </div>
                     </div>
                 </div>
