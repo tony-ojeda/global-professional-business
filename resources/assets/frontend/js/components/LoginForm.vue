@@ -17,7 +17,7 @@
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <label>Contraseña</label>
+                    <label>Password</label>
                     <input
                         type="password"
                         class="form-control"
@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </div>
     </form>

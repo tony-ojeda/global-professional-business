@@ -54,7 +54,7 @@
 							<span></span>
 						</button>
 						<div class="main-nav-box">
-                            @if ( Route::currentRouteName() === 'frontend.index' )
+                            @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' )
                                 <ul class="main-nav">
                                     <li><a href="{{ route('frontend.index') }}">Home</a></li>
                                     <li><a href="#features">What we do</a></li>
@@ -66,7 +66,7 @@
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a>
                                 </div>
-                            @elseif ( ( strpos(url()->current(), '/directorio') !== false ) )
+                            @elseif ( ( strpos(url()->current(), '/directory') !== false ) )
                                 <ul class="main-nav">
                                     <li><a href="{{ route('frontend.directory') }}">Business</a></li>
                                 </ul>
@@ -74,12 +74,12 @@
 
                             @if ( Route::currentRouteName() === 'frontend.login' || Route::currentRouteName() === 'frontend.register' )
                                 <div class="login-nav">
-                                    <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Login</a>
-                                    <a href="{{ route('frontend.register') }}" class="btn btn-red">Registro</a>
+                                    <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Sign in</a>
+                                    <a href="{{ route('frontend.register') }}" class="btn btn-red">Sign up</a>
                                 </div>
-                            @elseif ( ( strpos(url()->current(), '/directorio') !== false ) )
+                            @elseif ( ( strpos(url()->current(), '/directory') !== false ) )
                                 <div class="login-nav">
-                                    <a href="{{ route('frontend.directory.register') }}" class="btn btn-outline-white">Registrar Negocio</a>
+                                    <a href="{{ route('frontend.directory.register') }}" class="btn btn-outline-white">New Business</a>
                                     <a href="{{ route('frontend.directory.my_business') }}" class="btn btn-red">{{ Auth::user()->name }}</a>
                                     <a href="{{ route('admin.logout') }}" class="btn-logout">
                                         <img src="{{ asset('frontend/img/logout.svg') }}" alt="">
@@ -97,7 +97,7 @@
 		@yield('content')
 	</main>
 
-    @if ( Route::currentRouteName() === 'frontend.index' || ( strpos(url()->current(), '/directorio/') !== false ) )
+    @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory/') !== false ) )
 	<footer id="footer">
         <div class="container">
             <div class="row">

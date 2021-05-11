@@ -66,15 +66,6 @@ class EnterpriseController extends Controller
         }
         ////////
 
-        $request_test = [
-            "value" => 20,
-            "currency" => "usd",
-            "custom_id" => "1",
-            "reference_id" => "3",
-        ];
-        $url = app('App\Http\Controllers\Web\PayPalController')->payment_url($request_test);
-        $response["url"] = $url;
-
         // RESPUESTA
         return response()->json($response, 200);
         ////////

@@ -28,7 +28,7 @@
                 type: String,
                 default: ''
             },
-            
+
         },
         data() {
             return {
@@ -92,10 +92,10 @@
                             render: function ( data, type, row ) {
                                 return `
                                 <button class='btn btn-sm btn-success btn-icon btn-icon-md edit' title='Editar'>
-                                    <i class='fa fa-pencil'></i>
+                                    <i class='fa fa-pencil-alt'></i>
                                 </button>
                                 <button class='btn btn-sm btn-warning btn-icon btn-icon-md delete' title='Eliminar'>
-                                    <i class='fa fa-trash-o'></i>
+                                    <i class='fa fa-trash'></i>
                                 </button>
                                 `;
                             }
@@ -105,7 +105,7 @@
 
                 $('#' + this.table_container + ' tbody')
                 .on('click','.edit', (event) => {
-                    let row = $(event.target).parents('tr');    
+                    let row = $(event.target).parents('tr');
                     let url = this.dataTableGetField(this.datatable,row,'editUrl');
                     window.location = url;
                 })

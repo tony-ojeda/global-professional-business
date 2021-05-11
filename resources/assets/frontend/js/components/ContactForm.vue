@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label>COUNTRY</label>
                     <select class="form-control" id="country" name="country" v-model="model.country">
-                        <option value="">Seleccionar</option>
+                        <option value="">-- Select --</option>
                         <option v-for="country in countries" :value="country.name" v-bind:key="country.id">{{ country.name }}</option>
                     </select>
                     <div id="country-error" class="error invalid-feedback"></div>

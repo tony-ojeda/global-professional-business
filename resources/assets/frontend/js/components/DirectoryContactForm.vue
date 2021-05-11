@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label>Mensaje</label>
+                    <label>Message</label>
                     <textarea class="form-control" id="message" name="message" rows="3" v-model="model.message"></textarea>
                     <div id="message-error" class="error invalid-feedback"></div>
                 </div>
@@ -43,7 +43,7 @@
                 model: {
                     message: '',
                 },
-                submitText: 'Enviar',
+                submitText: 'Send',
                 successMessage: '',
             }
         },
@@ -60,7 +60,7 @@
                 var vm = this;
 
                 $(event.target).find('button').attr('disabled', true);
-                this.submitText = 'Enviando...'
+                this.submitText = 'Sending...'
 
                 var target = $(event.target);
                 var url = url;
@@ -71,12 +71,12 @@
                     }
                 }).then(response => {
                     $(event.target).find('button').attr('disabled', false);
-                    this.submitText = 'Enviar';
+                    this.submitText = 'Send';
                     this.successMessage = 'Mensaje enviado correctamente.';
                     this.clearModel();
                 }).catch(error => {
                     $(event.target).find('button').attr('disabled', false);
-                    this.submitText = 'Enviar';
+                    this.submitText = 'Send';
                     this.successMessage = 'Hubo un error al enviar. Inténtelo nuevamente.';
 
                     console.log(error.response);

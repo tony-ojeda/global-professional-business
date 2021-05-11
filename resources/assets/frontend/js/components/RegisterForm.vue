@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <label>Nombre</label>
+                    <label>Name</label>
                     <input
                         type="text"
                         class="form-control"
@@ -31,7 +31,7 @@
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <label>Contraseña</label>
+                    <label>Password</label>
                     <input
                         type="password"
                         class="form-control"
@@ -44,7 +44,7 @@
             </div>
             <div class="col-12">
                 <div class="form-group">
-                    <label>Confirmar Contraseña</label>
+                    <label>Repeat password</label>
                     <input
                         type="password"
                         class="form-control"
@@ -58,7 +58,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="submit" class="btn btn-primary">Sign up</button>
             </div>
         </div>
     </form>

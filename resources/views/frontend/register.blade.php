@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1>Registro</h1>
+                    <h1>Sign up</h1>
                     <register-form
                         :url="'{{ route('frontend.register.validate') }}'"
                     ></register-form>

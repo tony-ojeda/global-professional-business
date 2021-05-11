@@ -6,7 +6,7 @@
                     <div class="col-12 col-lg-3">
                         <div class="widget">
                             <div class="widget--title">
-                                Buscar
+                                Search
                             </div>
                             <div class="search-bar">
                                 <input
@@ -14,13 +14,13 @@
                                     id="input_search"
                                     name="input_search"
                                     v-model="model.input_search"
-                                    placeholder="Escriba su búsqueda..."
+                                    placeholder="Enter a key..."
                                 >
                             </div>
                         </div>
                         <div class="widget">
                             <div class="widget--title">
-                                Categorías
+                                Categories
                             </div>
                             <div class="form-check" v-for="category in categories" v-bind:key="category.id">
                                 <input class="form-check-input" type="checkbox" :value="category.id" :id="'category0'+category.id" v-model="model.categories" name="categories[]">
@@ -33,7 +33,7 @@
                     <div class="col-12 col-lg-9">
                         <div class="row">
                             <div class="col-12 col-lg-4" v-for="enterprise in enterprises" v-bind:key="enterprise.id">
-                                <div class="enterprise">
+                                <a :href="'directory/'+enterprise.slug" class="enterprise">
                                     <div class="enterprise--image">
                                         <img :src="enterprise.portrait_image" alt="">
                                     </div>
@@ -50,7 +50,7 @@
                                         </svg>
                                         {{ enterprise.enterprise_address }}
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -77,6 +77,12 @@
                 type: Array,
                 default: ''
             },
+            params: {
+                type: Object,
+                default: function() {
+                    return {}
+                }
+            },
         },
         data() {
             return {
@@ -88,6 +94,11 @@
         },
         created() {
             this.clearModel();
+
+            var queryParams = new URLSearchParams(window.location.search);
+            console.log(queryParams)
+
+            queryParams.set("myParam", "myValue");
         },
         methods: {
             clearModel: function() {

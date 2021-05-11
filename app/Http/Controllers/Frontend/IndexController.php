@@ -48,4 +48,12 @@ class IndexController extends Controller
         Mail::to('gabriel@codea.pe')
             ->send(new ContactMail($mail_info));
     }
+
+    public function privacyPolicy() {
+        return view('frontend.privacy_policy');
+    }
+
+    public function termsConditions() {
+        return view('frontend.terms_and_conditions');
+    }
 }
