@@ -272,6 +272,19 @@ Route::group([
         'as' => 'register.validate'
     ]);
 
+    /**
+     * Blog
+     */
+    Route::get('blog', [
+        'uses' => 'BlogController@index',
+        'as' => 'blog'
+    ]);
+
+    Route::get('blog/{slug}', [
+        'uses' => 'BlogController@post',
+        'as' => 'blog.post'
+    ]);
+
     Route::group(['middleware' => 'auth'], function() {
         /**
          * Directorio
