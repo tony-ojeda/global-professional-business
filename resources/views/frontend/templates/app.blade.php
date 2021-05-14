@@ -110,6 +110,10 @@
                         <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
                         <li><a href="#contact-us">Contact</a></li>
                     </ul>
+                    <ul class="footer-nav footer-nav-alt">
+                        <li><a href="{{ route('frontend.privacy_policy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('frontend.terms_conditions') }}">Terms and Conditions</a></li>
+                    </ul>
                     <ul class="rrss-nav">
                         <li>
                             <a href="#" target="_blank">
