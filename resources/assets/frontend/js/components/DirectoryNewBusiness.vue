@@ -195,7 +195,7 @@
                                 Basic
                             </div>
                             <div class="plan--header-price">
-                                25$
+                                $25
                                 <small>monthly</small>
                             </div>
                         </div>
@@ -217,7 +217,7 @@
                                 Premium
                             </div>
                             <div class="plan--header-price">
-                                200$
+                                $200
                                 <small>annual</small>
                             </div>
                         </div>
