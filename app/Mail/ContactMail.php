@@ -31,7 +31,7 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->from('gabriel@codea.pe')
-                    ->subject('Mensaje de Contacto '.$this->mail_info['name'])
+                    ->subject('Mensaje de Contacto '.$this->mail_info['full_name'])
                     ->view('emails.contact_form');
     }
 }
