@@ -54,13 +54,13 @@
 							<span></span>
 						</button>
 						<div class="main-nav-box">
-                            @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' )
+                            @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) )
                                 <ul class="main-nav">
                                     <li><a href="{{ route('frontend.index') }}">Home</a></li>
                                     <li><a href="#features">What we do</a></li>
                                     <li><a href="#team">Featured Staff</a></li>
                                     <li><a href="#plans">Plans</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
                                     <li><a href="#contact-us">Contact</a></li>
                                 </ul>
                                 <div class="login-nav">
@@ -97,7 +97,7 @@
 		@yield('content')
 	</main>
 
-    @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory/') !== false ) )
+    @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || ( strpos(url()->current(), '/blog') !== false ) )
 	<footer id="footer">
         <div class="container">
             <div class="row">
@@ -107,7 +107,7 @@
                         <li><a href="#features">What we do</a></li>
                         <li><a href="#team">Featured Staff</a></li>
                         <li><a href="#plans">Plans</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
                         <li><a href="#contact-us">Contact</a></li>
                     </ul>
                     <ul class="rrss-nav">

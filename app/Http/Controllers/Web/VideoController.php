@@ -21,12 +21,12 @@ class VideoController extends Controller
         //VALIDACIONES
         $messages = [
             'video_1.required' => 'El video es obligatorio',
-            'video_2.required' => 'El video es obligatorio',
+            // 'video_2.required' => 'El video es obligatorio',
         ];
 
         $rules = [
             'video_1' => 'required',
-            'video_2' => 'required',
+            // 'video_2' => 'required',
         ];
 
         request()->validate($rules,$messages);

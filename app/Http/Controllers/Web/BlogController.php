@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Repositories\BlogRepository as Blog;
 
 class BlogController extends Controller
@@ -30,7 +31,7 @@ class BlogController extends Controller
 
         $rules = [
             'title' => 'required',
-            'portrait_image' => 'required|image|mimes:jpg,png|max:600',
+            'portrait_image' => 'required|image|mimes:jpg,jpeg,png|max:900',
             'content' => 'required'
         ];
 
@@ -38,7 +39,7 @@ class BlogController extends Controller
         {
             $rules["portrait_image"] = 'image|mimes:jpg,png|max:600';
         }
-        
+
         request()->validate($rules,$messages);
         //////////////
 
@@ -49,8 +50,9 @@ class BlogController extends Controller
             'title' => 'Error',
             'subtitle' => ''
         ];
-        
+
         $data["user_id"] = auth()->user()->id;
+        $data["slug"] = Str::slug($data["title"]);
         //////////////
 
         //CREACION|ACTUALIZACION
@@ -84,7 +86,7 @@ class BlogController extends Controller
             'type' => 2,
             'title' => 'Error',
         ];
-        
+
         try {
             $this->blog->delete($id);
             $response = [
