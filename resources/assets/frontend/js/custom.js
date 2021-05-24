@@ -18,6 +18,15 @@
             navText: ['<img src="../public/frontend/img/left-arrow.svg">','<img src="../public/frontend/img/right-arrow.svg">']
         });
 
+        $('.owl-countries').owlCarousel({
+            loop: true,
+            margin: 16,
+            nav: true,
+            dots: true,
+            items: 3,
+            navText: ['<img src="../public/frontend/img/left-arrow.svg">','<img src="../public/frontend/img/right-arrow.svg">']
+        });
+
         $('.owl-banner').owlCarousel({
             loop: true,
             margin: 0,
