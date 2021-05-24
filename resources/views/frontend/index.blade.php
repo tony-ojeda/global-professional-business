@@ -257,74 +257,90 @@
                 <div class="col-12 col-lg-10">
                     <h1>WE ARE CURRENTLY IN THESE COUNTRIES</h1>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <div class="countries--element">
-                        <div class="element--photo">
-                            <img src="{{ asset('frontend/img/peru.jpg') }}" alt="">
-                        </div>
-                        <div class="element--name">
-                            Peru
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="countries--element">
-                        <div class="element--photo">
-                            <img src="{{ asset('frontend/img/usa.jpg') }}" alt="">
-                        </div>
-                        <div class="element--name">
-                            U.S.A.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="countries--element">
-                        <div class="element--photo">
-                            <img src="{{ asset('frontend/img/colombia.jpg') }}" alt="">
-                        </div>
-                        <div class="element--name">
-                            Colombia
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="countries--element">
-                        <div class="element--photo">
-                            <img src="{{ asset('frontend/img/china.jpg') }}" alt="">
-                        </div>
-                        <div class="element--name">
-                            China
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="countries--element">
-                        <div class="element--photo">
-                            <img src="{{ asset('frontend/img/espana.jpg') }}" alt="">
-                        </div>
-                        <div class="element--name">
-                            España
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="countries--element">
-                        <div class="element--photo">
-                            <img src="{{ asset('frontend/img/chile.jpg') }}" alt="">
-                        </div>
-                        <div class="element--name">
-                            Chile
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <div class="countries--element">
-                        <div class="element--photo">
-                            <img src="{{ asset('frontend/img/mexico.jpg') }}" alt="">
-                        </div>
-                        <div class="element--name">
-                            México
-                        </div>
+                <div class="col-12 col-lg-10">
+                    <div class="owl-carousel owl-countries">
+                        {{-- @foreach ($enterprises as $enterprise)
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/peru.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        Peru
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach --}}
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/peru-02.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        Peru
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/usa.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        U.S.A.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/colombia.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        Colombia
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/china.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        China
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/espana.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        España
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/chile.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        Chile
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="countries--element">
+                                    <div class="element--photo">
+                                        <img src="{{ asset('frontend/img/mexico-02.jpg') }}" alt="">
+                                    </div>
+                                    <div class="element--name">
+                                        México
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

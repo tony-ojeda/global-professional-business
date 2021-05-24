@@ -82,7 +82,7 @@ class EnterpriseController extends Controller
             $response["title"] = "Error";
             $response["error"] = true;
             $response["subtitle"] = "Hubo un error, contactarse con nosotros.";
-            // $response["subtitle"] = $th->getMessage();
+            $response["subtitle"] = $th->getMessage();
             $response["type"] = 2;
         }
         ////////
