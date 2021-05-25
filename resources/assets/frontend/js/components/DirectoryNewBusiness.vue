@@ -340,11 +340,6 @@
             this.initSearch();
         },
         created() {
-            let data = {
-                title: 'ok',
-                subtitle: 'yupi'
-            }
-            this.alertMsg( data );
             if(this.enterprise){
                 for(let propertyName in this.model) {
 
