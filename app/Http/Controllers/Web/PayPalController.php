@@ -45,8 +45,8 @@ class PayPalController extends Controller
             $enterprise_id = $payment->purchase_units[0]->payments->captures[0]->custom_id;
             $membership_id = $payment->purchase_units[0]->reference_id;
 
-            $this->disabledPreviousMemberships($enterprise_id);
-            $this->generateEnterpriseMembership($enterprise_id, $membership_id, $payment);
+            $lastMembership = $this->disabledPreviousMemberships($enterprise_id);
+            $this->generateEnterpriseMembership($enterprise_id, $membership_id, $payment, $lastMembership);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -68,21 +68,26 @@ class PayPalController extends Controller
         ];
         $records = $this->enterpriseMembership->list('*', [], $where);
 
+        $active = null;
         foreach ($records as $key => $record) {
             $record->update([
                 'is_active' => false,
                 'change_membership_at' => $now
             ]);
+            $active = $record;
         }
+        return $active;
     }
 
-    public function generateEnterpriseMembership($enterprise_id, $membership_id, $paypal_data = [])
+    public function generateEnterpriseMembership($enterprise_id, $membership_id, $paypal_data = [], $lastMembership)
     {
+        $due_date = is_null($lastMembership) ? null : $lastMembership->due_date;
         $data = [
             'enterprise_id' => $enterprise_id,
             'membership_id' => $membership_id,
             'paypal_data' => $paypal_data,
-            'is_active' => true
+            'is_active' => true,
+            'due_date' => $due_date,
         ];
 
         return $this->enterpriseMembership->createUpdate($data);
