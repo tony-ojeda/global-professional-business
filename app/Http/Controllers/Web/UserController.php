@@ -151,4 +151,40 @@ class UserController extends Controller
 
         return response()->json($response, 200);
     }
+
+    
+    public function recoverPassword()
+    {
+        $messages = [
+            'email.required' => 'El correo es obligatorio'
+        ];
+
+        $rules = [
+            'email' => 'required'
+        ];
+
+        request()->validate($rules, $messages);
+
+        $email = request('email');
+
+        $error = false;
+        $msg = "Su clave ha sido restaurada y enviada a su correo";
+        try {
+            $model = $this->userRepository->recoverPassword($email);
+            if (is_null($model)) {
+                $error = true;
+                $msg = "Este correo no está registrado";
+            }
+        } catch (\Throwable $th) {
+            $error = true;
+            $msg = "Hubo un error, revise que su correo sea válido";
+        }
+
+        $response = [
+            'error' => $error,
+            'msg' => $msg,
+        ];
+
+        return response()->json($response, 200);
+    }
 }
