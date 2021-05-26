@@ -333,5 +333,10 @@ Route::group([
             'uses' => 'DirectoryController@sendMessage',
             'as' => 'directory.send_message'
         ]);
+
+        Route::post('directory/eliminar', [
+            'uses' => 'EnterpriseController@delete',
+            'as' => 'directory.delete'
+        ]);
     });
 });
