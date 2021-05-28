@@ -65,6 +65,7 @@
                                 </ul>
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a>
+                                    <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Sign in/up</a>
                                 </div>
                             @elseif ( ( strpos(url()->current(), '/directory') !== false ) )
                                 <ul class="main-nav">
