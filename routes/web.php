@@ -264,6 +264,11 @@ Route::group([
         'as' => 'login.validate'
     ]);
 
+    Route::get('logout', [
+        'uses' => 'LoginController@logout',
+        'as' => 'logout'
+    ]);
+
     /**
      * Registro
      */
