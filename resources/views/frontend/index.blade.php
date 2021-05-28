@@ -350,7 +350,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <h1>Nuestros Clientes no pueden vivir sin nosotros</h1>
+                    <h1>OUR CUSTOMER CAN NOT LIVE WITHOUT US</h1>
                 </div>
                 <div class="col-12 col-lg-7">
                     <div class="owl-carousel owl-testimonials">
@@ -467,7 +467,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
-                    <h1>WE'RE HAPPY TO HEAR FROM YOU.</h1>
+                    <h1>WE ARE HAPPY TO HEAR FROM YOU</h1>
                 </div>
                 <div class="col-12 col-lg-7">
                     <contact-form
