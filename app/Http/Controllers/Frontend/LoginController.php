@@ -87,4 +87,10 @@ class LoginController extends Controller
             'url'   => $url
         ], 200);
     }
+
+    public function logout() {
+        Auth::logout();
+
+        return redirect()->route('frontend.index');
+    }
 }
