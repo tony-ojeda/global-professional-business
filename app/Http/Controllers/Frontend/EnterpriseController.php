@@ -104,4 +104,20 @@ class EnterpriseController extends Controller
         $response["url"] = app('App\Http\Controllers\Web\PayPalController')->payment_url($paypal_params);
         $response["subtitle"] = "Proceda a realizar el pago";
     }
+
+    
+    public function delete()
+    {
+        $id = request('id');
+        $flag = $this->enterprise->delete(request('id'));
+        $response = [
+            'error' => !$flag,
+            'type' => 1,
+            'title' => "OK!",
+            'subtitle' => "Empresa eliminada correctamente",
+            'url' => ""
+        ];
+
+        return response()->json($response, 200);
+    }
 }

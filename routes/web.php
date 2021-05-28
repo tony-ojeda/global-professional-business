@@ -215,6 +215,11 @@ Route::group([
         'uses' => 'UserController@find',
         'as' => 'users.find'
     ]);
+
+    Route::post('usuarios/recoverPassword', [
+        'uses' => 'UserController@recoverPassword',
+        'as' => 'users.recoverPassword'
+    ]);
     /// END USERS MODULE ///////////////
 });
 
@@ -285,7 +290,7 @@ Route::group([
         'as' => 'blog.post'
     ]);
 
-    Route::group(['middleware' => 'auth'], function() {
+    Route::group(['middleware' => 'auth'], function () {
         /**
          * Directorio
          */
@@ -328,6 +333,10 @@ Route::group([
             'uses' => 'DirectoryController@sendMessage',
             'as' => 'directory.send_message'
         ]);
+
+        Route::post('directory/eliminar', [
+            'uses' => 'EnterpriseController@delete',
+            'as' => 'directory.delete'
+        ]);
     });
 });
-

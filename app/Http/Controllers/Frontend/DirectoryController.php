@@ -27,7 +27,7 @@ class DirectoryController extends Controller
 
         $params = request()->only(['name']);
 
-        return view('frontend.directory')->with(compact('categories', 'enterprises','params'));
+        return view('frontend.directory')->with(compact('categories', 'enterprises', 'params'));
     }
 
     public function myBusiness()
@@ -50,7 +50,7 @@ class DirectoryController extends Controller
         return view('frontend.directory.new_business')->with(compact('categories', 'enterprise'));
     }
 
-    public function business( $slug = null )
+    public function business($slug = null)
     {
         $enterprise = Enterprise::where('slug', $slug)->first();
 
@@ -87,18 +87,20 @@ class DirectoryController extends Controller
             'memberships' => static function ($query) {
                 $query->select('id', 'enterprise_id', 'membership_id', 'due_date')
                     ->whereNotNull('due_date')
+                    ->whereNull('change_membership_at')
                     ->with('membership')
                     ->orderBy('due_date', 'desc')
                     ->first();
             },
-            'images' => static function($query) {
-                $query->select('id','enterprise_id','url_image','position');
-                $query->orderBy('position','asc');
+            'images' => static function ($query) {
+                $query->select('id', 'enterprise_id', 'url_image', 'position');
+                $query->orderBy('position', 'asc');
             }
         ];
 
         $enterprise = app('App\Repositories\EnterpriseRepository')->find($enterprise_id, '*', $with, $where);
         $enterprise->portrait_image = $this->getCorrectImage($enterprise->portrait_image);
+        $enterprise->membership = $enterprise->memberships[0]->membership;
         $enterprise->images->map(function ($item, $key) {
             $item->url_image = $this->getCorrectImage($item->url_image);
             return $item;

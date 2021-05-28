@@ -16,11 +16,11 @@ class EnterpriseMembershipObserver
     {
         $membership = $enterpriseMembership->membership()->first();
 
-        $payment_date = date('Y-m-d');
+        $base_date = is_null($enterpriseMembership->due_date) ? date('Y-m-d') : $enterpriseMembership->due_date;
         $add = "+{$membership->month_duration} months";
-        $due_date = date('Y-m-d', strtotime($add, strtotime(str_replace("/", "-", $payment_date))));
+        $due_date = date('Y-m-d', strtotime($add, strtotime(str_replace("/", "-", $base_date))));
         
-        $enterpriseMembership->payment_date = $payment_date;
+        $enterpriseMembership->payment_date = date('Y-m-d');
         $enterpriseMembership->due_date = $due_date;
         $enterpriseMembership->update();
     }
