@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-9">
-                        <div class="row">
+                        <div class="row enterprise-grid">
                             <div class="col-12 col-lg-4" v-for="enterprise in enterprises" v-bind:key="enterprise.id">
                                 <a :href="'directory/'+enterprise.slug" class="enterprise">
                                     <div class="enterprise--image">
