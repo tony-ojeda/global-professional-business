@@ -215,13 +215,16 @@ Route::group([
         'uses' => 'UserController@find',
         'as' => 'users.find'
     ]);
-
-    Route::post('usuarios/recoverPassword', [
-        'uses' => 'UserController@recoverPassword',
-        'as' => 'users.recoverPassword'
-    ]);
     /// END USERS MODULE ///////////////
 });
+
+/**
+ * Recuperar contraseña
+ */
+Route::post('user/recoverPassword', [
+    'uses' => 'Web\UserController@recoverPassword',
+    'as' => 'admin.users.recoverPassword'
+]);
 
 
 Route::group([
@@ -304,22 +307,27 @@ Route::group([
             'as' => 'directory'
         ]);
 
-        Route::get('directory/mis-negocios', [
+        Route::get('directory/my-business', [
             'uses' => 'DirectoryController@myBusiness',
             'as' => 'directory.my_business'
         ]);
 
-        Route::post('directory/mis-negocios/listar', [
+        Route::post('directory/my-business/list', [
             'uses' => 'EnterpriseController@list',
             'as' => 'directory.my_business.list'
         ]);
 
-        Route::get('directory/registro', [
+        Route::post('directory/my-business/delete', [
+            'uses' => 'EnterpriseController@delete',
+            'as' => 'directory.my_business.delete'
+        ]);
+
+        Route::get('directory/new-business', [
             'uses' => 'DirectoryController@newBusiness',
             'as' => 'directory.register'
         ]);
 
-        Route::get('directory/actualizar/{enterprise_id}', [
+        Route::get('directory/update/{enterprise_id}', [
             'uses' => 'DirectoryController@newBusiness',
             'as' => 'directory.update'
         ]);
@@ -334,14 +342,9 @@ Route::group([
             'as' => 'directory.business'
         ]);
 
-        Route::post('directory/enviar-mensaje', [
+        Route::post('directory/send-message', [
             'uses' => 'DirectoryController@sendMessage',
             'as' => 'directory.send_message'
-        ]);
-
-        Route::post('directory/eliminar', [
-            'uses' => 'EnterpriseController@delete',
-            'as' => 'directory.delete'
         ]);
     });
 });

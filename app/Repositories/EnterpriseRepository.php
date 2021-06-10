@@ -21,7 +21,7 @@ class EnterpriseRepository
             } else {
                 $data["address"] = $extra_info->address_object->formatted_address;
             }
-            
+
             $data["address_object"] = $extra_info->address_object;
             $data["latitude"] = $extra_info->address_object->latitude;
             $data["longitude"] = $extra_info->address_object->longitude;
@@ -59,7 +59,7 @@ class EnterpriseRepository
 
         return $model;
     }
-    
+
     public function find($id, $select = '*', $with = [], $where = [])
     {
         return Enterprise::whereId($id)
@@ -106,7 +106,7 @@ class EnterpriseRepository
         ->with('memberships')
         ->orderBy('id', 'asc')
         ->paginate($length);
-        
+
         $meta->recordsTotal = $objs->total();
 
         $objs->map(function ($item, $index) {
@@ -119,7 +119,7 @@ class EnterpriseRepository
             'recordsFiltered' => $meta->recordsTotal,
             'data' => $objs->items(),
         ];
-        
+
         return $response;
     }
 
@@ -131,7 +131,7 @@ class EnterpriseRepository
         $start = intval(request('start'));
         $length = intval(request('length'));
         $page = ($start / $length) + 1;
-        
+
         request()->replace(['page' => $page]);
         $factor = ($page - 1) * $length;
         DB::statement(DB::raw('SET @row_number = '. $factor));
@@ -159,7 +159,7 @@ class EnterpriseRepository
 
         $meta->recordsTotal = $objs->total();
 
-        
+
 
         $objs->map(function ($item, $index) {
             $this->defineEnterpriseStatus($item);
@@ -174,7 +174,7 @@ class EnterpriseRepository
             'recordsFiltered' => $meta->recordsTotal,
             'data' => $objs->items(),
         ];
-        
+
         return $response;
     }
 
@@ -186,16 +186,16 @@ class EnterpriseRepository
         ];
 
         if (count($enterprise->memberships) == 0) {
-            $status["label"] = 'Pendiente de pago';
+            $status["label"] = 'Payment pending';
             $status["color"] = 'warning';
         } elseif ($this->checkPaymentDate($enterprise)) {
-            $status["label"] = 'Vigente';
+            $status["label"] = 'Active';
             $status["color"] = 'success';
         } else {
-            $status["label"] = 'Pago vencido';
+            $status["label"] = 'Payment due';
             $status["color"] = 'danger';
         }
- 
+
 
         $enterprise->status = $status;
         return $enterprise;

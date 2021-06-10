@@ -57,12 +57,12 @@ class EnterpriseController extends Controller
             "error" => false,
             "type" => 1,
             "title" => "OK",
-            "subtitle" => "Empresa creada correctamente",
+            "subtitle" => "Business created correctly",
             // "reload" => 1
         ];
         $model = $this->enterprise->createUpdate($data);
         if (!$model->wasRecentlyCreated) {
-            $response["subtitle"] = "Empresa actualizada correctamente";
+            $response["subtitle"] = "Business properly updated";
         }
         ////////
 
@@ -109,8 +109,8 @@ class EnterpriseController extends Controller
         $response = [
             'error' => !$flag,
             'type' => 1,
-            'title' => "OK!",
-            'subtitle' => "Empresa eliminada correctamente",
+            'title' => "Ok!",
+            'subtitle' => "Business successfully eliminated",
             'url' => ""
         ];
 

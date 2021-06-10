@@ -52,6 +52,12 @@
                             <div class="col-12 col-lg-6">
                                 <ul class="contact-list">
                                     <li>
+                                        <img src="{{ asset('frontend/img/web.svg') }}" alt="">
+                                        <div class="txt">
+                                            <a href="{{ $enterprise->website }}">{{ $enterprise->website }}</a>
+                                        </div>
+                                    </li>
+                                    <li>
                                         <img src="{{ asset('frontend/img/calendar.svg') }}" alt="">
                                         <div class="txt">
                                             {{ $enterprise->schedule }}

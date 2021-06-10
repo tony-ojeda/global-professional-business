@@ -19,9 +19,9 @@ class UserController extends Controller
     public function login()
     {
         $messages = [
-            'email.required' => 'El correo es obligatorio',
-            'email.email' => 'Escriba un correo válido',
-            'password.required' => 'La clave es obligatoria',
+            'email.required' => 'Email is required',
+            'email.email' => 'Enter a valid email',
+            'password.required' => 'Password is required',
         ];
 
         $rules = [
@@ -34,7 +34,7 @@ class UserController extends Controller
             'error' => true,
             'type' => 2,
             'title' => "Error!",
-            'subtitle' => "Verifique los datos ingresados",
+            'subtitle' => "Verify the data entered",
             'url' => "",
             'reload' => null
         ];
@@ -52,7 +52,7 @@ class UserController extends Controller
             $response["error"] = false;
             $response["type"] = 3;
             $response["title"] = "OK!";
-            $response["subtitle"] = "Bienvenido, " . Auth::user()->name;
+            $response["subtitle"] = "Welcome, " . Auth::user()->name;
             $response["url"] = route("admin.home");
         }
 
@@ -72,11 +72,11 @@ class UserController extends Controller
         $id = request('id');
         // VALIDACIONES
         $messages = [
-            'role_id.required' => 'El rol es obligatorio.',
-            'name.required' => 'El nombre completo es obligatorio.',
-            'email.required' => 'El email es obligatorio.',
-            'email.unique' => 'Este email ya está registrado.',
-            'password.required' => 'La clave es obligatoria.'
+            'role_id.required' => 'The role is required.',
+            'name.required' => 'Full name is required.',
+            'email.required' => 'Email is required.',
+            'email.unique' => 'This email is already registered.',
+            'password.required' => 'Password is required.'
         ];
 
         $rules = [
@@ -100,11 +100,11 @@ class UserController extends Controller
             "error" => false,
             "type" => 1,
             "title" => "OK",
-            "subtitle" => "Usuario creado correctamente",
+            "subtitle" => "User successfully created",
         ];
         $model = $this->userRepository->createUpdate($data);
         if (!$model->wasRecentlyCreated) {
-            $response["subtitle"] = "Usuario actualizado correctamente";
+            $response["subtitle"] = "User updated correctly";
         }
         ////////
 
@@ -145,18 +145,18 @@ class UserController extends Controller
             'error' => !$flag,
             'type' => 1,
             'title' => "OK!",
-            'subtitle' => "Usuario eliminado correctamente",
+            'subtitle' => "User successfully deleted",
             'url' => ""
         ];
 
         return response()->json($response, 200);
     }
 
-    
+
     public function recoverPassword()
     {
         $messages = [
-            'email.required' => 'El correo es obligatorio'
+            'email.required' => 'Email is required'
         ];
 
         $rules = [
@@ -168,16 +168,16 @@ class UserController extends Controller
         $email = request('email');
 
         $error = false;
-        $msg = "Su clave ha sido restaurada y enviada a su correo";
+        $msg = "Your password has been restored and sent to your email address.";
         try {
             $model = $this->userRepository->recoverPassword($email);
             if (is_null($model)) {
                 $error = true;
-                $msg = "Este correo no está registrado";
+                $msg = "This email is not registered";
             }
         } catch (\Throwable $th) {
             $error = true;
-            $msg = "Hubo un error, revise que su correo sea válido";
+            $msg = "Check that your email is valid";
         }
 
         $response = [

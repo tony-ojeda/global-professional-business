@@ -1,5 +1,5 @@
 @extends('frontend.templates.app')
-@section('title', 'Directorio | Global Professional Business')
+@section('title', 'Directory | Global Professional Business')
 @section('headerClass', 'header-white')
 @section('contentClass', 'camel-background')
 

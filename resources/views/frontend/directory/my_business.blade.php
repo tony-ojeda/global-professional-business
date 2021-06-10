@@ -1,5 +1,5 @@
 @extends('frontend.templates.app')
-@section('title', 'Directorio | Global Professional Business')
+@section('title', 'Directory | Global Professional Business')
 @section('headerClass', 'header-white')
 @section('contentClass', 'camel-background')
 
@@ -8,10 +8,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1>Mis Negocios</h1>
+                    <h1>My Business</h1>
                     <div class="white-box">
                         <directory-my-business
                             :url-list="'{{ route('frontend.directory.my_business.list') }}'"
+                            :url-delete="'{{ route('frontend.directory.my_business.delete') }}'"
                         ></directory-my-business>
                     </div>
                 </div>

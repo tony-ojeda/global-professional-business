@@ -10,6 +10,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 // console.log(window.Vue.options.components)
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 // import 'sweetalert2/src/sweetalert2.scss';
+import { EventBus } from './EventBus';
 
 
 const app = new Vue({
@@ -56,7 +57,7 @@ const app = new Vue({
                     text: data.msg,
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonText: 'Sí, eliminar!',
+                    confirmButtonText: 'Yes, delete!',
                     heightAuto: false
                 }).then(function(result) {
                     if (result.value) {
@@ -65,12 +66,12 @@ const app = new Vue({
                                 title: response.data.title,
                                 text: response.data.msg,
                                 icon: "success",
-                                confirmButtonText: "OK",
+                                confirmButtonText: "Ok",
                                 heightAuto: false,
                             });
-                            EventBus.$emit('refresh_table');
+                            EventBus.$emit('refresh');
                         }).catch(error => {
-                            console.log(error.response.data);
+                            console.log(error);
                         });
                     }
                 });
