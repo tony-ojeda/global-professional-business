@@ -18,15 +18,19 @@
                                 >
                             </div>
                         </div>
-                        <div class="widget">
-                            <div class="widget--title">
+                        <div class="widget" id="accordion">
+                            <div class="widget--title widget--accordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Categories
                             </div>
-                            <div class="form-check" v-for="category in categories" v-bind:key="category.id">
-                                <input class="form-check-input" type="checkbox" :value="category.id" :id="'category0'+category.id" v-model="model.categories" name="categories[]">
-                                <label class="form-check-label" :for="'category0'+category.id">
-                                    {{ category.name }}
-                                </label>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="form-check" v-for="category in categories" v-bind:key="category.id">
+                                        <input class="form-check-input" type="checkbox" :value="category.id" :id="'category0'+category.id" v-model="model.categories" name="categories[]">
+                                        <label class="form-check-label" :for="'category0'+category.id">
+                                            {{ category.name }}
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

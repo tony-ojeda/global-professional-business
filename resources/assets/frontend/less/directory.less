@@ -28,6 +28,31 @@
                 position: absolute;
                 width: 2rem;
             }
+
+            &.widget--accordion {
+                &:before {
+                    background-image: url(../img/down-arrow.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    content: '';
+                    display: block;
+                    height: 12px;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    transform: rotate(0deg);
+                    width: 20px;
+                }
+            }
+
+            &.collapsed {
+                &:before {
+                    transform: rotate(-90deg);
+                }
+            }
         }
 
         .search-bar {
@@ -40,6 +65,10 @@
                 padding: 0.5rem 0;
                 width: 100%;
             }
+        }
+
+        .card-body {
+            padding: 0;
         }
 
         .form-check {
@@ -373,6 +402,10 @@
                     color: @negro;
                     flex: 1 1 0;
                     font-size: 1rem;
+
+                    a {
+                        color: @rojo;
+                    }
                 }
             }
         }

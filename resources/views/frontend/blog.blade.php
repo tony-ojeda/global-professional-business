@@ -46,9 +46,9 @@
                                 <div class="info--title">
                                     {{ $post->title }}
                                 </div>
-                                <div class="info--date">
+                                {{-- <div class="info--date">
                                     <img src="{{ asset('frontend/img/calendar.svg') }}" alt=""> {{ date_format($post->created_at, 'Y/m/d') }}
-                                </div>
+                                </div> --}}
                             </div>
                         </a>
                     @endforeach

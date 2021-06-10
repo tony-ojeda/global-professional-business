@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="row featured-header justify-content-center">
 				<div class="col-12 col-lg-10">
-					<h1>FIND THE BUSINESS YOU'RE LOOKING FOR IN A SINGLE
+					<h1>FIND THE BUSINESS YOU ARE LOOKING FOR IN A SINGLE
                         INSTANT!</h1>
 				</div>
 				<div class="col-12 col-lg-10">
@@ -349,7 +349,7 @@
     <section id="testimonials">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
+                <div class="col-12">
                     <h1>OUR CUSTOMER CAN NOT LIVE WITHOUT US</h1>
                 </div>
                 <div class="col-12 col-lg-7">

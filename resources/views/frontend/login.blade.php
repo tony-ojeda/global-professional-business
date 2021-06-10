@@ -8,9 +8,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1>Sign in</h1>
                     <login-form
                         :url="'{{ route('frontend.login.validate') }}'"
+                        :url_recovery_password="'{{ route('admin.users.recoverPassword') }}'"
                     ></login-form>
                 </div>
             </div>

@@ -66,14 +66,14 @@
                     columns: [
                         { data: 'n', title: "N°", width: 20, sortable: false },
                         { data: 'id', title: "id", visible: false, sortable: false },
-                        { data: "name", title: "Empresa", sortable: false },
+                        { data: "name", title: "Business name", sortable: false },
                         { data: "website", title: "Web", sortable: false },
-                        { data: "address", title: "Dirección", sortable: false },
-                        { data: "category.name", title: "Categoría", sortable: false },
-                        { data: "phone", title: "Teléfono", sortable: false },
+                        { data: "address", title: "Address", sortable: false },
+                        { data: "category.name", title: "Category", sortable: false },
+                        { data: "phone", title: "Phone", sortable: false },
                         {
                             data: null,
-                            title: 'Estado',
+                            title: 'Status',
                             width: 100,
                             sortable: false,
                             render: function(data,type,row) {
@@ -91,10 +91,10 @@
                             sortable: false,
                             render: function ( data, type, row ) {
                                 return `
-                                <button class='btn btn-sm btn-success btn-icon btn-icon-md edit' title='Editar'>
+                                <button class='btn btn-sm btn-success btn-icon btn-icon-md edit' title='Edit'>
                                     <i class='fa fa-pencil-alt'></i>
                                 </button>
-                                <button class='btn btn-sm btn-warning btn-icon btn-icon-md delete' title='Eliminar'>
+                                <button class='btn btn-sm btn-warning btn-icon btn-icon-md delete' title='Delete'>
                                     <i class='fa fa-trash'></i>
                                 </button>
                                 `;
@@ -109,6 +109,21 @@
                     let url = this.dataTableGetField(this.datatable,row,'editUrl');
                     window.location = url;
                 })
+
+                $('#' + this.table_container + ' tbody')
+                .on('click','.delete', (event) => {
+                    let row = $(event.target).parents('tr');
+                    let id = this.dataTableGetField(this.datatable,row,'id');
+                    let result = {
+                        type: 4,
+                        title: 'Warning!',
+                        msg: 'Are you sure you want to eliminate this company?',
+                        url: this.urlDelete,
+                        id: id
+                    }
+
+                    this.$parent.alertMsg( result );
+                });
 
                 // this.dataTableAddCommonEvents(this.table_container);
             }
