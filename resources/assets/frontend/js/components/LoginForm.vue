@@ -132,10 +132,6 @@
                     $(event.target).find('button').attr('disabled', false);
                     this.clearModel();
 
-                    if ( response.data.error === false ) {
-                        this.$parent.alertMsg( response.data );
-                    }
-
                     if ( response.data.error === true ) {
                         let errorResponse = {
                             type: 5,
@@ -144,6 +140,8 @@
                         }
 
                         this.$parent.alertMsg( errorResponse );
+                    } else if ( response.data.type == 3 ) {
+                        this.$parent.alertMsg( response.data );
                     }
                 }).catch(error => {
                     $(event.target).find('button').attr('disabled', false);
