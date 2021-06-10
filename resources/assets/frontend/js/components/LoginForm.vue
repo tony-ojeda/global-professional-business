@@ -133,13 +133,7 @@
                     this.clearModel();
 
                     if ( response.data.error === false ) {
-                        let successResponse = {
-                            type: 1,
-                            title: 'Ok!',
-                            msg: response.data.msg,
-                        }
-
-                        this.$parent.alertMsg( successResponse );
+                        this.$parent.alertMsg( response.data );
                     }
 
                     if ( response.data.error === true ) {
