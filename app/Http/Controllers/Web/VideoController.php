@@ -47,7 +47,7 @@ class VideoController extends Controller
             $response["error"] = FALSE;
             $response["type"] = 1;
             // $response["url"] = route('post.update',['id' => $model->id]);
-            $response["title"] = "Ok";
+            $response["title"] = "Ok!";
             $response["subtitle"] = "Videos actualizados correctamente";
             if($model->wasRecentlyCreated) {
                 $response["subtitle"] = "Videos creados correctamente";

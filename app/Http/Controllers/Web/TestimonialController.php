@@ -38,7 +38,7 @@ class TestimonialController extends Controller
         if (isset($data["id"]) && $data["id"] != '') {
             $rules["portrait_image"] = 'image|mimes:jpg,jpeg,png|max:600';
         }
-        
+
         request()->validate($rules, $messages);
         //////////////
 
@@ -49,7 +49,7 @@ class TestimonialController extends Controller
             'title' => 'Error',
             'subtitle' => ''
         ];
-        
+
         $data["user_id"] = auth()->user()->id;
         //////////////
 
@@ -59,7 +59,7 @@ class TestimonialController extends Controller
             $response["error"] = false;
             $response["type"] = 1;
             // $response["url"] = route('post.update',['id' => $model->id]);
-            $response["title"] = "Ok";
+            $response["title"] = "Ok!";
             $response["subtitle"] = "Testimonial actualizada correctamente";
             if ($model->wasRecentlyCreated) {
                 $response["subtitle"] = "Testimonial creada correctamente";
@@ -84,7 +84,7 @@ class TestimonialController extends Controller
             'type' => 2,
             'title' => 'Error',
         ];
-        
+
         try {
             $this->testimonial->delete($id);
             $response = [
