@@ -79,7 +79,7 @@ class PayPalController extends Controller
         return $active;
     }
 
-    public function generateEnterpriseMembership($enterprise_id, $membership_id, $paypal_data = [], $lastMembership)
+    public function generateEnterpriseMembership($enterprise_id, $membership_id, $paypal_data = [], $lastMembership = null)
     {
         $due_date = is_null($lastMembership) ? null : $lastMembership->due_date;
         $data = [
