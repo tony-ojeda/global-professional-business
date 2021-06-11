@@ -99,7 +99,7 @@ class UserController extends Controller
         $response = [
             "error" => false,
             "type" => 1,
-            "title" => "OK",
+            "title" => "Ok!",
             "subtitle" => "User successfully created",
         ];
         $model = $this->userRepository->createUpdate($data);

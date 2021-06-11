@@ -33,7 +33,7 @@ class CategoryController extends Controller
         $response = [
             "error" => FALSE,
             "type" => 1,
-            "title" => "OK",
+            "title" => "Ok!",
             "subtitle" => "Categoría creada correctamente",
         ];
         $model = $this->category->createUpdate($data);

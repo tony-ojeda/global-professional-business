@@ -61,7 +61,7 @@ class BlogController extends Controller
             $response["error"] = FALSE;
             $response["type"] = 1;
             // $response["url"] = route('post.update',['id' => $model->id]);
-            $response["title"] = "Ok";
+            $response["title"] = "Ok!";
             $response["subtitle"] = "Post actualizado correctamente";
             if($model->wasRecentlyCreated) {
                 $response["subtitle"] = "Post creado correctamente";

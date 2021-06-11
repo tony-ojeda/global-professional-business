@@ -27,17 +27,17 @@ class EnterpriseController extends Controller
         $id = request('id');
         // VALIDACIONES
         $messages = [
-            'category_id.required' => 'La categoría es obligatoria.',
-            'name.required' => 'El nombre es obligatorio.',
-            'website.required' => 'El website es obligatorio.',
-            'phone.required' => 'El teléfono es obligatorio.',
-            'email.required' => 'El correo electrónico es obligatorio.',
-            'details.required' => 'Los detalles son obligatorios.',
-            'schedule.required' => 'El horario es obligatorio.',
-            'portrait_image.required' => 'La imagen es obligatoria.',
-            'portrait_image.image' => 'Tiene que ser una imagen válida.',
-            'portrait_image.mimes' => 'Use un formato válido jpg, jpeg, png.',
-            'portrait_image.max' => 'La imagen máximo puede pesar: max kb.',
+            'category_id.required' => 'Category is required.',
+            'name.required' => 'Name is required.',
+            'website.required' => 'Website is required.',
+            'phone.required' => 'Phone number is required.',
+            'email.required' => 'Email is required.',
+            'details.required' => 'Details are required.',
+            'schedule.required' => 'Schedule is required.',
+            'portrait_image.required' => 'Profile image is required.',
+            'portrait_image.image' => 'It must be a valid image.',
+            'portrait_image.mimes' => 'Use a valid format (jpg, jpeg, png).',
+            'portrait_image.max' => 'Maximum image weight: max kb.',
         ];
 
         $rules = [
@@ -60,14 +60,14 @@ class EnterpriseController extends Controller
         $response = [
             "error" => false,
             "type" => 3,
-            "title" => "OK",
-            "subtitle" => "Empresa creada correctamente",
+            "title" => "Ok!",
+            "subtitle" => "Business created correctly",
             "url" => route('frontend.directory.my_business')
         ];
         try {
             $model = $this->enterprise->createUpdate($data);
             if (!$model->wasRecentlyCreated) {
-                $response["subtitle"] = "Empresa actualizada correctamente";
+                $response["subtitle"] = "Business properly updated";
             }
             $membership = Membership::find(request('membership_id'));
             if (is_null($id) && $membership->id != 1) {
@@ -79,9 +79,9 @@ class EnterpriseController extends Controller
                 app('App\Http\Controllers\Web\PayPalController')->generateEnterpriseMembership($model->id, $membership->id);
             }
         } catch (\Throwable $th) {
-            $response["title"] = "Error";
+            $response["title"] = "Error!";
             $response["error"] = true;
-            $response["subtitle"] = "Hubo un error, contactarse con nosotros.";
+            $response["subtitle"] = "There was a mistake, please contact us.";
             $response["subtitle"] = $th->getMessage();
             $response["type"] = 2;
         }
@@ -102,10 +102,10 @@ class EnterpriseController extends Controller
             "reference_id" => $membership->id,
         ];
         $response["url"] = app('App\Http\Controllers\Web\PayPalController')->payment_url($paypal_params);
-        $response["subtitle"] = "Proceda a realizar el pago";
+        $response["subtitle"] = "Proceed to payment";
     }
 
-    
+
     public function delete()
     {
         $id = request('id');
@@ -113,8 +113,8 @@ class EnterpriseController extends Controller
         $response = [
             'error' => !$flag,
             'type' => 1,
-            'title' => "OK!",
-            'subtitle' => "Empresa eliminada correctamente",
+            'title' => "Ok!",
+            'subtitle' => "Business successfully eliminated",
             'url' => ""
         ];
 

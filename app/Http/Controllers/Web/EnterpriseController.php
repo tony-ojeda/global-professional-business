@@ -56,7 +56,7 @@ class EnterpriseController extends Controller
         $response = [
             "error" => false,
             "type" => 1,
-            "title" => "OK",
+            "title" => "Ok!",
             "subtitle" => "Business created correctly",
             // "reload" => 1
         ];
