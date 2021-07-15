@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Category;
 use App\Enterprise;
+use App\EnterpriseImage;
 use App\Http\Controllers\Controller;
 use App\Mail\DirectoryContactMail;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class DirectoryController extends Controller
     {
         $categories = Category::all();
         $enterprises = Enterprise::leftjoin('categories', 'enterprises.category_id', '=', 'categories.id')
-            ->select('enterprises.id', 'portrait_image', 'enterprises.name as enterprise_name', 'enterprises.slug', 'categories.name as category_name', 'enterprises.address as enterprise_address', 'enterprises.address_object')
+            ->select('enterprises.id', 'portrait_image', 'enterprises.name as enterprise_name', 'enterprises.slug', 'categories.name as category_name', 'categories.id as category_id', 'enterprises.address as enterprise_address', 'enterprises.address_object')
             ->currentPayment()
             ->with(['images'])
             ->get();
@@ -60,7 +61,7 @@ class DirectoryController extends Controller
     public function sendMessage()
     {
         $messages = [
-            'message.required'          => 'Mensaje es obligatorio.',
+            'message.required'          => 'Message is required.',
         ];
 
         $rules = [

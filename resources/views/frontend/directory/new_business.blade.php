@@ -12,6 +12,7 @@
                     <div class="white-box">
                         <directory-new-business
                             :url="'{{ route('frontend.enterprises.controller') }}'"
+                            :url_delete_image="'{{ route('frontend.enterprises.controller.delete_banner_image') }}'"
                             :categories="{{ $categories }}"
                             :enterprise="{{ json_encode($enterprise) }}"
                         ></directory-new-business>
