@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\EnterpriseImage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\EnterpriseRepository as Enterprise;
@@ -115,6 +116,22 @@ class EnterpriseController extends Controller
             'type' => 1,
             'title' => "Ok!",
             'subtitle' => "Business successfully eliminated",
+            'url' => ""
+        ];
+
+        return response()->json($response, 200);
+    }
+
+    public function deleteBannerImage() {
+        $id = request('id');
+        $element = EnterpriseImage::findOrFail($id);
+		$element->delete();
+
+        $response = [
+            'error' => '',
+            'type' => 1,
+            'title' => "Ok!",
+            'subtitle' => "Image successfully eliminated",
             'url' => ""
         ];
 

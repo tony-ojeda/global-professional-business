@@ -123,9 +123,9 @@
                     <div class="col-12 grid-images" v-if="model.images.length > 0">
                         <div class="avatar avatar-xl" v-for="(item,index) in model.images" :key="index">
                             <img :src="item.url_image" alt="avtar img holder">
-                            <span class="badge badge-pill badge-danger badge-sm badge-up" @click="deleteImage(index)">
+                            <a href="#" class="badge badge-pill badge-danger badge-sm badge-up" @click.prevent="deleteImage(item.id)">
                                 <i class="fa fa-trash"></i>
-                            </span>
+                            </a>
                         </div>
                     </div>
                     <div class="col-12">
@@ -153,82 +153,78 @@
             </div>
         </div>
 
-        <div class="row" v-if="model.id">
-            <div class="col-12">
-                <input type="checkbox" v-model="model.change_membership">
-                <label for="">Update membership?</label>
+        <div class="row update-membership">
+            <div class="col-12" v-if="model.id">
+                <input type="checkbox" id="update_membership" v-model="model.change_membership">
+                <label class="update_membership_label" for="update_membership">Update membership?</label>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
+            <div class="col-12" v-if="(model.id && model.change_membership) || (model.id == null && model.change_membership == false)">
                 <h4>Plans</h4>
-            </div>
-        </div>
-        <div id="plans" class="row choose-plan">
-            <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="plan plan-free" :class="{'selected': model.membership_id === 1}" data-plan="free" @click="changeMembership(1)">
-                        <div class="plan--header">
-                            <div class="plan--header-title">
-                                Free
-                            </div>
-                            <div class="plan--header-price">
+                <div id="plans" class="row choose-plan">
+                    <div class="col-12 col-lg-4" v-if="model.id == null">
+                        <div class="plan plan-free" :class="{'selected': model.membership_id === 1}" data-plan="free" @click="changeMembership(1)">
+                            <div class="plan--header">
+                                <div class="plan--header-title">
+                                    Free
+                                </div>
+                                <div class="plan--header-price">
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="plan--include">
-                            <div class="plan--include-title">
-                                Includes:
+                            <div class="plan--include">
+                                <div class="plan--include-title">
+                                    Includes:
+                                </div>
+                                <ul class="plan--include-list">
+                                    <li>1 month free</li>
+                                    <li>Publish your business for 1 month for free</li>
+                                    <li class="disabled">Your business in the first searches</li>
+                                </ul>
                             </div>
-                            <ul class="plan--include-list">
-                                <li>1 month free</li>
-                                <li>Publish your business for 1 month for free</li>
-                                <li class="disabled">Your business in the first searches</li>
-                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="plan plan-basic" :class="{'selected': model.membership_id === 2}" data-plan="basic" @click="changeMembership(2)">
-                        <div class="plan--header">
-                            <div class="plan--header-title">
-                                Basic
+                    <div class="col-12 col-lg-4">
+                        <div class="plan plan-basic" :class="{'selected': model.membership_id === 2}" data-plan="basic" @click="changeMembership(2)">
+                            <div class="plan--header">
+                                <div class="plan--header-title">
+                                    Basic
+                                </div>
+                                <div class="plan--header-price">
+                                    $25
+                                    <small>monthly</small>
+                                </div>
                             </div>
-                            <div class="plan--header-price">
-                                $25
-                                <small>monthly</small>
+                            <div class="plan--include">
+                                <div class="plan--include-title">
+                                    Includes:
+                                </div>
+                                <ul class="plan--include-list">
+                                    <li>Publish your business for 1 month for free</li>
+                                    <li class="disabled">Your business in the first searches</li>
+                                </ul>
                             </div>
-                        </div>
-                        <div class="plan--include">
-                            <div class="plan--include-title">
-                                Includes:
-                            </div>
-                            <ul class="plan--include-list">
-                                <li>Publish your business for 1 month for free</li>
-                                <li class="disabled">Your business in the first searches</li>
-                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="plan plan-premium" :class="{'selected': model.membership_id === 3}" data-plan="premium" @click="changeMembership(3)">
-                        <div class="plan--header">
-                            <div class="plan--header-title">
-                                Premium
+                    <div class="col-12 col-lg-4">
+                        <div class="plan plan-premium" :class="{'selected': model.membership_id === 3}" data-plan="premium" @click="changeMembership(3)">
+                            <div class="plan--header">
+                                <div class="plan--header-title">
+                                    Premium
+                                </div>
+                                <div class="plan--header-price">
+                                    $200
+                                    <small>annual</small>
+                                </div>
                             </div>
-                            <div class="plan--header-price">
-                                $200
-                                <small>annual</small>
+                            <div class="plan--include">
+                                <div class="plan--include-title">
+                                    Includes:
+                                </div>
+                                <ul class="plan--include-list">
+                                    <li>Publish your business for 1 month for free</li>
+                                    <li>Your business in the first searches</li>
+                                </ul>
                             </div>
-                        </div>
-                        <div class="plan--include">
-                            <div class="plan--include-title">
-                                Includes:
-                            </div>
-                            <ul class="plan--include-list">
-                                <li>Publish your business for 1 month for free</li>
-                                <li>Your business in the first searches</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -254,6 +250,10 @@
         },
         props: {
             url: {
+                type: String,
+                default: ''
+            },
+            url_delete_image: {
                 type: String,
                 default: ''
             },
@@ -338,6 +338,10 @@
         mounted() {
             this.drawMap();
             this.initSearch();
+
+            EventBus.$on('refresh', function() {
+                location.reload();
+            });
         },
         created() {
             if(this.enterprise){
@@ -562,6 +566,15 @@
                     });
                 });
             },
+            deleteImage: function(id) {
+                this.$parent.alertMsg({
+                    type: 4,
+                    title: 'Warning!',
+                    msg: 'Are you sure you want to delete this image?',
+                    url: this.url_delete_image,
+                    id: id
+                });
+            }
         },
     }
 </script>

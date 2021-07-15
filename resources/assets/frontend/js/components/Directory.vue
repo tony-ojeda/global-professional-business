@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-12 col-lg-9">
                         <div class="row enterprise-grid">
-                            <div class="col-12 col-lg-4" v-for="enterprise in enterprises" v-bind:key="enterprise.id">
+                            <div class="col-12 col-lg-4" v-for="enterprise in filterEnterprises" v-bind:key="enterprise.id">
                                 <a :href="'directory/'+enterprise.slug" class="enterprise">
                                     <div class="enterprise--image">
                                         <img :src="enterprise.portrait_image" alt="">
@@ -82,7 +82,7 @@
                 default: ''
             },
             params: {
-                type: Object,
+                type: Array,
                 default: function() {
                     return {}
                 }
@@ -94,15 +94,33 @@
                     input_search: '',
                     categories: [],
                 },
+                filterEnterprises: [],
             }
         },
         created() {
             this.clearModel();
+            this.filterEnterprises = this.enterprises;
 
-            var queryParams = new URLSearchParams(window.location.search);
-            console.log(queryParams)
+            // var queryParams = new URLSearchParams(window.location.search);
+            // console.log(queryParams)
 
-            queryParams.set("myParam", "myValue");
+            // queryParams.set("myParam", "myValue");
+        },
+        watch: {
+            model: {
+                handler (val) {
+                    if ( val.categories.length > 0 ) {
+                        this.filterEnterprises = this.enterprises.filter( element => {
+                            return element.enterprise_name.toLowerCase().indexOf(val.input_search.toLowerCase()) >= 0 && val.categories.includes(element.category_id);
+                        });
+                    } else if ( val.input_search !== '' ) {
+                        this.filterEnterprises = this.enterprises.filter( element => {
+                            return element.enterprise_name.toLowerCase().indexOf(val.input_search.toLowerCase()) >= 0;
+                        });
+                    }
+                },
+                deep: true
+            },
         },
         methods: {
             clearModel: function() {

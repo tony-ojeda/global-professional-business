@@ -337,6 +337,11 @@ Route::group([
             'as' => 'enterprises.controller'
         ]);
 
+        Route::post('directory/controller/delete_banner_image', [
+            'uses' => 'EnterpriseController@deleteBannerImage',
+            'as' => 'enterprises.controller.delete_banner_image'
+        ]);
+
         Route::get('directory/{slug}', [
             'uses' => 'DirectoryController@business',
             'as' => 'directory.business'
