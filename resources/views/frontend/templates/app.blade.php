@@ -83,7 +83,8 @@
                                     <a href="{{ route('frontend.directory.register') }}" class="btn btn-outline-white">New Business</a>
                                     <a href="{{ route('frontend.directory.my_business') }}" class="btn btn-red">{{ Auth::user()->name }}</a>
                                     <a href="{{ route('frontend.logout') }}" class="btn-logout">
-                                        <img src="{{ asset('frontend/img/logout.svg') }}" alt="">
+                                        {{-- <img src="{{ asset('frontend/img/logout.svg') }}" alt=""> --}}
+                                        Logout
                                     </a>
                                 </div>
                             @endif
