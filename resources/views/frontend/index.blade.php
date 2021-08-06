@@ -239,7 +239,7 @@
                 <div class="col-12 col-lg-10">
                     <h1>BUSINESS THAT ENTRUSTED US</h1>
                 </div>
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-10">
                     <div class="owl-carousel owl-clients">
                         @foreach ($enterpriseImages as $enterprise)
                             @if ( isset( $enterprise->url_image ) )
