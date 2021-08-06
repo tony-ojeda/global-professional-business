@@ -242,7 +242,7 @@
                 <div class="col-12 col-lg-8">
                     <div class="owl-carousel owl-clients">
                         @foreach ($enterpriseImages as $enterprise)
-                            @if ( property_exists( $enterprise, 'url_image' ) )
+                            @if ( isset( $enterprise->url_image ) )
                                 <div class="item">
                                     <img src="{{ asset('storage/'.$enterprise->url_image) }}" alt="">
                                 </div>
