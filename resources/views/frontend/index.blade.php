@@ -241,9 +241,10 @@
                 </div>
                 <div class="col-12 col-lg-8">
                     <div class="owl-carousel owl-clients">
-                        @foreach ($enterprises as $enterprise)
+                        @foreach ($enterpriseImages as $enterprise)
+                            {{ $enterprise }}
                             <div class="item">
-                                <img src="{{ asset('storage/'.$enterprise->portrait_image) }}" alt="">
+                                <img src="{{ asset('storage/'.$enterprise->url_image) }}" alt="">
                             </div>
                         @endforeach
                     </div>

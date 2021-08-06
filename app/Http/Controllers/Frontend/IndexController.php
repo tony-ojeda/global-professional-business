@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\CountryList;
 use App\Enterprise;
+use App\EnterpriseImage;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
 use App\Testimonial;
@@ -15,9 +16,19 @@ class IndexController extends Controller
     public function index() {
         $countries = CountryList::orderBy('name')->get();
         $testimonials = Testimonial::all();
-        $enterprises = Enterprise::select('portrait_image')->get();
+        $enterprises = Enterprise::all();
 
-		return view('frontend.index')->with(compact('countries', 'testimonials', 'enterprises'));
+        $enterpriseImages = [];
+
+        $enterprises->map(function ($item, $index) use (&$enterpriseImages) {
+            $enterprise_id = $item->id;
+            $modelImage = EnterpriseImage::where('enterprise_id',$enterprise_id)->select('id','url_image')->orderBy('id','asc')->first();
+            $enterpriseImages[] = $modelImage;
+
+            return $item;
+        });
+
+		return view('frontend.index')->with(compact('countries', 'testimonials', 'enterprises','enterpriseImages'));
 	}
 
     public function sendMessage() {
