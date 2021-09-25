@@ -6,6 +6,7 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="canonical" href="https://globalprofessionalbusiness.com" />
 	<!-- Favicons -->
 	<link rel="icon" href="{{ asset('frontend/img/favicon.png') }}">
 	<!-- Title -->
@@ -57,11 +58,11 @@
                             @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) )
                                 <ul class="main-nav">
                                     <li><a href="{{ route('frontend.index') }}">Home</a></li>
-                                    <li><a href="#features">What we do</a></li>
-                                    <li><a href="#team">Featured Staff</a></li>
-                                    <li><a href="#plans">Plans</a></li>
+                                    <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
+                                    <li><a href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
+                                    <li><a href="{{ route('frontend.index') }}/#plans">Plans</a></li>
                                     <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
-                                    <li><a href="#contact-us">Contact</a></li>
+                                    <li><a href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
                                 </ul>
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a>
@@ -106,11 +107,11 @@
                 <div class="col-12">
                     <ul class="footer-nav">
                         <li><a href="{{ route('frontend.index') }}">Home</a></li>
-                        <li><a href="#features">What we do</a></li>
-                        <li><a href="#team">Featured Staff</a></li>
-                        <li><a href="#plans">Plans</a></li>
+                        <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
+                        <li><a href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
+                        <li><a href="{{ route('frontend.index') }}/#plans">Plans</a></li>
                         <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
-                        <li><a href="#contact-us">Contact</a></li>
+                        <li><a href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
                     </ul>
                     <ul class="footer-nav footer-nav-alt">
                         <li><a href="{{ route('frontend.privacy_policy') }}">Privacy Policy</a></li>
@@ -118,22 +119,22 @@
                     </ul>
                     <ul class="rrss-nav">
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://www.linkedin.com/in/isabel-bates-143600193/" target="_blank">
                                 <img src="{{ asset('frontend/img/linkedin-blanco.svg') }}" alt="">
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://www.facebook.com/GPB.Isabel" target="_blank">
                                 <img src="{{ asset('frontend/img/facebook-blanco.svg') }}" alt="">
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#" target="_blank">
                                 <img src="{{ asset('frontend/img/twitter-blanco.svg') }}" alt="">
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="https://www.instagram.com/ysabellbates/" target="_blank">
                                 <img src="{{ asset('frontend/img/instagram-blanco.svg') }}" alt="">
                             </a>
                         </li>

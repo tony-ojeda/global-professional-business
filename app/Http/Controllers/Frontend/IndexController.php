@@ -33,13 +33,13 @@ class IndexController extends Controller
 
     public function sendMessage() {
         $messages = [
-			'business_name.required'    => 'Nombre de la Empresa es obligatorio.',
-			'full_name.required'        => 'Nombre completo es obligatorio.',
-			'email.required'            => 'Correo electrónico es obligatorio.',
-			'phone.required'            => 'Número de Teléfono es obligatorio.',
-			'website.required'          => 'URL es obligatorio. (NA si no cuenta con una)',
-			'message.required'          => 'Mensaje es obligatorio.',
-			'country.required'          => 'País es obligatorio.',
+			'business_name.required'    => 'Company name is required.',
+			'full_name.required'        => 'Full name is required.',
+			'email.required'            => 'Email is required.',
+			'phone.required'            => 'Phone number is required.',
+			'website.required'          => 'URL is required. (NA if you do not have)',
+			'message.required'          => 'Message is required.',
+			'country.required'          => 'Country is required.',
 		];
 
 		$rules = [

@@ -194,12 +194,12 @@
                 }).then(response => {
                     $(event.target).find('button').attr('disabled', false);
                     this.submitText = 'Send';
-                    this.successMessage = 'Formulario enviado correctamente.';
+                    this.successMessage = 'Form submitted successfully.';
                     this.clearModel();
                 }).catch(error => {
                     $(event.target).find('button').attr('disabled', false);
                     this.submitText = 'Send';
-                    this.successMessage = 'Hubo un error al enviar. Inténtelo nuevamente.';
+                    this.successMessage = 'There was an error while sending. Please try again.';
 
                     console.log(error.response);
                     var obj = error.response.data.errors;

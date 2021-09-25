@@ -30,7 +30,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from('gabriel@codea.pe')
+        return $this->from('noreply@globalprofessionalbusiness.com')
                     ->subject('Mensaje de Contacto '.$this->mail_info['full_name'])
                     ->view('emails.contact_form');
     }

@@ -15,7 +15,7 @@
             nav: true,
             dots: true,
             items: 1,
-            navText: ['<img src="../public/frontend/img/left-arrow.svg">','<img src="../public/frontend/img/right-arrow.svg">']
+            navText: ['<img src="../frontend/img/left-arrow.svg">','<img src="../frontend/img/right-arrow.svg">']
         });
 
         $('.owl-countries').owlCarousel({
@@ -24,7 +24,7 @@
             nav: true,
             dots: true,
             items: 3,
-            navText: ['<img src="../public/frontend/img/left-arrow.svg">','<img src="../public/frontend/img/right-arrow.svg">']
+            navText: ['<img src="../frontend/img/left-arrow.svg">','<img src="../frontend/img/right-arrow.svg">']
         });
 
         $('.owl-banner').owlCarousel({
@@ -33,7 +33,7 @@
             nav: true,
             dots: true,
             items: 1,
-            navText: ['<img src="../../public/frontend/img/left-arrow.svg">','<img src="../../public/frontend/img/right-arrow.svg">']
+            navText: ['<img src="../../frontend/img/left-arrow.svg">','<img src="../../frontend/img/right-arrow.svg">']
         });
 
         $('.owl-testimonials').owlCarousel({
@@ -42,7 +42,7 @@
             nav: true,
             dots: true,
             items: 1,
-            navText: ['<img src="../public/frontend/img/left-arrow.svg">','<img src="../public/frontend/img/right-arrow.svg">']
+            navText: ['<img src="../frontend/img/left-arrow.svg">','<img src="../frontend/img/right-arrow.svg">']
         });
 
         // $('.choose-plan .plan').click(function (event) {

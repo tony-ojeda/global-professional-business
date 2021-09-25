@@ -30,7 +30,7 @@ class DirectoryContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from('gabriel@codea.pe', 'GPB')
+        return $this->from('noreply@globalprofessionalbusiness.com', 'GPB')
                     ->subject('[GPB] '.$this->mail_info['name'])
                     ->view('emails.directory_contact_form');
     }

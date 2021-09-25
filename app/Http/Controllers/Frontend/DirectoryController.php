@@ -54,6 +54,9 @@ class DirectoryController extends Controller
     public function business($slug = null)
     {
         $enterprise = Enterprise::where('slug', $slug)->first();
+        if ( strpos( $enterprise->website, 'http' ) === false ) {
+            $enterprise->website = 'http://'.$enterprise->website;
+        }
 
         return view('frontend.directory.business')->with(compact('enterprise'));
     }

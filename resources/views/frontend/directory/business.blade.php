@@ -54,7 +54,7 @@
                                     <li>
                                         <img src="{{ asset('frontend/img/web.svg') }}" alt="">
                                         <div class="txt">
-                                            <a href="{{ $enterprise->website }}">{{ $enterprise->website }}</a>
+                                            <a href="{{ $enterprise->website }}" target="_blank">{{ $enterprise->website }}</a>
                                         </div>
                                     </li>
                                     <li>
