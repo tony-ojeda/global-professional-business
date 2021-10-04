@@ -5,9 +5,39 @@
 	<div id="main-banner">
 		<div class="item" style="background-image:url('frontend/img/bg-banner.jpg');">
 			<div class="container">
-				<div class="row">
-					<h1>Discover and Rediscover</h1>
-					<h2>Competitive Global Business</h2>
+				<div class="row mt-5 justify-content-center">
+                    <div class="input-group md-form form-sm form-2 pl-0">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Find</span>
+                        </div>
+                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="I'm looking for..." aria-label="Search">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Near</span>
+                        </div>
+                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="City, State, Country, Zip" aria-label="Search">
+
+                        <div class="input-group-append">
+                            <span class="input-group-text red lighten-3 border-0" id="basic-text1">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg> -->
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50" style=" fill:#ffffff;"><path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path></svg>
+                        </div>
+                    <!-- <select class="mdb-select md-form" searchable="Search here..">
+    <option value="" disabled selected>Choose your country</option>
+    <option value="1">USA</option>
+    <option value="2">Germany</option>
+    <option value="3">France</option>
+    <option value="3">Poland</option>
+    <option value="3">Japan</option>
+  </select> -->
+                    </div>
+                    <div class="banner-title">
+                        <h1>GET DISCOVERY AND REDISCOVERY</h1>
+                        <h2>Competitive Global Business</h2>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -532,7 +562,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="directory--element">
+                            <!-- <div class="directory--element">
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
@@ -542,8 +572,8 @@
                                         <a href="mailto:cancellation@globalprofessionalbusiness.com">cancellation@globalprofessionalbusiness.com</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="directory--element">
+                            </div> -->
+                            <!-- <div class="directory--element">
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
@@ -553,7 +583,7 @@
                                         <a href="mailto:claims@globalprofessionalbusiness.com">claims@globalprofessionalbusiness.com</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="directory--element">
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
@@ -569,14 +599,14 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        HELP:
+                                        SUPPORT:
                                     </div>
                                     <div class="directory--email">
-                                        <a href="mailto:help@globalprofessionalbusiness.com">help@globalprofessionalbusiness.com</a>
+                                        <a href="mailto:support@globalprofessionalbusiness.com">support@globalprofessionalbusiness.com</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="directory--element">
+                            <!-- <div class="directory--element">
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
@@ -586,7 +616,7 @@
                                         <a href="mailto:billing@globalprofessionalbusiness.com">billing@globalprofessionalbusiness.com</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="directory--element">
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
@@ -595,6 +625,17 @@
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:ceo@globalprofessionalbusiness.com">ceo@globalprofessionalbusiness.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="directory--element">
+                                <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
+                                <div class="info">
+                                    <div class="directory--title">
+                                        CARRIER:
+                                    </div>
+                                    <div class="directory--email">
+                                        <a href="mailto:carrier@globalprofessionalbusiness.com">carrier@globalprofessionalbusiness.com</a>
                                     </div>
                                 </div>
                             </div>

@@ -286,6 +286,13 @@ Route::group([
     ]);
 
     /**
+     * About Us
+     */
+    Route::get('about-us', [
+        'uses' => 'AboutUsController@index',
+        'as' => 'about-us'
+    ]);
+    /**
      * Blog
      */
     Route::get('blog', [

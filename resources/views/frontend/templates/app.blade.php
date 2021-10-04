@@ -39,7 +39,7 @@
 	<header id="header" class="@yield('headerClass')">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-6 col-lg-2">
+				<div class="col-6 col-lg-1">
 					<div class="logo">
                         <a href="{{ route('frontend.index') }}">
                             <img class="white" src="{{ asset('/frontend/img/logo-blanco.png') }}" alt="">
@@ -47,7 +47,7 @@
                         </a>
 					</div>
 				</div>
-				<div class="col-6 col-lg-10">
+				<div class="col-6 col-lg-11 justify-content-end">
 					<nav id="main-nav">
 						<button class="main-nav-button" id="main-nav-button">
 							<span></span>
@@ -55,14 +55,18 @@
 							<span></span>
 						</button>
 						<div class="main-nav-box">
-                            @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) )
+                            @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
+                            Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) || 
+                            ( strpos(url()->current(), '/about-us') !== false ))
                                 <ul class="main-nav">
-                                    <li><a href="{{ route('frontend.index') }}">Home</a></li>
+                                    <li><a href="{{ route('frontend.index') }}">For Business</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#plans">Plans</a></li>
                                     <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
+                                    <li><a href="{{ route('frontend.index') }}">Products</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
+                                    <li><a href="{{ route('frontend.about-us') }}">About Us</a></li>
                                 </ul>
                                 <div class="login-nav">
                                     <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a>
@@ -100,7 +104,9 @@
 		@yield('content')
 	</main>
 
-    @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || ( strpos(url()->current(), '/blog') !== false ) )
+    @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
+    Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || 
+    ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ))
 	<footer id="footer">
         <div class="container">
             <div class="row">
