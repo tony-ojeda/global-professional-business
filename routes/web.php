@@ -286,6 +286,21 @@ Route::group([
     ]);
 
     /**
+     * Products
+     */
+    Route::get('products', [
+        'uses' => 'ProductsController@index',
+        'as' => 'products'
+    ]);
+
+    /**
+     * Plans
+     */
+    Route::get('plans', [
+        'uses' => 'PlansController@index',
+        'as' => 'plans'
+    ]);
+    /**
      * About Us
      */
     Route::get('about-us', [

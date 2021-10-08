@@ -57,14 +57,15 @@
 						<div class="main-nav-box">
                             @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
                             Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) || 
-                            ( strpos(url()->current(), '/about-us') !== false ))
+                            ( strpos(url()->current(), '/about-us') !== false ) || ( strpos(url()->current(), '/plans') !== false ) || 
+                            ( strpos(url()->current(), '/products') !== false ))
                                 <ul class="main-nav">
                                     <li><a href="{{ route('frontend.index') }}">For Business</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
-                                    <li><a href="{{ route('frontend.index') }}/#plans">Plans</a></li>
+                                    <li><a href="{{ route('frontend.plans') }}">Plans</a></li>
                                     <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
-                                    <li><a href="{{ route('frontend.index') }}">Products</a></li>
+                                    <li><a href="{{ route('frontend.products') }}">Products</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
                                     <li><a href="{{ route('frontend.about-us') }}">About Us</a></li>
                                 </ul>
@@ -106,7 +107,8 @@
 
     @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
     Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || 
-    ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ))
+    ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ) || 
+    ( strpos(url()->current(), '/plans') !== false ) || ( strpos(url()->current(), '/products') !== false ))
 	<footer id="footer">
         <div class="container">
             <div class="row">
@@ -115,7 +117,7 @@
                         <li><a href="{{ route('frontend.index') }}">Home</a></li>
                         <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
                         <li><a href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
-                        <li><a href="{{ route('frontend.index') }}/#plans">Plans</a></li>
+                        <li><a href="{{ route('frontend.plans') }}">Plans</a></li>
                         <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
                         <li><a href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
                     </ul>
