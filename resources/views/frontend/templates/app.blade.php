@@ -37,7 +37,7 @@
 </head>
 <body>
 	<header id="header" class="@yield('headerClass')">
-		<div class="container">
+		{{-- <div class="container"> --}}
 			<div class="row align-items-center">
 				<div class="col-6 col-lg-1">
 					<div class="logo">
@@ -98,7 +98,7 @@
 					</nav>
 				</div>
 			</div>
-		</div>
+		{{-- </div> --}}
 	</header>
 
 	<main id="main" class="@yield('contentClass')">
