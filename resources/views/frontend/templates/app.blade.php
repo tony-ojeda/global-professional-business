@@ -33,6 +33,7 @@
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/owl.carousel.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/owl.theme.default.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/app.css?'.time()) }}">
 </head>
 <body>

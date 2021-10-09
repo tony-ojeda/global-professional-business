@@ -770,6 +770,12 @@ section {
 }
 #team {
   background-color: #FBFAF8;
+  /*=======================================
+              Team styles 2
+=========================================*/
+  /*=======================================
+              Team styles 2 End
+=========================================*/
 }
 #team .staff {
   margin-bottom: 2rem;
@@ -831,6 +837,64 @@ section {
   -o-object-position: center;
      object-position: center;
   width: 18px;
+}
+#team .featured-header h1 {
+  margin-bottom: 3rem;
+}
+#team .featured-header p {
+  color: #818181;
+  font-size: 1rem;
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  #team .featured-header p {
+    font-size: 1.5rem;
+  }
+}
+#team .team-member {
+  margin-top: 50px;
+}
+#team .team-member {
+  margin: 0 15px;
+}
+#team .team-member img {
+  height: 380px;
+  width: 350px;
+}
+#team .team-member-info {
+  padding: 10px 0 30px 0;
+}
+#team h4.team-member-name {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-top: 2px;
+}
+#team h4.team-member-designation {
+  color: #34c6d3;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  text-transform: capitalize;
+  font-style: italic;
+}
+#team .social-list {
+  padding-left: 0;
+}
+#team .social-list li {
+  list-style: none;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  margin-top: 10px;
+}
+#team .social-list i {
+  font-size: 17px;
+}
+#team .icon-gray i {
+  color: #64707b;
 }
 #clients .owl-clients {
   position: relative;
