@@ -30,6 +30,8 @@
 	<!-- Fonts and icons -->
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="//cdn.materialdesignicons.com/2.1.99/css/materialdesignicons.min.css">
+    <!-------------Font Awesome cdn files------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/owl.carousel.min.css') }}">
