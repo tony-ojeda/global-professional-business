@@ -16,9 +16,12 @@
     <section id="plans">
         <div class="container">
             <div class="row justify-content-center">
-                {{-- <div class="col-12 col-lg-10">
-                    <h1>PLANS</h1>
-                </div> --}}
+                <div class="col-12 col-lg-10">
+                    <h1>Promotional Prices</h1>
+                </div>
+				<div class="col-12 col-lg-10">
+					<p>Opening prices are subject to change until further notice,  except for plan premium.  however, if cancelled you will be subject to current prices, every one will be notified by email of any price changes</p>
+				</div>
                 <div class="col-12 col-lg-4">
                     <div class="plan plan-free">
                         <div class="plan--header">

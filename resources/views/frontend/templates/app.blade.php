@@ -41,6 +41,12 @@
 <body>
 	<header id="header" class="@yield('headerClass')">
 		{{-- <div class="container"> --}}
+            <div class="container-fluid position-absolute text-center">
+                <div class="fixed-top">
+                    <p class="badge badge-warning font-weight-light">We apologize for the inconvenience, we are working hard to complete our website, we will keep everyone advised of our progress!</p>
+                    {{-- <p class="alert alert-warning">We apologize for the inconvenience, we are working hard to complete our website, we will keep everyone advised of our progress!</p> --}}
+                </div>
+            </div>
 			<div class="row align-items-center">
 				<div class="col-6 col-lg-1">
 					<div class="logo">
