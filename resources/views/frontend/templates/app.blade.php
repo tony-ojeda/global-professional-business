@@ -35,7 +35,6 @@
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/owl.carousel.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/owl.theme.default.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('/frontend/css/app.css?'.time()) }}">
 </head>
 <body>
@@ -44,7 +43,7 @@
             <div class="container-fluid position-absolute text-center">
                 <div class="fixed-top">
                     <p class="badge badge-warning font-weight-light">We apologize for the inconvenience, we are working hard to complete our website, we will keep everyone advised of our progress!</p>
-                    {{-- <p class="alert alert-warning">We apologize for the inconvenience, we are working hard to complete our website, we will keep everyone advised of our progress!</p> --}}
+                    {{-- <p class="alert alert-warning">We apologie for the inconvenience, we are working hard to complete our website, we will keep everyone advised of our progress!</p> --}}
                 </div>
             </div>
 			<div class="row align-items-center">

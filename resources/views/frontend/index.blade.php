@@ -129,11 +129,11 @@
                   <div class="col-md-12">
                       <div id="team-members" class="owl-carousel owl-theme">
                             <div class="team-member">
-                              <img src="{{ asset('frontend/img/ysabel-b.jpg') }}" class="img-responsive">
+                              <img src="{{ asset('frontend/img/ysabel-b.jpg') }}" class="img-responsive mx-auto">
                               <div class="team-member-info text-center">
-                                <h4 class="team-member-name">Isabel Bates</h4>
-                                <p>Founder & CEO at GPB Global Professional Business</p>
+                                <h4 class="team-member-name mb-2">Isabel Bates</h4>
                                 <h4 class="team-member-designation">President</h4>  
+                                <p>Founder & CEO at Global Professional Business</p>
                                  {{-- <ul class="social-list"> --}}
                                  {{--    <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                  {{--    <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}
@@ -143,11 +143,11 @@
                               </div>
                             </div>
                             <div class="team-member">
-                              <img src="{{ asset('frontend/img/william-d.jpg') }}" class="img-responsive">
+                              <img src="{{ asset('frontend/img/william-d.jpg') }}" class="img-responsive mx-auto">
                               <div class="team-member-info text-center">
-                                <h4 class="team-member-name">William D Bates</h4>
-                                <p>Senior vice president of primary objectives is to deepen the company’s customer relationships and ensure customers can gain competitive advantages by leveraging GPB platform.</p>
-                                <h4 class="team-member-designation">Vice-President</h4>  
+                                <h4 class="team-member-name mb-2">William Bates</h4>
+                                <h4 class="team-member-designation">Senior VP</h4>  
+                                <p>Primary objectives are to  deepen the company customer relationships</p>
                                 {{-- <ul class="social-list"> --}}
                                 {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                 {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}
@@ -156,11 +156,11 @@
                               </div>
                             </div>
                             <div class="team-member">
-                              <img src="{{ asset('frontend/img/karla-p.jpg') }}" class="img-responsive">
+                              <img src="{{ asset('frontend/img/karla-p.jpg') }}" class="img-responsive mx-auto">
                               <div class="team-member-info text-center">
-                                <h4 class="team-member-name">Karla Bates</h4>
-                                <p>Executive management with overall responsibility for products and services portfolio strategy and strategic marketing</p>
-                                <h4 class="team-member-designation">VP Marketing</h4>  
+                                <h4 class="team-member-name mb-2">Karla Bates</h4>
+                                <h4 class="team-member-designation">VP Global Marketing</h4>  
+                                <p>Executive management with overall responsibility for products and services</p>
                                 {{-- <ul class="social-list"> --}}
                                 {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                 {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}
@@ -169,11 +169,11 @@
                                 </div>
                             </div>
                             <div class="team-member">
-                                <img src="{{ asset('frontend/img/estelle-e.jpg') }}" class="img-responsive">
+                                <img src="{{ asset('frontend/img/estelle-e.jpg') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
-                                    <h4 class="team-member-name">Estella Bates</h4>
-                                    <p>Develop and implement a wide range of marketing communication activities, advertising with the central focus of driving business growth opportunities.</p>
-                                    <h4 class="team-member-designation">VP Communication & Public Relations</h4>  
+                                    <h4 class="team-member-name mb-2">Estella Bates</h4>
+                                    <h4 class="team-member-designation">VP PR & Communication</h4>  
+                                    <p>Develop and implement a wide range of marketing communication activities</p>
                                     {{-- <ul class="social-list"> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}
@@ -182,11 +182,11 @@
                                 </div>
                             </div>
                              <div class="team-member">
-                                <img src="{{ asset('frontend/img/jake-s.jpg') }}" class="img-responsive">
+                                <img src="{{ asset('frontend/img/jake-s.jpg') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
-                                    <h4 class="team-member-name">Jake Schultz</h4>
-                                    <p>Provide our teams and groups in many ways. We designed systems and processes that give people the support they need on the spot.</p>
-                                    <h4 class="team-member-designation">VP Computer</h4>  
+                                    <h4 class="team-member-name mb-2">Jake Schultz</h4>
+                                    <h4 class="team-member-designation">VP Computer Science</h4>  
+                                    <p>Provide support to our teams and groups on the spot</p>
                                     {{-- <ul class="social-list"> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}
@@ -195,11 +195,11 @@
                                 </div>
                             </div>
                              <div class="team-member">
-                                <img src="{{ asset('frontend/img/kimberly-s.jpg') }}" class="img-responsive">
+                                <img src="{{ asset('frontend/img/kimberly-s.jpg') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
-                                    <h4 class="team-member-name">Kim Schultz</h4>
-                                    <p>Be in connection with other professionals in virtual network anywhere in the world</p>
+                                    <h4 class="team-member-name mb-2">Kimberly Schultz</h4>
                                     <h4 class="team-member-designation">VP Civil Engineer</h4>  
+                                    <p>Be in connection with other professionals in virtual network anywhere in the world</p>
                                     {{-- <ul class="social-list"> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}
@@ -208,11 +208,11 @@
                                 </div>
                             </div>
                              <div class="team-member">
-                                <img src="{{ asset('frontend/img/bryan-x.png') }}" class="img-responsive">
+                                <img src="{{ asset('frontend/img/bryan-x.png') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
-                                    <h4 class="team-member-name">Bryan Xinzong</h4>
-                                    <p>Conducting, research and analysis related to GPB products to inform economic reviews.</p>
+                                    <h4 class="team-member-name mb-2">Bryan Xinzong</h4>
                                     <h4 class="team-member-designation">Business Economist</h4>  
+                                    <p>Conducting, research and analysis related to GPB products</p>
                                     {{-- <ul class="social-list"> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}
@@ -221,11 +221,11 @@
                                 </div>
                             </div>
                              <div class="team-member">
-                                <img src="{{ asset('frontend/img/tony.png') }}" class="img-responsive">
+                                <img src="{{ asset('frontend/img/tony.png') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
-                                    <h4 class="team-member-name">Tony Ojeda</h4>
-                                    <p>Constantly taking care of our web, making changes often.</p>
+                                    <h4 class="team-member-name mb-2">Tony Ojeda</h4>
                                     <h4 class="team-member-designation">Web Developer</h4>  
+                                    <p>Up to date with database technology and keep website running</p>
                                     {{-- <ul class="social-list"> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-facebook"></i></a></li> --}}
                                     {{--     <li><a href="" class="social-icon icon-gray"><i class="fa fa-twitter"></i></a></li> --}}

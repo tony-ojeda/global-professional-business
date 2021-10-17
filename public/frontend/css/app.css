@@ -855,8 +855,8 @@ section {
   margin: 0 15px;
 }
 #team .team-member img {
-  height: 380px;
-  width: 350px;
+  height: 340px;
+  width: 300px;
 }
 #team .team-member-info {
   padding: 10px 0 0 0;
@@ -868,7 +868,7 @@ section {
   padding-top: 2px;
 }
 #team h4.team-member-designation {
-  color: #34c6d3;
+  color: #FF0000;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -892,6 +892,25 @@ section {
 }
 #team .icon-gray i {
   color: #64707b;
+}
+#team .owl-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+#team .owl-dots .owl-dot {
+  border: 1px solid #C1C1C1;
+  border-radius: 100%;
+  height: 10px;
+  margin-left: 10px;
+  width: 10px;
+}
+#team .owl-dots .owl-dot:first-child {
+  margin-left: 0;
+}
+#team .owl-dots .owl-dot.active {
+  background-color: #FF0000;
+  border-color: #FF0000;
 }
 /*=======================================
               Team styles 2 End
