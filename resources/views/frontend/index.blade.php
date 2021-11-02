@@ -11,7 +11,9 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Find</span>
                         </div>
-                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="I'm looking for..." aria-label="Search">
+                        <form  action="{{ route('frontend.search') }}" method="GET">
+                            <input class="form-control my-0 py-1 red-border rounded-0" type="text" placeholder="I'm looking for..." aria-label="Search">
+                        </form>
 
                         <div class="input-group-prepend">
                             <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Near</span>

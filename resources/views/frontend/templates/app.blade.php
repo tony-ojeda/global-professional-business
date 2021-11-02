@@ -39,11 +39,10 @@
 </head>
 <body>
 	<header id="header" class="@yield('headerClass')">
-		{{-- <div class="container"> --}}
+		<div class="container">
             <div class="container-fluid position-absolute text-center">
                 <div class="fixed-top">
                     <p class="badge badge-warning font-weight-light">We apologize for the inconvenience, we are working hard to complete our website, we will keep everyone advised of our progress!</p>
-                    {{-- <p class="alert alert-warning">We apologie for the inconvenience, we are working hard to complete our website, we will keep everyone advised of our progress!</p> --}}
                 </div>
             </div>
 			<div class="row align-items-center">
@@ -56,6 +55,41 @@
 					</div>
 				</div>
 				<div class="col-6 col-lg-11 justify-content-end">
+                    @if ( ( strpos(url()->current(), '/search') !== false ) )
+                            <div class="align-self-start">
+                                <div class="input-group md-form form-sm form-2 pl-5 w-75">
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Find</span>
+                                    </div>
+                                    <form  action="{{ route('frontend.search') }}" method="GET">
+                                        <input class="form-control my-0 py-1 red-border rounded-0" type="text" placeholder="I'm looking for..." aria-label="Search">
+                                    </form>
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Near</span>
+                                    </div>
+                                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="City, State, Country, Zip" aria-label="Search">
+
+                                    <div class="input-group-append">
+                                        <span class="input-group-text red lighten-3 border-0" id="basic-text1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50" style=" fill:#ffffff;">
+                                            <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                        {{-- <div class="align-self-end"> --}}
+                        {{--     <div class="login-nav"> --}}
+                        {{--         @auth --}}
+                        {{--             <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a> --}}
+                        {{--         @endauth --}}
+                        {{--         @guest --}}
+                        {{--             <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Sign in/up</a> --}}
+                        {{--         @endguest --}}
+                        {{--     </div> --}}
+                        {{-- </div> --}}
+                        </div>
+                    @endif
 					<nav id="main-nav">
 						<button class="main-nav-button" id="main-nav-button">
 							<span></span>
@@ -68,18 +102,37 @@
                             ( strpos(url()->current(), '/about-us') !== false ) || ( strpos(url()->current(), '/plans') !== false ) || 
                             ( strpos(url()->current(), '/products') !== false ))
                                 <ul class="main-nav">
-                                    <li><a href="{{ route('frontend.index') }}">For Business</a></li>
+                                    <!--<li><a href="{{ route('frontend.index') }}">For Business</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
                                     <li><a href="{{ route('frontend.plans') }}">Plans</a></li>
                                     <li><a href="{{ route('frontend.blog') }}">Blog</a></li>
                                     <li><a href="{{ route('frontend.products') }}">Products</a></li>
+                                    <li><a href="{{ route('frontend.about-us') }}">About Us</a></li>-->
                                     <li><a href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
-                                    <li><a href="{{ route('frontend.about-us') }}">About Us</a></li>
+                                    <li>
+                                        <div class="dropdown">
+                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                            For Business
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="/">Website</a>
+                                            <a class="dropdown-item" href="#">SEO</a>
+                                            <a class="dropdown-item" href="{{ route('frontend.plans') }}">Pricing</a>
+                                            <a class="dropdown-item" href="{{ route('frontend.products') }}">Products</a>
+                                            <a class="dropdown-item" href="#">Advertise with us</a>
+                                        </div>
+                                        </div>
+                                    </li>
                                 </ul>
                                 <div class="login-nav">
-                                    <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a>
-                                    <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Sign in/up</a>
+                                    @auth
+                                        <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a>
+                                    @endauth
+                                    @guest
+                                        <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Sign in/up</a>
+                                    @endguest
                                 </div>
                             @elseif ( ( strpos(url()->current(), '/directory') !== false ) )
                                 <ul class="main-nav">
@@ -106,7 +159,7 @@
 					</nav>
 				</div>
 			</div>
-		{{-- </div> --}}
+		</div>
 	</header>
 
 	<main id="main" class="@yield('contentClass')">
@@ -117,7 +170,79 @@
     Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || 
     ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ) || 
     ( strpos(url()->current(), '/plans') !== false ) || ( strpos(url()->current(), '/products') !== false ))
-	<footer id="footer">
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-4 text-center">
+
+                    <p class="h5"><b>GLOBAL PROFESSIONAL BUSINESS</b></p>
+                    <p class="h6"><b>GPB</b></p>
+
+                    <ul class="rrss-nav">
+                        <li>
+                            <a href="https://www.linkedin.com/in/isabel-bates-143600193/" target="_blank">
+                                <img src="{{ asset('frontend/img/linkedin-blanco.svg') }}" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/GPB.Isabel" target="_blank">
+                                <img src="{{ asset('frontend/img/facebook-blanco.svg') }}" alt="">
+                            </a>
+                        </li>
+                        {{-- <li>
+                            <a href="#" target="_blank">
+                                <img src="{{ asset('frontend/img/twitter-blanco.svg') }}" alt="">
+                            </a>
+                        </li> --}}
+                        <li>
+                            <a href="https://www.instagram.com/ysabellbates/" target="_blank">
+                                <img src="{{ asset('frontend/img/instagram-blanco.svg') }}" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="copyright">
+                        COPYRIGHT © 2021 Global Professional Business. All rights reserved.
+                    </div>
+
+                </div>
+                <div class="col-6 col-sm-8">
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <p class="h6"><b class="pl-3">GPB</b></p>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.about-us') }}">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Review</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.blog') }}">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="h6"><b class="pl-3">For Business</b></p>
+                            <ul class="nav d-flex flex-column">
+                                <li class="nav-item"><a class="nav-link" href="/">Website</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">SEO</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.plans') }}">Pricing</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.products') }}">Products</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Advertise wit us</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="h6"><b class="pl-3">Legal</b></p>
+                            <ul class="nav d-flex flex-column">
+                                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+	<!--<footer id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -161,7 +286,7 @@
                 </div>
             </div>
         </div>
-	</footer>
+    </footer>-->
     @endif
 
 	<!-- Scripts -->

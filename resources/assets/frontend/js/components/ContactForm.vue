@@ -115,6 +115,18 @@
                         General Consultation
                     </label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Subscription requests" id="consulta02" v-model="model.request_types" name="request_types[]">
+                    <label class="form-check-label" for="consulta02">
+                        Listing
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Subscription requests" id="consulta02" v-model="model.request_types" name="request_types[]">
+                    <label class="form-check-label" for="consulta02">
+                        SEO
+                    </label>
+                </div>
             </div>
         </div>
         <div class="row">

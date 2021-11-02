@@ -254,6 +254,11 @@ Route::group([
         'as' => 'terms_conditions'
     ]);
 
+    Route::get('search', [
+        'uses' => 'SearchController@index',
+        'as' => 'search'
+    ]);
+
     /**
      * Login
      */

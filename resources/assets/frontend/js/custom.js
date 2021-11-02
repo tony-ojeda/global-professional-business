@@ -48,7 +48,7 @@
         $("#team-members").owlCarousel({
             items:3,
             autoplay:true,
-            smartSpeed:700,
+            smartSpeed:300,
             loop:true,
             autoplayHoverPause:true,
                 responsive:{

@@ -5,6 +5,13 @@
 	top: 0;
 	width: 100%;
 	z-index: 3;
+    &.header-search {
+        background-color: #214752;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .input-group .red {
+        background-color: #FF0000;
+    }
 
     &.header-white {
         background-color: @blanco;
@@ -181,6 +188,12 @@
                         }
 					}
 				}
+                .dropdown-toggle {
+                    background-color: #FF0000;
+                }
+                .dropdown-item {
+                    color: #000;
+                }
 			}
 
 			.login-nav {
@@ -189,7 +202,7 @@
 
                 @media @lg {
                     flex: 0 0 auto;
-                    margin-left: 2rem;
+                    margin-left: 1rem;
                 }
 
 				.btn {
