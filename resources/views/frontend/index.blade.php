@@ -223,7 +223,7 @@
                                 </div>
                             </div>
                              <div class="team-member">
-                                <img src="{{ asset('frontend/img/tony.png') }}" class="img-responsive mx-auto">
+                                <img src="{{ asset('frontend/img/tony.jpeg') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
                                     <h4 class="team-member-name mb-2">Tony Ojeda</h4>
                                     <h4 class="team-member-designation">Web Developer</h4>  

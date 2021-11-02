@@ -2644,6 +2644,13 @@ section {
   margin-bottom: 10px;
   background-size: cover;
 }
+.about-us-content aside .divider-title {
+  background-color: #FF0000;
+  color: #FFF;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+}
 .about-us-content .post {
   align-items: center;
   color: #000000;
