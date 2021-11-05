@@ -306,6 +306,13 @@ Route::group([
         'as' => 'plans'
     ]);
     /**
+     * Review
+     */
+    Route::get('reviews', [
+        'uses' => 'ReviewController@index',
+        'as' => 'reviews'
+    ]);
+    /**
      * About Us
      */
     Route::get('about-us', [

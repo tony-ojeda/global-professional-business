@@ -100,7 +100,7 @@
                             @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
                             Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) || 
                             ( strpos(url()->current(), '/about-us') !== false ) || ( strpos(url()->current(), '/plans') !== false ) || 
-                            ( strpos(url()->current(), '/products') !== false ))
+                            ( strpos(url()->current(), '/products') !== false ) || ( strpos(url()->current(), '/reviews') !== false ))
                                 <ul class="main-nav">
                                     <!--<li><a href="{{ route('frontend.index') }}">For Business</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
@@ -169,7 +169,8 @@
     @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
     Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || 
     ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ) || 
-    ( strpos(url()->current(), '/plans') !== false ) || ( strpos(url()->current(), '/products') !== false ))
+    ( strpos(url()->current(), '/plans') !== false ) || ( strpos(url()->current(), '/products') !== false ) ||
+    ( strpos(url()->current(), '/reviews') !== false ))
     <footer id="footer">
         <div class="container">
             <div class="row">
@@ -211,7 +212,7 @@
                             <p class="h6"><b class="pl-3">GPB</b></p>
                             <ul class="nav flex-column">
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.about-us') }}">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Review</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.reviews') }}">Review</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.blog') }}">Blog</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
