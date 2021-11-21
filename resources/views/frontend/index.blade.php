@@ -714,10 +714,10 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        CARRIER:
+                                        CAREERS:
                                     </div>
                                     <div class="directory--email">
-                                        <a href="mailto:carrier@globalprofessionalbusiness.com">carrier@globalprofessionalbusiness.com</a>
+                                        <a href="mailto:careers@globalprofessionalbusiness.com">careers@globalprofessionalbusiness.com</a>
                                     </div>
                                 </div>
                             </div>

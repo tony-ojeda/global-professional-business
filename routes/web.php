@@ -52,6 +52,10 @@ Route::get('/admin/paypal/cancel', [
 //     'as' => 'loginView'
 // ]);
 
+    Route::get('blog/small-marketing', function() {
+        return view('frontend.blogs.small-marketing');
+    });
+
 
 Route::group([
     'prefix' => 'admin',
@@ -304,6 +308,13 @@ Route::group([
     Route::get('plans', [
         'uses' => 'PlansController@index',
         'as' => 'plans'
+    ]);
+    /**
+     * Career
+     */
+    Route::get('careers', [
+        'uses' => 'CareerController@index',
+        'as' => 'careers'
     ]);
     /**
      * Review

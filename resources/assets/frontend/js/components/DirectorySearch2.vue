@@ -22,10 +22,10 @@
                     </div>-->
                     <div class="col-12 col-lg-12">
                         <div class="row enterprise-grid">
-                            <div class="col-12 col-lg-4 enterprise d-flex flex-row" v-for="enterprise in filterEnterprises" v-bind:key="enterprise.id">
+                            <div class="col-12 col-lg-4 enterprise d-flex flex-row mx-2" v-for="enterprise in filterEnterprises" v-bind:key="enterprise.id">
                                 <!--<a :href="'directory/'+enterprise.slug" class="enterprise">-->
                                     <div class="enterprise--image">
-                                        <img :src="enterprise.portrait_image" alt="">
+                                        <img :src="enterprise.portrait_image" width="80" height="80" alt="">
                                     </div>
                                     <div>
                                         <div class="enterprise--name">
@@ -33,6 +33,13 @@
                                         </div>
                                         <div class="enterprise--category">
                                             {{ enterprise.category_name }}
+                                        </div>
+                                        <div class="enterprise--star">
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
                                         </div>
                                         <div class="enterprise--address">
                                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9px" height="12px" viewBox="0 0 9 12" style="enable-background:new 0 0 9 12;" xml:space="preserve">

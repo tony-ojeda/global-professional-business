@@ -3582,6 +3582,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -30967,12 +30974,18 @@ var render = function() {
                     "div",
                     {
                       key: enterprise.id,
-                      staticClass: "col-12 col-lg-4 enterprise d-flex flex-row"
+                      staticClass:
+                        "col-12 col-lg-4 enterprise d-flex flex-row mx-2"
                     },
                     [
                       _c("div", { staticClass: "enterprise--image" }, [
                         _c("img", {
-                          attrs: { src: enterprise.portrait_image, alt: "" }
+                          attrs: {
+                            src: enterprise.portrait_image,
+                            width: "80",
+                            height: "80",
+                            alt: ""
+                          }
                         })
                       ]),
                       _vm._v(" "),
@@ -30992,6 +31005,8 @@ var render = function() {
                               "\n                                    "
                           )
                         ]),
+                        _vm._v(" "),
+                        _vm._m(0, true),
                         _vm._v(" "),
                         _c("div", { staticClass: "enterprise--address" }, [
                           _c(
@@ -31041,7 +31056,24 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "enterprise--star" }, [
+      _c("i", { staticClass: "fa fa-star text-m-yellow" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star text-m-yellow" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star text-m-yellow" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star text-m-yellow" }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-star text-m-yellow" })
+    ])
+  }
+]
 render._withStripped = true
 
 

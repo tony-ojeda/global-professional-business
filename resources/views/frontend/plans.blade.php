@@ -19,8 +19,8 @@
                 <div class="col-12 col-lg-10">
                     <h1>Promotional Prices</h1>
                 </div>
-				<div class="col-12 col-lg-10">
-					<p>Opening prices are subject to change until further notice,  except for plan premium.  however, if cancelled you will be subject to current prices, every one will be notified by email of any price changes</p>
+				<div class="col-md-9 col-lg-9 mb-3">
+					<p style="text-align: center">OPENING PRICES ARE SUBJECT TO CHANGE UNTIL FURTHER NOTICE, EXCEPT FOR THE PREMIUM PLAN. HOWEVER, IF PREMIUM PLAN IS CANCELED, WILL BE SUBJECT TO CURRENT PRICES, EACH ONE WILL NOTIFIED BY E-MAIL FOR ANY PRICE CHANGE.</p>
 				</div>
                 <div class="col-12 col-lg-4">
                     <div class="plan plan-free">
@@ -64,7 +64,7 @@
                             </div>
                             <ul class="plan--include-list">
                                 <li>Publish your business for 1 month for free</li>
-                                <li class="disabled">Your business in the first searches</li>
+                                <li class="disabled" style="color: #1d1c1c">Your business in the first searches</li>
                             </ul>
                         </div>
                         <div class="plan--cta">

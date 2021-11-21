@@ -100,7 +100,8 @@
                             @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
                             Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) || 
                             ( strpos(url()->current(), '/about-us') !== false ) || ( strpos(url()->current(), '/plans') !== false ) || 
-                            ( strpos(url()->current(), '/products') !== false ) || ( strpos(url()->current(), '/reviews') !== false ))
+                            ( strpos(url()->current(), '/products') !== false ) || ( strpos(url()->current(), '/reviews') !== false ) || 
+                            ( strpos(url()->current(), '/careers') !== false ) || ( strpos(url()->current(), '/blog/small-marketing') !== false ))
                                 <ul class="main-nav">
                                     <!--<li><a href="{{ route('frontend.index') }}">For Business</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
@@ -170,7 +171,7 @@
     Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || 
     ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ) || 
     ( strpos(url()->current(), '/plans') !== false ) || ( strpos(url()->current(), '/products') !== false ) ||
-    ( strpos(url()->current(), '/reviews') !== false ))
+    ( strpos(url()->current(), '/reviews') !== false ) || ( strpos(url()->current(), '/careers') !== false ))
     <footer id="footer">
         <div class="container">
             <div class="row">
@@ -213,7 +214,7 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.about-us') }}">About Us</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.reviews') }}">Review</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.careers') }}">Careers</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.blog') }}">Blog</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.index') }}/#team">Featured Staff</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
@@ -232,7 +233,7 @@
                         <div>
                             <p class="h6"><b class="pl-3">Legal</b></p>
                             <ul class="nav d-flex flex-column">
-                                <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Help/Support</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Site Map</a></li>

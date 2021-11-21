@@ -82,8 +82,9 @@
     }
 
     .enterprise-grid {
-        .col-12 {
-            margin-bottom: 2rem;
+        .enterprise {
+            margin-bottom: 1rem;
+            flex-basis: 350px;
         }
     }
 
@@ -102,16 +103,16 @@
         .enterprise--image {
             background-color: @gris;
             border-radius: 1rem;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            height: 174px;
+            // margin-bottom: 1rem;
+            margin-right: 8px;
+            // height: 174px;
 
             img {
-                display: block;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-                width: 100%;
+            //     display: block;
+            //     height: 100%;
+            //     object-fit: cover;
+            //     object-position: center;
+            //     width: 100%;
             }
         }
 
@@ -125,7 +126,12 @@
         .enterprise--category {
             color: @gris;
             font-size: 0.75rem;
-            margin-bottom: 1rem;
+        }
+
+        .enterprise--star {
+            .text-m-yellow {
+                color: #f5a623;
+            }
         }
 
         .enterprise--address {
