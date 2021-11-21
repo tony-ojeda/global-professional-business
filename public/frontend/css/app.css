@@ -350,6 +350,15 @@ section {
   background-color: #FF0000;
   color: #FFFFFF;
 }
+.btn.btn-bottom-center {
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+  width: 180px;
+}
 .btn.btn-outline-white {
   background-color: transparent;
   border: 1px solid #FFFFFF;
@@ -2763,6 +2772,176 @@ section {
   order: 2;
 }
 .reviews-content .post:nth-child(even) .post--info {
+  order: 1;
+}
+#seo-banner {
+  position: relative;
+}
+#seo-banner .item {
+  align-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 40vh;
+  padding: 10rem 0 6rem;
+  position: relative;
+}
+#seo-banner .item:after {
+  background-color: rgba(0, 0, 0, 0.7);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+#seo-banner .item h1 {
+  color: #FFFFFF;
+  flex: 0 0 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+#seo-banner .item h1::after {
+  content: none;
+}
+@media screen and (min-width: 992px) {
+  #seo-banner .item h1 {
+    font-size: 3rem;
+  }
+}
+.seo-content .bg-benefit {
+  background: #f5f2f0;
+}
+.seo-content .seo-container {
+  padding: 1.5rem 0;
+}
+.seo-content .seo-container p {
+  padding: 0 1.5rem;
+}
+.seo-content .seo-container .background {
+  min-height: 340px;
+  margin-bottom: 10px;
+  background-size: cover;
+}
+.seo-content main .image {
+  height: 36rem;
+  background-size: cover;
+}
+.seo-content aside .divider-title {
+  background-color: #FF0000;
+  color: #FFF;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+.seo-content .comments {
+  margin-top: 5%;
+  margin-left: 20px;
+}
+.seo-content .bg-comments {
+  background: #f5f2f0;
+}
+.seo-content .text-m-yellow {
+  color: #f5a623;
+}
+.seo-content .darker {
+  border: 1px solid #ecb21f;
+  background-color: black;
+  float: right;
+  border-radius: 5px;
+  padding-left: 40px;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+.seo-content .comment {
+  background-color: #FFF;
+  float: left;
+  border-radius: 5px;
+  padding-left: 40px;
+  padding-right: 30px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 14px 2px, rgba(0, 0, 0, 0.07) 0px 4px 10px 1px, rgba(0, 0, 0, 0.14) 0px 5px 5px -3px;
+  padding-top: 10px;
+}
+.seo-content .comment h4,
+.seo-content .comment span,
+.seo-content .darker h4,
+.seo-content .darker span {
+  display: inline;
+}
+.seo-content .comment p,
+.seo-content .comment span,
+.seo-content .darker p,
+.seo-content .darker span {
+  color: #b8b7b7;
+}
+.seo-content .post {
+  align-items: center;
+  color: #000000;
+  display: flex;
+  margin-bottom: 4rem;
+}
+.seo-content .post .post--thumbnail {
+  border-radius: 1rem;
+  flex: 0 0 auto;
+  height: 350px;
+  margin-right: -100px;
+  order: 1;
+  overflow: hidden;
+  position: relative;
+  width: 500px;
+  z-index: 0;
+}
+.seo-content .post .post--thumbnail img {
+  display: block;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+}
+.seo-content .post .post--info {
+  background-color: #e5e0d5;
+  border-radius: 1rem;
+  order: 2;
+  padding: 3rem;
+  position: relative;
+  z-index: 1;
+}
+.seo-content .post .post--info .info--date {
+  align-items: center;
+  color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1;
+}
+.seo-content .post .post--info .info--date img {
+  display: block;
+  height: auto;
+  margin-right: 0.5rem;
+  width: 24px;
+}
+.seo-content .post .post--info .info--title {
+  color: #000000;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.seo-content .post:nth-child(even) .post--thumbnail {
+  margin-left: -100px;
+  margin-right: 0px;
+  order: 2;
+}
+.seo-content .post:nth-child(even) .post--info {
   order: 1;
 }
 #careers-banner {

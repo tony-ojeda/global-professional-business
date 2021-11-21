@@ -101,6 +101,7 @@
                             Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) || 
                             ( strpos(url()->current(), '/about-us') !== false ) || ( strpos(url()->current(), '/plans') !== false ) || 
                             ( strpos(url()->current(), '/products') !== false ) || ( strpos(url()->current(), '/reviews') !== false ) || 
+                            ( strpos(url()->current(), '/seo') !== false ) || 
                             ( strpos(url()->current(), '/careers') !== false ) || ( strpos(url()->current(), '/blog/small-marketing') !== false ))
                                 <ul class="main-nav">
                                     <!--<li><a href="{{ route('frontend.index') }}">For Business</a></li>
@@ -119,7 +120,7 @@
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <a class="dropdown-item" href="/">Website</a>
-                                            <a class="dropdown-item" href="#">SEO</a>
+                                            <a class="dropdown-item" href="{{ route('frontend.seo') }}">SEO</a>
                                             <a class="dropdown-item" href="{{ route('frontend.plans') }}">Pricing</a>
                                             <a class="dropdown-item" href="{{ route('frontend.products') }}">Products</a>
                                             <a class="dropdown-item" href="#">Advertise with us</a>
@@ -224,7 +225,7 @@
                             <p class="h6"><b class="pl-3">For Business</b></p>
                             <ul class="nav d-flex flex-column">
                                 <li class="nav-item"><a class="nav-link" href="/">Website</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">SEO</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.seo') }}">SEO</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.plans') }}">Pricing</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.products') }}">Products</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Advertise wit us</a></li>

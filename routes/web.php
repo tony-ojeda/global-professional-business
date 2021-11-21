@@ -323,6 +323,10 @@ Route::group([
         'uses' => 'ReviewController@index',
         'as' => 'reviews'
     ]);
+
+    Route::get('seo', function() {
+        return view('frontend.seo');
+    })->name('seo');
     /**
      * About Us
      */

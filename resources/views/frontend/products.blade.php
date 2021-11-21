@@ -141,7 +141,7 @@ optimization to improve your ranking on Google</p>
                 {{-- </div> --}}                     
                 
                 <div class="col-12 bg-active text-center mt-5" id="best">
-                    <a class="btn btn-primary" href="/#contact-us" role="button">We are Happy to Hear From You</a>
+                    <a class="btn btn-red" href="/#contact-us" role="button">We are Happy to Hear From You</a>
                 </div>
             </div>                 
             
