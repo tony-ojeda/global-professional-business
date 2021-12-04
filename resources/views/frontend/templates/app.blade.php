@@ -101,7 +101,7 @@
                             Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) || 
                             ( strpos(url()->current(), '/about-us') !== false ) || ( strpos(url()->current(), '/plans') !== false ) || 
                             ( strpos(url()->current(), '/products') !== false ) || ( strpos(url()->current(), '/reviews') !== false ) || 
-                            ( strpos(url()->current(), '/seo') !== false ) || 
+                            ( strpos(url()->current(), '/seo') !== false ) || ( strpos(url()->current(), '/support') !== false ) ||
                             ( strpos(url()->current(), '/careers') !== false ) || ( strpos(url()->current(), '/blog/small-marketing') !== false ))
                                 <ul class="main-nav">
                                     <!--<li><a href="{{ route('frontend.index') }}">For Business</a></li>
@@ -171,6 +171,7 @@
     @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
     Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/directory') !== false ) || 
     ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ) || 
+    ( strpos(url()->current(), '/seo') !== false ) || ( strpos(url()->current(), '/support') !== false ) ||
     ( strpos(url()->current(), '/plans') !== false ) || ( strpos(url()->current(), '/products') !== false ) ||
     ( strpos(url()->current(), '/reviews') !== false ) || ( strpos(url()->current(), '/careers') !== false ))
     <footer id="footer">
@@ -234,10 +235,10 @@
                         <div>
                             <p class="h6"><b class="pl-3">Legal</b></p>
                             <ul class="nav d-flex flex-column">
-                                <li class="nav-item"><a class="nav-link" href="#">Help/Support</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.support') }}">Help/Support</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Site Map</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://www.ftc.gov/news-events/press-releases/2013/03/ftc-staff-revises-online-advertising-disclosure-guidelines" target="_blank">Affiliate Link Disclosures</a></li>
                             </ul>
                         </div>
                     </div>

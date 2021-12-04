@@ -327,6 +327,11 @@ Route::group([
     Route::get('seo', function() {
         return view('frontend.seo');
     })->name('seo');
+
+    Route::get('support', function() {
+        return view('frontend.support');
+    })->name('support');
+
     /**
      * About Us
      */
