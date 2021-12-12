@@ -41,8 +41,8 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                    <img src="{{ asset('frontend/img/food-1.jpg') }}" class="rounded shadow mb-3" height="280" width="100%">
-                    <img src="{{ asset('frontend/img/food-2.jpg') }}" class="rounded shadow mb-3" height="280" width="100%">
+                    <img src="{{ asset('frontend/img/food-1.jpg') }}" class="rounded shadow mb-4" height="280" width="100%">
+                    <img src="{{ asset('frontend/img/food-2.jpg') }}" class="rounded shadow mb-4" height="280" width="100%">
                     <img src="{{ asset('frontend/img/food-3.jpg') }}" class="rounded shadow" height="280" width="100%">
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
@@ -85,9 +85,7 @@ hesitate to request more information here.</p>
 how to become an international chef&quot;.</p>
                   <p class="text-right">December 15, 2021</p>
                 </div> 
-                
             </div>                 
-            
         </div>             
                     
     
