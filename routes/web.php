@@ -324,6 +324,18 @@ Route::group([
         'as' => 'reviews'
     ]);
 
+    Route::get('websites', function() {
+        return view('frontend.websites');
+    })->name('websites');
+
+    Route::get('news', function() {
+        return view('frontend.news');
+    })->name('news');
+
+    Route::get('advertise', function() {
+        return view('frontend.advertise');
+    })->name('advertise');
+
     Route::get('seo', function() {
         return view('frontend.seo');
     })->name('seo');

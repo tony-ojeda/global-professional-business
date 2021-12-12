@@ -39,7 +39,7 @@
   </select> -->
                     </div>
                     <div class="banner-title">
-                        <h1>GET DISCOVERY AND REDISCOVERY</h1>
+                        <h1>DISCOVER AND REDISCOVER</h1>
                         <h2>Competitive Global Business</h2>
                     </div>
 				</div>
@@ -53,11 +53,11 @@
 		<div class="container">
 			<div class="row featured-header justify-content-center">
 				<div class="col-12 col-lg-10">
-					<h1>FIND THE BUSINESS YOU ARE LOOKING FOR IN A SINGLE
-                        INSTANT!</h1>
+					<h1>FIND THE BUSINESS YOU ARE LOOKING IN AN INSTANT!</h1>
 				</div>
 				<div class="col-12 col-lg-10">
-					<p>GPB is one of the largest online resources dedicated to small, medium large businesses. We deliver your products, services to help entrepreneurs become more competitive in their respective companies, giving it a turn around the world.</p>
+					<p>GPB is one of the largest online resources exclusively for small business. Delivering its products and Services to support
+business owners to become the most competitive in their business, turning their businesses worldwide.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -69,9 +69,7 @@
 						<h4 class="featured-title">
 							SAVE TIME
 						</h4>
-						<p class="featured-description">
-							Find the Business you are looking for one click.
-						</p>
+						<p class="featured-description">Find the Business you are looking for in just one click.</p>
 					</div>
 				</div>
 				<div class="col-12 col-lg-3">
@@ -82,9 +80,7 @@
 						<h4 class="featured-title">
 							MORE INCOME
 						</h4>
-						<p class="featured-description">
-							The GPB Team works hard to deliver online marketing for small, medium, and large companies’ businesses.
-						</p>
+						<p class="featured-description">GPB Team aims to provide online marketing services to small businesses.</p>
 					</div>
 				</div>
 				<div class="col-12 col-lg-3">
@@ -95,9 +91,7 @@
 						<h4 class="featured-title">
 							PROFESSIONALISM
 						</h4>
-						<p class="featured-description">
-							Business owners can personalize their page and improve marketing and online visibility.
-						</p>
+						<p class="featured-description">Business owners will be able to customize and improve the online visibility and marketing of their site.</p>
 					</div>
 				</div>
 				<div class="col-12 col-lg-3">
@@ -106,11 +100,9 @@
 							<img src="{{ asset('frontend/img/confianza.svg') }}" alt="">
 						</div>
 						<h4 class="featured-title">
-							CONFIDENCE
+							TRUST
 						</h4>
-						<p class="featured-description">
-							We have thousands of unique visitors each month.
-						</p>
+						<p class="featured-description">We count thousands of unique visitors per month.</p>
 					</div>
 				</div>
 			</div>
@@ -611,7 +603,7 @@
                                 <img src="{{ asset('frontend/img/phone.svg') }}" alt="">
                                 <div class="info">
                                     <div class="label">PERU - CENTRAL</div>
-                                    <a href="tel:+51017073802" class="phone-numer">51-707-3802</a>
+                                    <a href="tel:+51017073802" class="phone-numer">51-708-5720</a>
                                 </div>
                             </li>
                             <li>
@@ -670,7 +662,7 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        MARKET - MARKET:
+                                        MARKET:
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:marketing@globalprofessionalbusiness.com">marketing@globalprofessionalbusiness.com</a>
@@ -681,7 +673,7 @@
                                 <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
                                 <div class="info">
                                     <div class="directory--title">
-                                        SUPPORT:
+                                        HELP/SUPPORT:
                                     </div>
                                     <div class="directory--email">
                                         <a href="mailto:support@globalprofessionalbusiness.com">support@globalprofessionalbusiness.com</a>
@@ -717,7 +709,18 @@
                                         CAREERS:
                                     </div>
                                     <div class="directory--email">
-                                        <a href="mailto:careers@globalprofessionalbusiness.com">careers@globalprofessionalbusiness.com</a>
+                                        <a href="mailto:career@globalprofessionalbusiness.com">career@globalprofessionalbusiness.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="directory--element">
+                                <img src="{{ asset('frontend/img/mail.svg') }}" alt="">
+                                <div class="info">
+                                    <div class="directory--title">
+                                        ADVERTISEMENT:
+                                    </div>
+                                    <div class="directory--email">
+                                        <a href="mailto:ad@globalprofessionalbusiness.com">ad@globalprofessionalbusiness.com</a>
                                     </div>
                                 </div>
                             </div>

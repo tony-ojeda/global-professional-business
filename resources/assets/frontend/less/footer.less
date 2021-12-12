@@ -3,37 +3,6 @@
     color: #6A6A6A;
     padding: 5rem 0;
 
-    .footer-nav {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        margin: 0 0 3rem;
-        padding: 0;
-
-        li {
-            margin-left: 1rem;
-
-            a {
-                color: @blanco;
-                font-size: 0.875rem;
-                padding: 0.5rem;
-                text-transform: uppercase;
-            }
-
-            &:first-child {
-                margin-left: 0;
-            }
-        }
-
-        &.footer-nav-alt {
-            li {
-                a {
-                    color: rgba(255, 255, 255, 0.6);
-                }
-            }
-        }
-    }
-
     .rrss-nav {
         align-items: center;
         display: flex;
@@ -60,6 +29,18 @@
                     object-position: center;
                     width: 16px;
                 }
+            }
+        }
+    }
+
+    .nav {
+        &-item {
+            a {
+                color: @gris3;
+            }
+
+            a:hover {
+                color: @rojo;
             }
         }
     }

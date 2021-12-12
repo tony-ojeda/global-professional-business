@@ -559,6 +559,9 @@ section {
 #header #main-nav .main-nav-box .main-nav .dropdown-item {
   color: #000;
 }
+#header #main-nav .main-nav-box .main-nav .dropdown-item:active {
+  background-color: #D6D6D6;
+}
 #header #main-nav .main-nav-box .login-nav {
   flex: 0 0 100%;
   text-align: center;
@@ -2944,6 +2947,165 @@ section {
 .seo-content .post:nth-child(even) .post--info {
   order: 1;
 }
+#websites-banner {
+  position: relative;
+}
+#websites-banner .item {
+  align-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 40vh;
+  padding: 10rem 0 6rem;
+  position: relative;
+}
+#websites-banner .item:after {
+  background-color: rgba(0, 0, 0, 0.7);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+#websites-banner .item h1 {
+  color: #FFFFFF;
+  flex: 0 0 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+#websites-banner .item h1::after {
+  content: none;
+}
+@media screen and (min-width: 992px) {
+  #websites-banner .item h1 {
+    font-size: 3rem;
+  }
+}
+.websites-content {
+  padding-top: 3rem;
+}
+.websites-content .websites-container strong {
+  color: #000000;
+  font-size: 1.4rem;
+}
+.websites-content .btn-form-websites {
+  background-color: #FF0000;
+}
+#news-banner {
+  position: relative;
+}
+#news-banner .item {
+  align-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 40vh;
+  padding: 10rem 0 6rem;
+  position: relative;
+}
+#news-banner .item:after {
+  background-color: rgba(0, 0, 0, 0.7);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+#news-banner .item h1 {
+  color: #FFFFFF;
+  flex: 0 0 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+#news-banner .item h1::after {
+  content: none;
+}
+@media screen and (min-width: 992px) {
+  #news-banner .item h1 {
+    font-size: 3rem;
+  }
+}
+.news-content {
+  padding-top: 3rem;
+}
+.news-content .news-container strong {
+  color: #000000;
+  font-size: 1.4rem;
+}
+.news-content .btn-form-news {
+  background-color: #FF0000;
+}
+#advertise-banner {
+  position: relative;
+}
+#advertise-banner .item {
+  align-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 40vh;
+  padding: 10rem 0 6rem;
+  position: relative;
+}
+#advertise-banner .item:after {
+  background-color: rgba(0, 0, 0, 0.7);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+#advertise-banner .item h1 {
+  color: #FFFFFF;
+  flex: 0 0 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+#advertise-banner .item h1::after {
+  content: none;
+}
+@media screen and (min-width: 992px) {
+  #advertise-banner .item h1 {
+    font-size: 3rem;
+  }
+}
+.advertise-content {
+  padding-top: 3rem;
+}
+.advertise-content .advertise-container strong {
+  color: #000000;
+  font-size: 1.4rem;
+}
+.advertise-content .btn-form-websites {
+  background-color: #FF0000;
+}
 #support-banner {
   position: relative;
 }
@@ -3300,28 +3462,6 @@ section {
   color: #6A6A6A;
   padding: 5rem 0;
 }
-#footer .footer-nav {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0 0 3rem;
-  padding: 0;
-}
-#footer .footer-nav li {
-  margin-left: 1rem;
-}
-#footer .footer-nav li a {
-  color: #FFFFFF;
-  font-size: 0.875rem;
-  padding: 0.5rem;
-  text-transform: uppercase;
-}
-#footer .footer-nav li:first-child {
-  margin-left: 0;
-}
-#footer .footer-nav.footer-nav-alt li a {
-  color: rgba(255, 255, 255, 0.6);
-}
 #footer .rrss-nav {
   align-items: center;
   display: flex;
@@ -3348,6 +3488,12 @@ section {
   -o-object-position: center;
      object-position: center;
   width: 16px;
+}
+#footer .nav-item a {
+  color: #D6D6D6;
+}
+#footer .nav-item a:hover {
+  color: #FF0000;
 }
 #footer .copyright {
   color: #6A6A6A;

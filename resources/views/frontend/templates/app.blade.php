@@ -78,31 +78,20 @@
                                         </svg>
                                     </div>
                                 </div>
-                        {{-- <div class="align-self-end"> --}}
-                        {{--     <div class="login-nav"> --}}
-                        {{--         @auth --}}
-                        {{--             <a href="{{ route('frontend.directory') }}" class="btn btn-red">Directory</a> --}}
-                        {{--         @endauth --}}
-                        {{--         @guest --}}
-                        {{--             <a href="{{ route('frontend.login') }}" class="btn btn-outline-white">Sign in/up</a> --}}
-                        {{--         @endguest --}}
-                        {{--     </div> --}}
-                        {{-- </div> --}}
                         </div>
                     @endif
 					<nav id="main-nav">
-						<button class="main-nav-button" id="main-nav-button">
-							<span></span>
-							<span></span>
-							<span></span>
-						</button>
+						<button class="main-nav-button" id="main-nav-button"></button>
 						<div class="main-nav-box">
                             @if ( Route::currentRouteName() === 'frontend.index' || Route::currentRouteName() === 'frontend.privacy_policy' || 
                             Route::currentRouteName() === 'frontend.terms_conditions' || ( strpos(url()->current(), '/blog') !== false ) || 
                             ( strpos(url()->current(), '/about-us') !== false ) || ( strpos(url()->current(), '/plans') !== false ) || 
                             ( strpos(url()->current(), '/products') !== false ) || ( strpos(url()->current(), '/reviews') !== false ) || 
                             ( strpos(url()->current(), '/seo') !== false ) || ( strpos(url()->current(), '/support') !== false ) ||
-                            ( strpos(url()->current(), '/careers') !== false ) || ( strpos(url()->current(), '/blog/small-marketing') !== false ))
+                            ( strpos(url()->current(), '/careers') !== false ) || ( strpos(url()->current(), '/blog/small-marketing') !== false || 
+                            ( strpos(url()->current(), '/websites') !== false) || ( strpos(url()->current(), '/advertise') !== false) ) ||
+                            ( strpos(url()->current(), '/news') !== false)
+                            ) 
                                 <ul class="main-nav">
                                     <!--<li><a href="{{ route('frontend.index') }}">For Business</a></li>
                                     <li><a href="{{ route('frontend.index') }}/#features">What we do</a></li>
@@ -114,17 +103,17 @@
                                     <li><a href="{{ route('frontend.index') }}/#contact-us">Contact</a></li>
                                     <li>
                                         <div class="dropdown">
-                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                                            For Business
-                                        </a>
+                                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                                                For Business
+                                            </a>
 
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="/">Website</a>
-                                            <a class="dropdown-item" href="{{ route('frontend.seo') }}">SEO</a>
-                                            <a class="dropdown-item" href="{{ route('frontend.plans') }}">Pricing</a>
-                                            <a class="dropdown-item" href="{{ route('frontend.products') }}">Products</a>
-                                            <a class="dropdown-item" href="#">Advertise with us</a>
-                                        </div>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="{{ route('frontend.websites') }}">Website</a>
+                                                <a class="dropdown-item" href="{{ route('frontend.seo') }}">SEO</a>
+                                                <a class="dropdown-item" href="{{ route('frontend.plans') }}">Pricing</a>
+                                                <a class="dropdown-item" href="{{ route('frontend.products') }}">Products</a>
+                                                <a class="dropdown-item" href="{{ route('frontend.advertise') }}">Advertise with us</a>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -173,7 +162,10 @@
     ( strpos(url()->current(), '/blog') !== false ) || ( strpos(url()->current(), '/about-us') !== false ) || 
     ( strpos(url()->current(), '/seo') !== false ) || ( strpos(url()->current(), '/support') !== false ) ||
     ( strpos(url()->current(), '/plans') !== false ) || ( strpos(url()->current(), '/products') !== false ) ||
-    ( strpos(url()->current(), '/reviews') !== false ) || ( strpos(url()->current(), '/careers') !== false ))
+    ( strpos(url()->current(), '/reviews') !== false ) || ( strpos(url()->current(), '/careers') !== false ) ||
+    ( strpos(url()->current(), '/advertise') !== false ) || ( strpos(url()->current(), '/websites') !== false ) ||
+    ( strpos(url()->current(), '/news') !== false )
+    )
     <footer id="footer">
         <div class="container">
             <div class="row">
@@ -213,7 +205,7 @@
                     <div class="d-flex justify-content-around">
                         <div>
                             <p class="h6"><b class="pl-3">GPB</b></p>
-                            <ul class="nav flex-column">
+                            <ul class="nav footer-av flex-column">
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.about-us') }}">About Us</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.reviews') }}">Review</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.careers') }}">Careers</a></li>
@@ -225,17 +217,18 @@
                         <div>
                             <p class="h6"><b class="pl-3">For Business</b></p>
                             <ul class="nav d-flex flex-column">
-                                <li class="nav-item"><a class="nav-link" href="/">Website</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.websites') }}">Website</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.seo') }}">SEO</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.plans') }}">Pricing</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('frontend.products') }}">Products</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Advertise wit us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.advertise') }}">Advertise wit us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.support') }}">Help/Support</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.news') }}">News</a></li>
                             </ul>
                         </div>
                         <div>
                             <p class="h6"><b class="pl-3">Legal</b></p>
                             <ul class="nav d-flex flex-column">
-                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.support') }}">Help/Support</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
                                 <li class="nav-item"><a class="nav-link" href="https://www.ftc.gov/news-events/press-releases/2013/03/ftc-staff-revises-online-advertising-disclosure-guidelines" target="_blank">Affiliate Link Disclosures</a></li>

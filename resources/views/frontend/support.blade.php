@@ -24,7 +24,7 @@
                   <div class="col-md-12">
                       <div class="d-flex">
                             <div class="team-member text-center">
-                              <img src="{{ asset('frontend/img/male.svg') }}" class="img-responsive mx-auto">
+                                    <img src="{{ asset('frontend/img/female.svg') }}" class="img-responsive mx-auto">
                               <div class="team-member-info text-center">
                                 {{-- <h4 class="team-member-name mb-2">William Bates</h4> --}}
                                 <h4 class="team-member-designation">Online help center</h4>  
@@ -35,7 +35,7 @@ you.</p>
                               </div>
                             </div>
                              <div class="team-member text-center">
-                                <img src="{{ asset('frontend/img/female.svg') }}" class="img-responsive mx-auto">
+                                <img src="{{ asset('frontend/img/male.svg') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
                                     {{-- <h4 class="team-member-name mb-2">Bryan Xinzong</h4> --}}
                                     <h4 class="team-member-designation">Contacts/help</h4>  
@@ -50,7 +50,7 @@ in 3 to 5 business days.</p>
                                 </div>
                             </div>
                              <div class="team-member text-center">
-                                <img src="{{ asset('frontend/img/tony.jpeg') }}" class="img-responsive mx-auto">
+                                <img src="{{ asset('frontend/img/male.svg') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
                                     {{-- <h4 class="team-member-name mb-2">Tony Ojeda</h4> --}}
                                     <h4 class="team-member-designation">Technical/help</h4>  
