@@ -76,7 +76,7 @@ business owners what their options are in this respect.</p>
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" style="height: 170px; object-fit: cover" src="{{ asset('storage/blog/marketing2.png') }}" alt="Marketing Tips" /></a>
+                                <a href="#!"><img class="card-img-top" style="height: 170px; object-fit: cover" src="{{ asset('storage/blog/spa.jpg') }}" alt="Marketing Tips" /></a>
                                 <div class="card-body">
                                     <div class="small text-muted"><b>Autor:</b> Alexandra Salazar - GPB - Lima Perú</div>
                                     <div class="small text-muted">January 1, 2021</div>
@@ -88,46 +88,46 @@ We want to share some initial tips that you can start implementing today....</p>
                                 </div>
                             </div>
                             <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/blog/marketing2.png') }}" alt="Marketing Tips" /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted"><b>Autor:</b> Alexandra Salazar - GPB - Lima Perú</div>
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Marketing Tips for your Salon</h2>
-                                    <p class="card-text text-justify">The difference between the success or failure of your salon can be made with a simple change in your advertising strategy. GPB together with
-RWC will present a Salon Marketing event, a relevant topic for all professionals and salon owners. It will be held in 2022.
-We want to share some initial tips that you can start implementing today....</p>
-                                    <a class="btn btn-red" href="#!">Read more →</a>
-                                </div>
-                            </div>
+                            {{-- <div class="card mb-4"> --}}
+                            {{--     <a href="#!"><img class="card-img-top" src="{{ asset('storage/blog/marketing2.png') }}" alt="Marketing Tips" /></a> --}}
+                            {{--     <div class="card-body"> --}}
+                            {{--         <div class="small text-muted"><b>Autor:</b> Alexandra Salazar - GPB - Lima Perú</div> --}}
+                            {{--         <div class="small text-muted">January 1, 2021</div> --}}
+                            {{--         <h2 class="card-title h4">Marketing Tips for your Salon</h2> --}}
+                            {{--         <p class="card-text text-justify">The difference between the success or failure of your salon can be made with a simple change in your advertising strategy. GPB together with --}}
+{{-- RWC will present a Salon Marketing event, a relevant topic for all professionals and salon owners. It will be held in 2022. --}}
+{{-- We want to share some initial tips that you can start implementing today....</p> --}}
+                            {{--         <a class="btn btn-red" href="#!">Read more →</a> --}}
+                            {{--     </div> --}}
+                            {{-- </div> --}}
                         </div>
                         <div class="col-lg-6">
                             <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/blog/marketing2.png') }}" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted"><b>Autor:</b> Alexandra Salazar - GPB - Lima Perú</div>
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Marketing Tips for your Salon</h2>
-                                    <p class="card-text text-justify">The difference between the success or failure of your salon can be made with a simple change in your advertising strategy. GPB together with
-RWC will present a Salon Marketing event, a relevant topic for all professionals and salon owners. It will be held in 2022.
-We want to share some initial tips that you can start implementing today....</p>
-                                    <a class="btn btn-red" href="#!">Read more →</a>
-                                </div>
-                            </div>
+                            {{-- <div class="card mb-4"> --}}
+                            {{--     <a href="#!"><img class="card-img-top" src="{{ asset('storage/blog/marketing2.png') }}" alt="..." /></a> --}}
+                            {{--     <div class="card-body"> --}}
+                            {{--         <div class="small text-muted"><b>Autor:</b> Alexandra Salazar - GPB - Lima Perú</div> --}}
+                            {{--         <div class="small text-muted">January 1, 2021</div> --}}
+                            {{--         <h2 class="card-title h4">Marketing Tips for your Salon</h2> --}}
+                            {{--         <p class="card-text text-justify">The difference between the success or failure of your salon can be made with a simple change in your advertising strategy. GPB together with --}}
+{{-- RWC will present a Salon Marketing event, a relevant topic for all professionals and salon owners. It will be held in 2022. --}}
+{{-- We want to share some initial tips that you can start implementing today....</p> --}}
+                            {{--         <a class="btn btn-red" href="#!">Read more →</a> --}}
+                            {{--     </div> --}}
+                            {{-- </div> --}}
                             <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="{{ asset('storage/blog/marketing2.png') }}" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted"><b>Autor:</b> Alexandra Salazar - GPB - Lima Perú</div>
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Marketing Tips for your Salon</h2>
-                                    <p class="card-text text-justify">The difference between the success or failure of your salon can be made with a simple change in your advertising strategy. GPB together with
-RWC will present a Salon Marketing event, a relevant topic for all professionals and salon owners. It will be held in 2022.
-We want to share some initial tips that you can start implementing today....</p>
-                                    <a class="btn btn-red" href="#!">Read more →</a>
-                                </div>
-                            </div>
+                            {{-- <div class="card mb-4"> --}}
+                            {{--     <a href="#!"><img class="card-img-top" src="{{ asset('storage/blog/marketing2.png') }}" alt="..." /></a> --}}
+                            {{--     <div class="card-body"> --}}
+                            {{--         <div class="small text-muted"><b>Autor:</b> Alexandra Salazar - GPB - Lima Perú</div> --}}
+                            {{--         <div class="small text-muted">January 1, 2021</div> --}}
+                            {{--         <h2 class="card-title h4">Marketing Tips for your Salon</h2> --}}
+                            {{--         <p class="card-text text-justify">The difference between the success or failure of your salon can be made with a simple change in your advertising strategy. GPB together with --}}
+{{-- RWC will present a Salon Marketing event, a relevant topic for all professionals and salon owners. It will be held in 2022. --}}
+{{-- We want to share some initial tips that you can start implementing today....</p> --}}
+                            {{--         <a class="btn btn-red" href="#!">Read more →</a> --}}
+                            {{--     </div> --}}
+                            {{-- </div> --}}
                         </div>
                     </div>
                     <!-- Pagination-->
@@ -136,10 +136,10 @@ We want to share some initial tips that you can start implementing today....</p>
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
                             <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
+                            {{-- <li class="page-item"><a class="page-link" href="#!">2</a></li> --}}
+                            {{-- <li class="page-item"><a class="page-link" href="#!">3</a></li> --}}
+                            {{-- <li class="page-item disabled"><a class="page-link" href="#!">...</a></li> --}}
+                            {{-- <li class="page-item"><a class="page-link" href="#!">15</a></li> --}}
                             <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                         </ul>
                     </nav>

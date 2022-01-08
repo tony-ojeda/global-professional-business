@@ -31,7 +31,8 @@ need before they ever make a
 purchase or visit a store? If you don’t
 have a website, you’re missing out on
 new customer!</p>
-                    <a class="btn btn-red" href="/plans" role="button">Star Now</a>
+
+                    <a class="btn btn-red" href="{{ route('frontend.index') }}/#contact-us" role="button">Click Star Now</a>
                 </div>
                 <div class="col-6">
                     <img src="{{ asset('frontend/img/page.svg') }}" width="100%" id="image1">

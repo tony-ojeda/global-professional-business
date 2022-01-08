@@ -63,13 +63,13 @@
                                         <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Find</span>
                                     </div>
                                     <form  action="{{ route('frontend.search') }}" method="GET">
-                                        <input class="form-control my-0 py-1 red-border rounded-0" type="text" placeholder="I'm looking for..." aria-label="Search">
+                                        <input type="text" name="find_compa" id="find_compa" value="{{ request()->get('find_compa') }}" placeholder="I'm looking for..."  class="form-control my-0 py-1 red-border rounded-0" aria-label="Search">
                                     </form>
 
                                     <div class="input-group-prepend">
                                         <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Near</span>
                                     </div>
-                                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="City, State, Country, Zip" aria-label="Search">
+                                    <input type="text" name="find_loca" id="find_loca" value="{{ request()->get('find_loca') }}"  placeholder="City, State, Country, Zip" class="form-control my-0 py-1 red-border" aria-label="Search">
 
                                     <div class="input-group-append">
                                         <span class="input-group-text red lighten-3 border-0" id="basic-text1">
@@ -108,11 +108,12 @@
                                             </a>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" href="{{ route('frontend.websites') }}">Website</a>
+                                                <a class="dropdown-item" href="{{ route('frontend.websites') }}">Web site</a>
                                                 <a class="dropdown-item" href="{{ route('frontend.seo') }}">SEO</a>
                                                 <a class="dropdown-item" href="{{ route('frontend.plans') }}">Pricing</a>
                                                 <a class="dropdown-item" href="{{ route('frontend.products') }}">Products</a>
                                                 <a class="dropdown-item" href="{{ route('frontend.advertise') }}">Advertise with us</a>
+                                                <a class="dropdown-item" href="{{ route('frontend.news') }}">News</a>
                                             </div>
                                         </div>
                                     </li>

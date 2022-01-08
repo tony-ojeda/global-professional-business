@@ -35,94 +35,29 @@
 
                         <h2 class="h4 font-weight-bold text-center pb-4">See What Our Customers Are Saying About GPB</h2>
 
-                        <div class="comment mt-4 text-justify"> 
-                            <div class="comment__header d-flex">
-                                <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="mr-2 rounded-circle" width="40" height="40">
-                                <div>
-                                    <div class="d-flex">
-                                        <p class="text-dark font-weight-bold h6 p-0 m-0">Jhon Doe</p> 
-                                        <span>- 20 October, 2018</span>
-                                    </div>
-                                    <div class="self-start">
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comment__content">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                            </div>
-                        </div>
-
-                        <div class="comment mt-4 text-justify"> 
-                            <div class="comment__header d-flex">
-                                <img src="https://i.imgur.com/CFpa3nK.jpg" alt="" class="mr-2 rounded-circle" width="40" height="40">
-                                <div>
-                                    <div class="d-flex">
-                                        <p class="text-dark font-weight-bold h6 p-0 m-0">Rob Simpson</p> 
-                                        <span>- 20 October, 2018</span>
-                                    </div>
-                                    <div class="self-start">
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
+                        @foreach ($testimonials as $testimonial)
+                            <div class="comment mt-4 text-justify"> 
+                                <div class="comment__header d-flex">
+                                    <img src="{{ asset('storage/'.$testimonial->portrait_image) }}" alt="" class="mr-2 rounded-circle" width="40" height="40">
+                                    <div>
+                                        <div class="d-flex">
+                                            <p class="text-dark font-weight-bold h6 p-0 m-0 mr-2">{{ $testimonial->title }}</p> 
+                                            <span>{{ date_format($testimonial->created_at, 'd F, Y') }}</span>
+                                        </div>
+                                        <div class="self-start">
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                            <i class="fa fa-star text-m-yellow"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="comment__content">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                            </div>
-                        </div>
-
-                        <div class="comment mt-4 text-justify"> 
-                            <div class="comment__header d-flex">
-                                <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="mr-2 rounded-circle" width="40" height="40">
-                                <div>
-                                    <div class="d-flex">
-                                        <p class="text-dark font-weight-bold h6 p-0 m-0">Jhon Doe</p> 
-                                        <span>- 20 October, 2018</span>
-                                    </div>
-                                    <div class="self-start">
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                    </div>
+                                <div class="comment__content">
+                                    <p>{{ $testimonial->content }}</p>
                                 </div>
                             </div>
-                            <div class="comment__content">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                            </div>
-                        </div>
-
-                        <div class="comment mt-4 text-justify"> 
-                            <div class="comment__header d-flex">
-                                <img src="https://i.imgur.com/CFpa3nK.jpg" alt="" class="mr-2 rounded-circle" width="40" height="40">
-                                <div>
-                                    <div class="d-flex">
-                                        <p class="text-dark font-weight-bold h6 p-0 m-0">Rob Simpson</p> 
-                                        <span>- 20 October, 2018</span>
-                                    </div>
-                                    <div class="self-start">
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                        <i class="fa fa-star text-m-yellow"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comment__content">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                            </div>
-                        </div>
-
+                        @endforeach
 
                     </div>
                 </div>

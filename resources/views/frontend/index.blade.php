@@ -12,13 +12,14 @@
                             <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Find</span>
                         </div>
                         <form  action="{{ route('frontend.search') }}" method="GET">
-                            <input class="form-control my-0 py-1 red-border rounded-0" type="text" placeholder="I'm looking for..." aria-label="Search">
+                        {{-- <form  action="" method="GET"> --}}
+                            <input type="text" name="find_compa" id="find_compa" placeholder="I'm looking for..."  class="form-control my-0 py-1 red-border rounded-0" aria-label="Search">
                         </form>
 
                         <div class="input-group-prepend">
                             <span class="input-group-text border-0 font-weight-bold text-muted bg-white" id="">Near</span>
                         </div>
-                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="City, State, Country, Zip" aria-label="Search">
+                        <input type="text" name="fint_loc" id="find_loc" placeholder="City, State, Country, Zip" class="form-control my-0 py-1 red-border" aria-label="Search">
 
                         <div class="input-group-append">
                             <span class="input-group-text red lighten-3 border-0" id="basic-text1">
@@ -215,7 +216,7 @@ business owners to become the most competitive in their business, turning their 
                                 </div>
                             </div>
                              <div class="team-member">
-                                <img src="{{ asset('frontend/img/tony.jpeg') }}" class="img-responsive mx-auto">
+                                <img src="{{ asset('frontend/img/tony2.jpg') }}" class="img-responsive mx-auto">
                                 <div class="team-member-info text-center">
                                     <h4 class="team-member-name mb-2">Tony Ojeda</h4>
                                     <h4 class="team-member-designation">Web Developer</h4>  

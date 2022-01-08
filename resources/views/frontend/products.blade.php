@@ -43,7 +43,7 @@ respective businesses, giving you a leg up on the world.</p>
             </div>
             <div class="row mt-5">
                 <div class="col-6">
-                    <img src="{{ asset('frontend/img/store-app.png') }}" id="image1">
+                    <img src="{{ asset('frontend/img/store-app.svg') }}" class="w-100" id="image1">
                 </div>
                 <div class="col-6 bg-active text-center my-auto" id="best">
                     <p class="h5"><b>Attract New Customers with Your</b></p>

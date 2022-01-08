@@ -70,7 +70,7 @@ customers. People are much more likely to watch a short video than read a long-
 form article, and you can share a video in your ad. Creating engaging and informative
 video content is a great way to sell your brand and get the word out about what you
 do. And you want help</p>
-                            <a class="btn btn-red mb-3" href="{{ route('frontend.index') }}/#contact-us">Clip Here</a>
+                            <a class="btn btn-red mb-3" href="{{ route('frontend.index') }}/#contact-us">Click Here</a>
                             <li><b>Contact Us</b></li>
                             <p>Please complete the following information if you are interested in advertising with
 <a href="{{ route('frontend.index') }}/#contact-us">www.globalprofessionalbusines.com</a> we will contact you shortly.</p>

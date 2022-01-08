@@ -28,7 +28,8 @@ on your website.</p>
                         {{-- <img src="" style="max-width:100%; max-height:100%; object-fit:cover" class="figure-img img-fluid rounded" alt="..."> --}}
                         <!--<figcaption class="figure-caption">A caption for the above image.</figcaption>-->
                 </div>
-                <a class="btn btn-red btn-bottom-center mb-5" href="#!">Star Today</a>
+
+                <a class="btn btn-red btn-bottom-center mb-5" href="{{ route('frontend.index') }}/#contact-us">Star Today</a>
             </div>
         </main>
        <section id="products">
