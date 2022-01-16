@@ -56,6 +56,22 @@ Route::get('/admin/paypal/cancel', [
         return view('frontend.blogs.small-marketing');
     });
 
+    Route::get('blog/tips-marketing', function() {
+        return view('frontend.blogs.tips-marketing');
+    });
+
+    Route::get('blog/productivity', function() {
+        return view('frontend.blogs.productivity');
+    });
+
+    Route::get('blog/best-advice-2021', function() {
+        return view('frontend.blogs.best-advice-2021');
+    });
+    
+    Route::get('blog/yoga', function() {
+        return view('frontend.blogs.yoga');
+    });
+
 
 Route::group([
     'prefix' => 'admin',

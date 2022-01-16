@@ -230,8 +230,8 @@
                         <div>
                             <p class="h6"><b class="pl-3">Legal</b></p>
                             <ul class="nav d-flex flex-column">
-                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.privacy_policy') }}">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('frontend.terms_conditions') }}">Terms</a></li>
                                 <li class="nav-item"><a class="nav-link" href="https://www.ftc.gov/news-events/press-releases/2013/03/ftc-staff-revises-online-advertising-disclosure-guidelines" target="_blank">Affiliate Link Disclosures</a></li>
                             </ul>
                         </div>

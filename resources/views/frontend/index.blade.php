@@ -492,16 +492,16 @@ business owners to become the most competitive in their business, turning their 
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="countries--element">
-                                    <div class="element--photo">
-                                        <img src="{{ asset('frontend/img/china.jpg') }}" alt="">
-                                    </div>
-                                    <div class="element--name">
-                                        China
-                                    </div>
-                                </div>
-                            </div>
+                            {{-- <div class="item"> --}}
+                            {{--     <div class="countries--element"> --}}
+                            {{--         <div class="element--photo"> --}}
+                            {{--             <img src="{{ asset('frontend/img/china.jpg') }}" alt=""> --}}
+                            {{--         </div> --}}
+                            {{--         <div class="element--name"> --}}
+                            {{--             China --}}
+                            {{--         </div> --}}
+                            {{--     </div> --}}
+                            {{-- </div> --}}
                             <div class="item">
                                 <div class="countries--element">
                                     <div class="element--photo">

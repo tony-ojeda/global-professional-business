@@ -13,53 +13,95 @@
                         <!-- Post header-->
                         <header class="mb-4">
                             <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">Small Business Marketing</h1>
+                            <h1 class="fw-bolder mb-1">How to Stay Productive While Working from Home</h1>
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2021 by Alexandra Salazar - GPB - Lima Perú</div>
+                            <div class="text-muted fst-italic mb-2">Posted on December 02, 2021 by Carmen Valdivia - GPB</div>
                             <!-- Post categories-->
                             {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Marketing</a> --}}
                             {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Sales</a> --}}
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/marketing1.png') }}" alt="..." /></figure>
+                        <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/productivity.png') }}" alt="..." /></figure>
                         <!-- Post content-->
                         <section class="mb-1 mt-1 pt-1 pb-5">
-                            <p class="fs-5 mb-4 text-justify">For starters, you don&#39;t need a lot of money and you don&#39;t need marketing consultants to deal with this aspect of your business. There are many
-tools and resources that you can access with little money, for example, you can research marketing collaborations, thus dividing time, money, and
-resources to achieve your ideals. Finding a business that you like or crave the most, what makes it advantageous for your business is working hard with a lot
-of effort. One of the most important parts of small business marketing is attracting new customers, but it can also be one of the hardest for start-
-ups.</p>
-                            <p class="fs-5 mb-4 text-justify">An example of successful marketing collaboration is to work together with another company like GPB to create your publication of your product, so
-that they launch it to the public is complementary that they recommend each other, therefore, you have a goal of your products, with possibilities
-of obtaining many more. With this type of marketing for small businesses, it is recommended to promote them. The advantage is that your small
-business will reach a new market, a new audience and you will go further. Any company with a common budget that allows businesses to expand
-without exhausting their accounts and reach insolvency before the results begin to show.</p>
+                            <p class="fs-5 mb-4 text-justify">It&#39;s safe to say that 2020 is not going to go as we intended. Now that we are in the second half of the
+year, we still face a lot of uncertainty. Our routines continue to change as we try to make the most of
+the summer and winter. Many of us are still struggling with the effects of the economic shutdown. And
+others are still working from home as we adjust to the new normal.</p>
+                            <p class="fs-5 mb-4 text-justify">However, even in a telecommuting environment, we face the distractions of other family members, our
+pets, our children, our partners, our roommates, and the day-to-day needs that arise in our home.
+Balancing all of this with work is extremely difficult.</p>
+                            <p class="fs-5 mb-4 text-justify">Read on for six ideas on the best way to stay productive while working from home and managing
+everything that needs to be done.</p>
 
-                            <p>Here are some ideas to help you with small business marketing, whether collaborative or not:</p>
+                            <ol>
+                                <li><b>Have a designated workspace</b></li>
+                                <p class="fs-5 mb-4 text-justify">Just like you have a desk, cubicle, or office at work, you should have a designated place at home that
+you go to every day to get your work done. That should be your home base, your central location, your
+0.0 on a chart. Working in the same place every day lets your brain know when it&#39;s time to work.
+Working in different locations can be distracting and make it difficult for your brain to focus on the task
+at hand. When you are in your designated workspace, your brain knows it&#39;s time to work and will help
+you better focus on your to-do list.</p>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/tip1.png') }}" alt="..." /></figure>
 
-                            <ul>
-                                <li>Strategy</li>
-                                <p class="fs-5 mb-4 text-justify">All salons have a percentage of clients referable to them, which is nothing more than all the satisfied clients who spread the word about
-your good service. But formalizing this with a referral system or program, where you give something to the client and their referral, will
-maximize the number of people who come to your salon monthly.</p>
+                                <li><b>Keep the clutter away</b></li>
+                                <p class="fs-5 mb-4 text-justify">Don&#39;t let your environment remind you of household chores and other items on your to-do list. This
+goes hand in hand with having a designated workspace. Make sure that the place is clean and organized.
+If you have clutter from home and other tasks you do outside of work, it only hurts your mindset. It&#39;s
+important to be organized to stay focused at work. All those items cluttering up your workspace can
+divert your attention. Of course, you can have things that help your work or pictures that bring back fun
+memories and make you happy. That can only improve your mood and productivity levels. But avoid
+overstimulation.</p>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/tip2.png') }}" alt="..." /></figure>
 
-                                <li>Know your customer:</li>
-                                <p class="fs-5 mb-4 text-justify">If you own a small business, then you are directly with your customers, or at least very close. You are not the real
-seller, but you must still maintain the relationship with your customers. Set up a quiz on your website or place a suggestion box in the store.
-Ask your customers how they feel about services, what they would like to improve or change, etc. This will give you valuable feedback and
-show you which direction to take. In case of collaboration, find out which other brands your customers are taking; this will give you an idea
-of what other brands they could associate yours with.</p>
+                                <li><b>Keep a schedule</b></li>
+                                <p class="fs-5 mb-4 text-justify">Working from home is easier if you establish routines. Including your workspace and the time you spend
+working. This also helps your mindset that from 9 to 5, it&#39;s time to work. Of course, you will have
+distractions and time away from your desk both at home and in the office. But having a set schedule can
+help you get more done during the day and disconnect at the end of the day.</p>
 
-                                <li>Keep your identity:</li>
-                                <p class="fs-5 mb-4 text-justify">Even if you collaborate or not, maintaining your identity is essential to keeping your customers earned so long. If you
-suddenly have the funds and opportunity to invest in your marketing strategies, make sure you don&#39;t distance yourself from what made you
-a success in the first place. You can try to offer something new, create some prize contests for your customers, invest in advertising and
-image, if you started with the image of a family – owned business, or a family- oriented business, do not lose that identity; you can add it,
-but never lose sight of what made it popular in the first place, otherwise your customers will look for something else.</p>
+                                <p class="fs-5 mb-4 text-justify">I realize this can be more difficult for some, especially if you have young children in the family. You may
+have to set aside some time to put the baby down for a nap or run an errand in the afternoon. But, as
+much as possible, having those set hours can help make a big difference in your mental well-being while
+working from home. But if you have these outside needs, that&#39;s okay! Make sure your employer is aware
+of this and offers you some flexibility.</p>
 
-                            </ul>
-                            
-                            <p class="fs-5 mb-4 text-justify">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                                <p class="fs-5 mb-4 text-justify">On the other hand, if you&#39;re an employer with workers who have children at home, recognize that some
+flexibility may be necessary. You will get more out of your employees if you are flexible and understand
+their needs.</p>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/tip3.png') }}" alt="..." /></figure>
+
+
+                                <li><b>Get outside for a while</b></li>
+                                <p class="fs-5 mb-4 text-justify">The advantage of being at home is a little more flexibility in your environment. The problem with most
+office buildings is that there is not a lot of green space. There is no chance to get outside and enjoy the
+outdoors. Many studies have shown that the benefits of going outside for a few minutes a day improve
+mood and mental well-being. If you work from home, take advantage of this, and try to get outside for a
+few minutes every day. Of course, this depends on your location and the time of year. But it can be
+incredibly therapeutic to take a quick break in the middle of the day.</p>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/tip4.png') }}" alt="..." /></figure>
+
+                                <li><b>Keep in touch</b></li>
+                                <p class="fs-5 mb-4 text-justify">No matter how introverted you are, some human interaction is helpful during your workday. Even if
+you&#39;re isolated from coworkers and teammates you used to spend the day with, keep in touch. Many
+teams have created virtual moments to refresh, allowing you to socialize again as coworkers and friends.
+Not everyone likes webcam meetings, but if people are comfortable, hold camera meetings! Seeing the
+people, you&#39;re meeting with, rather than just hearing their voices, can do wonders for productivity.
+Connect with those at home. Connect with your co-workers. Connect with your neighbors. Being
+connected can improve your productivity.</p>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/tip5.png') }}" alt="..." /></figure>
+
+                                <li><b>Disconnect at the end of the day</b></li>
+                                <p class="fs-5 mb-4 text-justify">At the end of the day, log off. Don&#39;t come back later to check your email or respond to questions and
+texts. It&#39;s important to set boundaries in your work environment, especially when you work from home.
+Most employers don&#39;t expect you to come back to the office to get something done at 10 p.m. Just
+because you can log on at that time doesn&#39;t mean you should. Set those boundaries with your family,
+your employer, your co-workers, and the people you are in contact with to have the most productive
+day possible, both during and outside of work hours.</p>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/tip6.png') }}" alt="..." /></figure>
+
+                            </ol>
+
                         </section>
                     </article>
                     <p class="text-center">Subscribe, for more information</p>

@@ -13,53 +13,51 @@
                         <!-- Post header-->
                         <header class="mb-4">
                             <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">Small Business Marketing</h1>
+                            <h1 class="fw-bolder mb-1">Marketing Tips for your Salon</h1>
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2021 by Alexandra Salazar - GPB - Lima Perú</div>
+                            <div class="text-muted fst-italic mb-2">Posted on November 15, 2021 by Alexandra Salazar - GPB - Lima Perú</div>
                             <!-- Post categories-->
                             {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Marketing</a> --}}
                             {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Sales</a> --}}
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/marketing1.png') }}" alt="..." /></figure>
+                        <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/marketing-tips.jpg') }}" alt="..." /></figure>
                         <!-- Post content-->
                         <section class="mb-1 mt-1 pt-1 pb-5">
-                            <p class="fs-5 mb-4 text-justify">For starters, you don&#39;t need a lot of money and you don&#39;t need marketing consultants to deal with this aspect of your business. There are many
-tools and resources that you can access with little money, for example, you can research marketing collaborations, thus dividing time, money, and
-resources to achieve your ideals. Finding a business that you like or crave the most, what makes it advantageous for your business is working hard with a lot
-of effort. One of the most important parts of small business marketing is attracting new customers, but it can also be one of the hardest for start-
-ups.</p>
-                            <p class="fs-5 mb-4 text-justify">An example of successful marketing collaboration is to work together with another company like GPB to create your publication of your product, so
-that they launch it to the public is complementary that they recommend each other, therefore, you have a goal of your products, with possibilities
-of obtaining many more. With this type of marketing for small businesses, it is recommended to promote them. The advantage is that your small
-business will reach a new market, a new audience and you will go further. Any company with a common budget that allows businesses to expand
-without exhausting their accounts and reach insolvency before the results begin to show.</p>
-
-                            <p>Here are some ideas to help you with small business marketing, whether collaborative or not:</p>
+                            <p class="fs-5 mb-4 text-justify">According to a study conducted in Peru, in which the owners of 1,788 hairdressing salons and 1,500 esthetics salons were interviewed, 67% of
+the salons and 61% of the esthetics salons indicated that they did not plan to make changes in their establishments in the short term. Only 2%
+of respondents said they planned to invest in advertising.</p>
+                            <p class="fs-5 mb-4 text-justify">The point is that while you are still trying to decide whether to invest in advertising, there is another salon that is already doing so and gaining
+clients that could have been yours. So, what can you do?</p>
 
                             <ul>
-                                <li>Strategy</li>
+                                <li>Referral Program</li>
                                 <p class="fs-5 mb-4 text-justify">All salons have a percentage of clients referable to them, which is nothing more than all the satisfied clients who spread the word about
 your good service. But formalizing this with a referral system or program, where you give something to the client and their referral, will
 maximize the number of people who come to your salon monthly.</p>
 
-                                <li>Know your customer:</li>
-                                <p class="fs-5 mb-4 text-justify">If you own a small business, then you are directly with your customers, or at least very close. You are not the real
-seller, but you must still maintain the relationship with your customers. Set up a quiz on your website or place a suggestion box in the store.
-Ask your customers how they feel about services, what they would like to improve or change, etc. This will give you valuable feedback and
-show you which direction to take. In case of collaboration, find out which other brands your customers are taking; this will give you an idea
-of what other brands they could associate yours with.</p>
+                                <li>Loyalty program</li>
+                                <p class="fs-5 mb-4 text-justify">The rate of customers who go to a store once and never come back is super high. And this is due to the lack of interest of the centers to
+keep them captivated. Experts say that it costs 8 to 10 times more to attract new customers than to take care of existing ones. What can
+you do?</p>
+                                <p class="fs-5 mb-4 text-justify">The first thing you should do at the end of the service, offer the client an incentive for scheduling their next appointment. It can be a
+percentage discount or an additional complimentary service. Another thing you can do is to make follow-up calls 3 to 7 days after the
+service and use the occasion to mention the referral program if you have one.</p>
 
-                                <li>Keep your identity:</li>
-                                <p class="fs-5 mb-4 text-justify">Even if you collaborate or not, maintaining your identity is essential to keeping your customers earned so long. If you
-suddenly have the funds and opportunity to invest in your marketing strategies, make sure you don&#39;t distance yourself from what made you
-a success in the first place. You can try to offer something new, create some prize contests for your customers, invest in advertising and
-image, if you started with the image of a family – owned business, or a family- oriented business, do not lose that identity; you can add it,
-but never lose sight of what made it popular in the first place, otherwise your customers will look for something else.</p>
+                                <li>Digital Brand</li>
+                                <p class="fs-5 mb-4 text-justify">If you want to increase the recognition of your salon, just as if it were a brand, you must have a presence on social networks, as well as a
+website. These platforms are very efficient when it comes to reaching a greater number of people, they allow you to have information
+available about your salon 24/7 and to segment your advertisements with GPB so that they are shown in the geographic areas where you
+are interested in penetrating.</p>
 
+                                <p class="fs-5 mb-4 text-justify">Before you start, we recommend you go to a professional agency that will help you plan the contents and activate the ads in the best
+way and design a website that meets all the necessary requirements for user navigation from desktop computers, Mobile and other
+devices.</p>
                             </ul>
                             
-                            <p class="fs-5 mb-4 text-justify">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                            <p class="fs-5 mb-4 text-justify">Undoubtedly, this topic is exciting and there are endless things to learn. That&#39;s why you cannot miss the talk Marketing for Salons, which will be
+held very soon 2022 with Aesthetics Congress &amp; Spa in Spain, with the exclusive facilities of WRC and GPB, will be announced through this
+medium, come back to watch new news of events so you do not miss and separate your space.</p>
                         </section>
                     </article>
                     <p class="text-center">Subscribe, for more information</p>

@@ -13,53 +13,101 @@
                         <!-- Post header-->
                         <header class="mb-4">
                             <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">Small Business Marketing</h1>
+                            <h1 class="fw-bolder mb-1">THE BEST ADVICE WE HAVE HEARD IN 2021</h1>
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2021 by Alexandra Salazar - GPB - Lima Perú</div>
+                            <div class="text-muted fst-italic mb-2">Posted on December 20, 2021 by Luchy Velez - GPB</div>
                             <!-- Post categories-->
                             {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Marketing</a> --}}
                             {{-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Sales</a> --}}
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/marketing1.png') }}" alt="..." /></figure>
+                        <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/best-advice.png') }}" alt="..." /></figure>
                         <!-- Post content-->
                         <section class="mb-1 mt-1 pt-1 pb-5">
-                            <p class="fs-5 mb-4 text-justify">For starters, you don&#39;t need a lot of money and you don&#39;t need marketing consultants to deal with this aspect of your business. There are many
-tools and resources that you can access with little money, for example, you can research marketing collaborations, thus dividing time, money, and
-resources to achieve your ideals. Finding a business that you like or crave the most, what makes it advantageous for your business is working hard with a lot
-of effort. One of the most important parts of small business marketing is attracting new customers, but it can also be one of the hardest for start-
-ups.</p>
-                            <p class="fs-5 mb-4 text-justify">An example of successful marketing collaboration is to work together with another company like GPB to create your publication of your product, so
-that they launch it to the public is complementary that they recommend each other, therefore, you have a goal of your products, with possibilities
-of obtaining many more. With this type of marketing for small businesses, it is recommended to promote them. The advantage is that your small
-business will reach a new market, a new audience and you will go further. Any company with a common budget that allows businesses to expand
-without exhausting their accounts and reach insolvency before the results begin to show.</p>
+                            <p class="fs-5 mb-4 text-justify">It is hard to believe that another challenging, yet promising calendar year has passed for small
+businesses. A vast majority of businesses that have temporarily closed have reopened, while
+consumer interest in indoor and outdoor activities-from entertainment to fitness is on the rise
+(GPB economy average).</p>
+                            <p class="fs-5 mb-4 text-justify">To celebrate or share in that small business resilience over the past year and beyond, we
+compiled the top seven Tips from businesses and industry experts in 2021.</p>
 
-                            <p>Here are some ideas to help you with small business marketing, whether collaborative or not:</p>
+                            <ol>
+                                <li><b>Alex Coffee House - Lima - Peru</b></li>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/advice1.png') }}" alt="..." /></figure>
+                                <p class="fs-5 mb-4 text-justify">Have a designated workspace</p>
+                                <p><i>Just like you have a desk, cubicle, or office at work, you should have a designated place at home that
+you go to every day to get your work done. That should be your home base, your central location, your
+0.0 on a chart. Working in the same place every day lets your brain know when it&#39;s time to work.
+Working in different locations can be distracting and make it difficult for your brain to focus on the task
+at hand. When you are in your designated workspace, your brain knows it&#39;s time to work and will help
+you better focus on your to-do list.</i></p>
+                                <p><b>Becoming a leader</b></p>
+                                <p><i>&quot;Working on myself has been possibly the most powerful thing since I left my last company.
+Understanding that I must work on developing myself and growing for the rest of my life. I can&#39;t
+expect the employees in my business to self-develop if I don&#39;t lead by example.&quot;</i></p>
 
-                            <ul>
-                                <li>Strategy</li>
-                                <p class="fs-5 mb-4 text-justify">All salons have a percentage of clients referable to them, which is nothing more than all the satisfied clients who spread the word about
-your good service. But formalizing this with a referral system or program, where you give something to the client and their referral, will
-maximize the number of people who come to your salon monthly.</p>
+                                <li><b>Xavier Rupay - Lake Forest, CA Javi&#39;s Events</b></li>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/advice2.png') }}" alt="..." /></figure>
+                                <p class="fs-5 mb-4 text-justify">Behind the review. Great customer service starts at the top and extends across all businesses.</p>
+                                <p><i>&quot;Taking responsibility for everything doesn&#39;t mean doing everything. You have to create a
+whole system that allows you to control everything without doing everything.&quot;</i></p>
 
-                                <li>Know your customer:</li>
-                                <p class="fs-5 mb-4 text-justify">If you own a small business, then you are directly with your customers, or at least very close. You are not the real
-seller, but you must still maintain the relationship with your customers. Set up a quiz on your website or place a suggestion box in the store.
-Ask your customers how they feel about services, what they would like to improve or change, etc. This will give you valuable feedback and
-show you which direction to take. In case of collaboration, find out which other brands your customers are taking; this will give you an idea
-of what other brands they could associate yours with.</p>
+                                <li><b>Veronica Valdivia, &quot;Vero Beauty Salon&quot; - Lima</b></li>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/advice3.png') }}" alt="..." /></figure>
+                                <p class="fs-5 mb-4 text-justify">What I wish I knew when I started my beauty business</p>
+                                <p class="fs-5 mb-4 text-justify">Master your operations</p>
+                                <p><i>&quot;Always be advertising, always planning, always promoting...everything they want to insert in
+there. You must be inserting things on the net&quot;.</i></p>
 
-                                <li>Keep your identity:</li>
-                                <p class="fs-5 mb-4 text-justify">Even if you collaborate or not, maintaining your identity is essential to keeping your customers earned so long. If you
-suddenly have the funds and opportunity to invest in your marketing strategies, make sure you don&#39;t distance yourself from what made you
-a success in the first place. You can try to offer something new, create some prize contests for your customers, invest in advertising and
-image, if you started with the image of a family – owned business, or a family- oriented business, do not lose that identity; you can add it,
-but never lose sight of what made it popular in the first place, otherwise your customers will look for something else.</p>
+                                <li><b>Lourdes Jimenes, Vera Cruz México &quot;Ulises Tacos &amp; BBQ&quot;.</b></li>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/advice4.png') }}" alt="..." /></figure>
+                                <p class="fs-5 mb-4 text-justify">Behind the comments is the most dynamic combination of hospitality with digital marketing.</p>
+                                <p><i>&quot;Regardless of what your objective is, you have to execute operations well. You must
+understand the numbers and fundamentally manage everything well. Without that, nothing
+matters about the quality of the food, the concept, or what people talk about you. If you can&#39;t
+sustain this business operation successfully every month, every year, chances are you&#39;re not
+going to make it.&quot;</i></p>
 
-                            </ul>
-                            
-                            <p class="fs-5 mb-4 text-justify">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
+                                <li><b>Doraliza Córdova _ Lima - &quot;Frayke Peruvian Restaurant&quot;.</b></li>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/advice5.png') }}" alt="..." /></figure>
+                                <p class="fs-5 mb-4 text-justify">How a Peruvian twist on staple foods in Peru and America is bringing cultures closer together.</p>
+                                <p><i>&quot;Each social media platform is like one of the different rooms in your restaurant, where
+different types of customers sit. But they all come to the same house, that house is their
+identity with the brand.&quot;</i></p>
+
+                                <li><b>Cristina Pérez - Colombia - &quot;Cristi Clothing&quot;.</b></li>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/advice6.png') }}" alt="..." /></figure>
+                                <p class="fs-5 mb-4 text-justify">How to customize your message for different social networks</p>
+                                <p class="fs-5 mb-4 text-justify">Conquering adversity</p>
+                                <p><i>&quot;Although being a woman is my biggest challenge in this world, it has become my greatest
+superpower. When people consider that might be a drawback, I use it to my advantage. I prefer
+to think of it like gasoline in my engine. I take it, and I put it in the car to drive me. I&#39;m always on
+the front line of activism because it drives me. All those downsides, I put it in the car, I put the
+pedal to the metal to make it happen.&quot;</i></p>
+
+                                <li><b>Guillermo Morelos, Bakersfield, CA, ULIMAR &quot;Window Cleaning and Janitorial
+Services”.</b></li>
+                                <figure class="mb-4 text-center"><img class="img-fluid rounded" src="{{ asset('storage/blog/advice7.png') }}" alt="..." /></figure>
+                                <p class="fs-5 mb-4 text-justify">Four steps to launch you to success</p>
+                                <ul>
+                                  <li><b>Invest with your employees</b></li>
+                                  <p>&quot;I don&#39;t want more money for my pocket. I&#39;d rather there be more money for their pockets, so
+they&#39;re satisfied with their job. What I want is a good work environment. If the employees are
+happy, our customers will be happy, and that has proven to be an excellent model.&quot;</p>
+
+                                  <li><b>Knowing how to listen to customers</b></li>
+                                  <p>&quot;I haven&#39;t been the one sitting in an office after getting a degree from a top business school
+figuring out how to market and whatnot. That&#39;s not what it&#39;s all about. Your people will give you
+the playbook.&quot;</p>
+
+                                  <li><b>Convert customers to be the heroes of your story.</b></li>
+                                  <p>&quot;People bring their time, which is the most valuable currency. And so, when we think about it, it
+becomes extremely important to think about the details that they can consider, even if it&#39;s not
+something we&#39;re dealing with.&quot;</p>
+
+                                </ul>
+                            </ol>
+
                         </section>
                     </article>
                     <p class="text-center">Subscribe, for more information</p>

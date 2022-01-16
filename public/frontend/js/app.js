@@ -2053,21 +2053,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -28950,11 +28935,9 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col" }, [
-          _vm._m(1),
+          _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "form-check" }, [
             _c("input", {
@@ -29007,11 +28990,7 @@ var render = function() {
             _c(
               "label",
               { staticClass: "form-check-label", attrs: { for: "consulta01" } },
-              [
-                _vm._v(
-                  "\n                        Advertising\n                    "
-                )
-              ]
+              [_vm._v("\n                    Advertising\n                ")]
             )
           ]),
           _vm._v(" "),
@@ -29069,7 +29048,7 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "consulta02" } },
               [
                 _vm._v(
-                  "\n                        Subscription requests\n                    "
+                  "\n                    Subscription requests\n                "
                 )
               ]
             )
@@ -29128,7 +29107,7 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "consulta03" } },
               [
                 _vm._v(
-                  "\n                        Advertising Email\n                    "
+                  "\n                    Advertising Email\n                "
                 )
               ]
             )
@@ -29187,7 +29166,7 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "consulta04" } },
               [
                 _vm._v(
-                  "\n                        Profile verification\n                    "
+                  "\n                    Profile verification\n                "
                 )
               ]
             )
@@ -29244,11 +29223,7 @@ var render = function() {
             _c(
               "label",
               { staticClass: "form-check-label", attrs: { for: "consulta05" } },
-              [
-                _vm._v(
-                  "\n                        Profile update\n                    "
-                )
-              ]
+              [_vm._v("\n                    Profile update\n                ")]
             )
           ]),
           _vm._v(" "),
@@ -29305,7 +29280,7 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "consulta06" } },
               [
                 _vm._v(
-                  "\n                        Profile deletion\n                    "
+                  "\n                    Profile deletion\n                "
                 )
               ]
             )
@@ -29364,7 +29339,7 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "consulta07" } },
               [
                 _vm._v(
-                  "\n                        Interest Website\n                    "
+                  "\n                    Interest Website\n                "
                 )
               ]
             )
@@ -29423,7 +29398,7 @@ var render = function() {
               { staticClass: "form-check-label", attrs: { for: "consulta08" } },
               [
                 _vm._v(
-                  "\n                        General Consultation\n                    "
+                  "\n                    General Consultation\n                "
                 )
               ]
             )
@@ -29480,11 +29455,7 @@ var render = function() {
             _c(
               "label",
               { staticClass: "form-check-label", attrs: { for: "consulta09" } },
-              [
-                _vm._v(
-                  "\n                        Listing\n                    "
-                )
-              ]
+              [_vm._v("\n                    Listing\n                ")]
             )
           ]),
           _vm._v(" "),
@@ -29539,7 +29510,7 @@ var render = function() {
             _c(
               "label",
               { staticClass: "form-check-label", attrs: { for: "consulta10" } },
-              [_vm._v("\n                        SEO\n                    ")]
+              [_vm._v("\n                    SEO\n                ")]
             )
           ])
         ])
@@ -29568,40 +29539,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "select",
-          { attrs: { id: "example-getting-started", multiple: "multiple" } },
-          [
-            _c("option", { attrs: { value: "cheese" } }, [_vm._v("Cheese")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "tomatoes" } }, [
-              _vm._v("Tomatoes")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "mozarella" } }, [
-              _vm._v("Mozzarella")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "mushrooms" } }, [
-              _vm._v("Mushrooms")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "pepperoni" } }, [
-              _vm._v("Pepperoni")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "onions" } }, [_vm._v("Onions")])
-          ]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

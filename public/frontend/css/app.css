@@ -273,6 +273,26 @@ h6 {
   margin: 1em 0 1.5em;
   text-transform: uppercase;
 }
+.h1-liner-left {
+  padding-bottom: 1.2rem;
+}
+.h1-liner-left:after {
+  background-color: #FF0000;
+  border-radius: 2rem;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 4px;
+  left: 13%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 90px;
+}
+@media screen and (min-width: 992px) {
+  .h1-liner-left:after {
+    width: 176px;
+  }
+}
 h1 {
   font-size: 1.75rem;
   margin-bottom: 2rem;
@@ -384,16 +404,6 @@ section {
 }
 .page-text a {
   color: #FF0000;
-}
-.page-text h3,
-.page-text h4 {
-  font-size: 0.625rem;
-}
-.page-text p {
-  font-size: 0.5625rem;
-}
-.page-text ol li {
-  margin-bottom: 0.5rem;
 }
 #header {
   left: 0;

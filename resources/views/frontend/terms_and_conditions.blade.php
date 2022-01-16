@@ -9,7 +9,22 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <h3>Terms and Conditions</h3>
-                    <p>Global Professional Business "GPB" aims to connect your business worldwide. Our services have been designed to promote and grow their business for all our members by allowing thousands of businesses to get to know each other and I exchanged businesses, ideas, and finding opportunities for your business to grow and spread by allowing you to make a direct marketing.</p>
+                    <p>Global Professional Business (GPB) with its website (www.globalprofessionalbusiness.com ) and affiliated services
+(GPB) on the condition that you agree to the following terms. EACH TIME YOU ACCESS, USE OR REGISTER FOR GPB,
+YOU SIGN YOUR AGREEMENT TO THE FOLLOWING TERMS. You may not use GPB if you do not agree to these
+Terms and Conditions of this service.</p>
+
+                    <ol>
+                      <li>These Terms of Service consist of the following terms, our privacy policy, and any supplemental
+Terms that our suppliers may apply to a specific feature, product, or subscription you may purchase
+from us.</li>
+                      <li>These Terms of Service have the same legal effect as a written agreement</li>
+                    </ol>
+
+
+
+
+
 
                     <h4>Global Professional Business (GPB)</h4>
 

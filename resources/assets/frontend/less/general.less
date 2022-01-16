@@ -39,6 +39,27 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 }
 
+.h1-liner-left {
+  padding-bottom: 1.2rem;
+
+	&:after {
+		background-color: @rojo;
+    border-radius: 2rem;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 4px;
+		left: 13%;
+		position: absolute;
+		transform: translateX(-50%);
+    width: 90px;
+
+		@media @lg {
+			width: 176px;
+		}
+	}
+}
+
 h1 {
 	font-size: 1.75rem;
 	margin-bottom: 2rem;
@@ -164,17 +185,17 @@ section {
         color: @rojo;
     }
 
-    h3, h4 {
-        font-size: 0.625rem;
-    }
+    // h3, h4 {
+    //     font-size: 0.625rem;
+    // }
 
-    p {
-        font-size: 0.5625rem;
-    }
+    // p {
+    //     font-size: 0.5625rem;
+    // }
 
-    ol {
-        li {
-            margin-bottom: 0.5rem;
-        }
-    }
+    // ol {
+    //     li {
+    //         margin-bottom: 0.5rem;
+    //     }
+    // }
 }
