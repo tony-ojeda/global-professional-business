@@ -17,7 +17,7 @@
 
         <div class="container websites-container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-6">
                     <div class="section-title text-center wow zoomIn">
                         <p class="mb-5"><strong>New website equals a customer for your business! creates affordable websites specifically with your business goals in mind</strong></p> 
                     </div>
