@@ -62,6 +62,23 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-5">
+                <div class="col-4 mx-auto">
+                    <p class="h5 mb-4 text-center"><b>Send Review</b></p>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Comment</label>
+                            {{-- <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter company name"> --}}
+                            <textarea  class="form-control" id="comment" row="3" placeholder="comment your review"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-red btn-form-websites">Send</button>
+                    </form>
+                </div>
+            </div>
         </section>
         <section>
             <div class="container">

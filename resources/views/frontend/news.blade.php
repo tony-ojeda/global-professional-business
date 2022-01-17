@@ -20,15 +20,15 @@
                 <div class="col-lg-10">
                     <div class="video-blog mb-5">
                         <h1>Global Professional Business</h1>
-                        {{-- @php --}}
-                        {{--     preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $video->video_1, $match); --}}
+                        @php
+                            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $video->video_1, $match);
 
-                        {{--     $youtube_id = $match[1]; --}}
-                        {{-- @endphp --}}
+                            $youtube_id = $match[1];
+                        @endphp
 
                         <div class="embed-responsive embed-responsive-16by9">
-                            {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $youtube_id }}?rel=0&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-KjSWqdvPb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ $youtube_id }}?rel=0&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-KjSWqdvPb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
                         </div>
                     </div>
                 </div>

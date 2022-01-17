@@ -9,23 +9,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <h3>Terms and Conditions</h3>
-                    <p>Global Professional Business (GPB) with its website (www.globalprofessionalbusiness.com ) and affiliated services
-(GPB) on the condition that you agree to the following terms. EACH TIME YOU ACCESS, USE OR REGISTER FOR GPB,
-YOU SIGN YOUR AGREEMENT TO THE FOLLOWING TERMS. You may not use GPB if you do not agree to these
-Terms and Conditions of this service.</p>
-
-                    <ol>
-                      <li>These Terms of Service consist of the following terms, our privacy policy, and any supplemental
-Terms that our suppliers may apply to a specific feature, product, or subscription you may purchase
-from us.</li>
-                      <li>These Terms of Service have the same legal effect as a written agreement</li>
-                    </ol>
-
-
-
-
-
-
+                    <p>Global Professional Business "GPB" aims to connect your business worldwide. Our services have been designed to promote and grow the
+ir business for all our members by allowing thousands of businesses to get to know each other and I exchanged businesses, ideas, and finding opportunities
+for your business to grow and spread by allowing you to make a direct marketing.</p>
                     <h4>Global Professional Business (GPB)</h4>
 
                     <p>You are subscribing to this Agreement with Global Professional Business (also referred to as "we" or "our"). If you reside outside the United States, by entering into this Agreement with Global Professional Business, you will be the responsible for the personal data you provide to our Services, or that are collected or processed by or for us Services, or in connection with them. These Terms and Conditions apply to Members and Visitors. If you are a Visitor or Member may register on our Services, any collection, use, and information shared in connection with your personal data will be subject to this Privacy Policy (which includes our Cookie Policy and other documents mentioned in this Privacy Policy) and updates.</p>

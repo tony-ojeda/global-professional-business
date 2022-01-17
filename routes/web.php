@@ -344,9 +344,10 @@ Route::group([
         return view('frontend.websites');
     })->name('websites');
 
-    Route::get('news', function() {
-        return view('frontend.news');
-    })->name('news');
+    Route::get('news', [
+        'uses' => 'NewController@index',
+        'as' => 'news'
+    ]);
 
     Route::get('advertise', function() {
         return view('frontend.advertise');

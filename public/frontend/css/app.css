@@ -405,6 +405,16 @@ section {
 .page-text a {
   color: #FF0000;
 }
+.page-text h3,
+.page-text h4 {
+  font-size: 0.625rem;
+}
+.page-text p {
+  font-size: 0.5625rem;
+}
+.page-text ol li {
+  margin-bottom: 0.5rem;
+}
 #header {
   left: 0;
   padding: 1rem 0;
